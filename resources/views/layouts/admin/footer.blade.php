@@ -1,0 +1,1 @@
+<p>You will find <b>footer</b> file in resources/views/layouts</p>

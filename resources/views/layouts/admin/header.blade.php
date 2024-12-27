@@ -1,0 +1,1 @@
+<p>You will find <b>header</b> file in resources/views/layouts</p>
