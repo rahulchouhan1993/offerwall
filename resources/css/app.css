@@ -4,3 +4,4 @@
 
 body{ font-family: "Inter", serif;}
 .hide { display: none;}
+.head-w-cal {width: calc(100% - 290px);}
