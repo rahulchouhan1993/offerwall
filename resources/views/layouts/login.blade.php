@@ -11,23 +11,6 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-
-       
-
-        <script>
-function resetPass() {
-   var element = document.getElementById("loginForm");
-   element.classList.add("hide");
-
-   var element = document.getElementById("resetpassword");
-   element.classList.remove("hide");
-}
-</script>   
- 
-
-
-
-
         <!-- Styles / Scripts -->
         @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
             @vite(['resources/css/app.css', 'resources/js/app.js']) 

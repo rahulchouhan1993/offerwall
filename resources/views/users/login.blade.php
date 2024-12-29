@@ -86,5 +86,13 @@
         <img class="w-[100%] max-w-[100%] h-[100%] " src="images/loginbanner.jpg" alt="">
     </div>
 </div>
+<script>
+    function resetPass() {
+    var element = document.getElementById("loginForm");
+    element.classList.add("hide");
 
+    var element = document.getElementById("resetpassword");
+    element.classList.remove("hide");
+    }
+</script> 
 @stop
