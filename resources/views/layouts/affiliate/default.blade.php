@@ -9,24 +9,7 @@
         <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"rel="stylesheet"/>
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-        
-
-        <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const button = document.getElementById('menuToggle');
-
-            button.addEventListener('click', function() {
-                document.body.classList.toggle('active');
-            });
-        });
-    </script>
-
-
-
-        
-       
-
-
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <!-- Styles / Scripts -->
         @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
             @vite(['resources/css/app.css', 'resources/js/app.js']) 
@@ -35,11 +18,20 @@
     <body class="font-sans antialiased dark:bg-black dark:text-white/50">
         @include('layouts.affiliate.header')
         <div class="pt-[50px] flex dashboardMain">
-        @include('layouts.affiliate.sidebar')
-        <div class="dashboardContainer bg-[#F2F2F2]  py-[30px]">
-            @yield('content')
-            @include('layouts.affiliate.footer')
+            @include('layouts.affiliate.sidebar')
+            <div class="dashboardContainer bg-[#F2F2F2]  py-[30px]">
+                @yield('content')
+                @include('layouts.affiliate.footer')
+            </div>
         </div>
-        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const button = document.getElementById('menuToggle');
+
+                button.addEventListener('click', function() {
+                    document.body.classList.toggle('active');
+                });
+            });
+        </script>
     </body>
 </html>

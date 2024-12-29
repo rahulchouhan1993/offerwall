@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel - Rounded Line Chart</title>
+        <title>Laravel - Rounded Line Chart</title> 
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
