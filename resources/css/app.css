@@ -2,6 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-body{ font-family: "Inter", serif;}
-.hide { display: none;}
-.head-w-cal {width: calc(100% - 290px);}
+body{font-family:"Inter",serif;}
+.hide{display:none;}
+.head-w-cal{width:calc(100% - 290px);}
+body.active .head-logo{width:70px;padding-left:15px;padding-right:15px;}
+.sidebar{width:290px;min-height:calc(100vh - 70px);z-index:11;transition:width 0.25s ease,background 0.25s ease;-webkit-transition:width 0.25s ease,background 0.25s ease;}
+body.active .sidebar{width:70px;padding-left:5px;padding-right:5px;}
+body.active .sidebar a,body.active .sidebar h2{font-size:0;transition:all ease .3s;justify-content:center;}
+.head-logo{transition:width 0.25s ease,background 0.25s ease;-webkit-transition:width 0.25s ease,background 0.25s ease;height:80px;}
+.dashboardContainer{-webkit-transition:width 0.25s ease,margin 0.25s ease;transition:width 0.25s ease,margin 0.25s ease;width:calc(100% - 290px);min-height:calc(100vh - 70px);display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;}
+body.active .dashboardContainer{width:calc(100% - 70px);}
+body.active .head-w-cal{width:calc(100% - 70px);}
+/* Responsvie */
+@media(max-width:1024px){
+body.active .head-logo{width:240px;padding-left:15px!important;padding-right:15px!important;}
+.head-logo{width:240px;padding-left:15px!important;padding-right:15px!important;}
+.head-w-cal{width:100%;}
+.dashboardContainer{width:100%;        padding-bottom: 110px;}
+body.active .dashboardContainer{width:100%;}
+.sidebar{position:fixed;left:-300px;transition:all ease .3s;}
+body.active .sidebar{left:0;width:182px;}
+body.active .sidebar a{font-size:16px;justify-content:flex-start;}
+body.active .sidebar h2{font-size:15px;}
+body.active .head-w-cal {
+    width: 100%;
+}
+}
+@media(max-width:767px){.sidebar{overflow-y:scroll;max-height:300px;}
+button#hs-dropdown-toggle{font-size:0;gap:4px;}
+button#hs-dropdown-toggle img{width:25px;height:25px;}
+#hs-dropdown-menu{left:inherit;right:0;top:35px;min-width:200px;}
+.head-logo{height:50px;}
+}

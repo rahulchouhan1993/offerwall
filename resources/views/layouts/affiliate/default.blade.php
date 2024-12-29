@@ -21,6 +21,8 @@
         });
     </script>
 
+
+
         
        
 
@@ -32,10 +34,12 @@
     </head>
     <body class="font-sans antialiased dark:bg-black dark:text-white/50">
         @include('layouts.affiliate.header')
-        <div class="pt-[78px]">
+        <div class="pt-[50px] flex dashboardMain">
         @include('layouts.affiliate.sidebar')
+        <div class="dashboardContainer bg-[#F2F2F2]  py-[30px]">
             @yield('content')
-        @include('layouts.affiliate.footer')
+            @include('layouts.affiliate.footer')
+        </div>
         </div>
     </body>
 </html>

@@ -1,4 +1,4 @@
-<div class="w-[290px] bg-[#090B13] px-[35px] py-[35px] pt-[20px]">
+<div class="bg-[#090B13] px-[35px] py-[35px] pt-[20px] sidebar">
    
 
     <div class="mb-[70px]">
