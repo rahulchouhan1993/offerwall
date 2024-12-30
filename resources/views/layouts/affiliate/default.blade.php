@@ -17,7 +17,7 @@
     </head>
     <body class="font-sans antialiased dark:bg-black dark:text-white/50">
         @include('layouts.affiliate.header')
-        <div class="pt-[80px] flex dashboardMain">
+        <div class="pt-[50px] md:pt-[80px] flex dashboardMain">
             @include('layouts.affiliate.sidebar')
             <div class="dashboardContainer bg-[#F2F2F2]  pb-[100px]">
                 @yield('content')

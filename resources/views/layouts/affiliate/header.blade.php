@@ -6,12 +6,12 @@
         <div class="flex items-center  gap-[15px]">
             <button id="menuToggle" class="p-[0]"><i
                     class="ri-menu-line  text-[#E36F3D] text-[25px]"></i></button>
-            <h2 class="text-[#1A1A1A] text-[16px] text-[600]">Dashboard</h2>
+            <h2 class="text-[#1A1A1A] text-[18px] font-[600]">Dashboard</h2>
         </div>
         <div class="">
             <div class="m-1 hs-dropdown relative inline-flex">
                 <button id="hs-dropdown-toggle" type="button"
-                    class="hs-dropdown-toggle py-[4px] px-[4px]  inline-flex items-center gap-x-2 border border-gray-200 rounded-[60px] bg-white text-[15px] lg:text-[18px] font-[600] text-[#1A1A1A] shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                    class="hs-dropdown-toggle py-[4px] px-[4px]  inline-flex items-center gap-x-2 border border-[#E6E6E6] rounded-[60px] bg-[#F6F6F6] text-[15px] lg:text-[16px] font-[600] text-[#1A1A1A] shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                     aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
                     <img src="/images/usericon.png" alt="img" class="rouded-[60px] w-40px h-[40px]">
                     Make (Aff ID: 943)

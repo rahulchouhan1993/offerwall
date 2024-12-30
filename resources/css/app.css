@@ -29,14 +29,16 @@ body.active .head-logo{width:240px;padding-left:15px!important;padding-right:15p
 .dashboardContainer{width:100%;        padding-bottom: 110px;}
 body.active .dashboardContainer{width:100%;}
 .sidebar{position:fixed;left:-300px;transition:all ease .3s;}
-body.active .sidebar{left:0;width:182px;}
+body.active .sidebar{left:0;width:190px;}
 body.active .sidebar a{font-size:16px;justify-content:flex-start;}
 body.active .sidebar h2{font-size:15px;}
 body.active .head-w-cal {
     width: 100%;
 }
 }
-@media(max-width:767px){.sidebar{overflow-y:scroll;max-height:300px;}
+@media(max-width:767px){
+    body.active .sidebar { width: 177px;}
+    .sidebar{overflow-y:scroll;max-height:300px;}
 button#hs-dropdown-toggle{font-size:0;gap:4px;}
 button#hs-dropdown-toggle img{width:25px;height:25px;}
 #hs-dropdown-menu{left:inherit;right:0;top:35px;min-width:200px;}
