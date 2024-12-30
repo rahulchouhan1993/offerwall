@@ -17,7 +17,7 @@
 
     <div class="bg-[#fff] px-[30px] py-[30px] rounded-[10px]">
         <h2 class="mb-[15px] text-[20px] font-[500] text-[#1A1A1A] mb-[15px]">Your Revenue</h2>
-        <div style="width: 80%; margin: 0 auto;">
+        <div class="w-full">
             <canvas id="roundedLineChart"></canvas>
         </div>
     </div>
