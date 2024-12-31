@@ -15,12 +15,26 @@ body.active .dashboardContainer{width:calc(100% - 70px);}
 body.active .head-w-cal{width:calc(100% - 70px);}
 .tableScroll { padding-bottom: 10px; }        
 .tableScroll::-webkit-scrollbar{width:6px;height:5px;}
-/* Track */
 .tableScroll::-webkit-scrollbar-track{background:#f1f1f1; border-radius: 10px;}
-/* Handle */
 .tableScroll::-webkit-scrollbar-thumb{background:#e36f3d; border-radius: 10px;}
-/* Handle on hover */
 .tableScroll::-webkit-scrollbar-thumb:hover{background:#555; border-radius: 10px;}
+
+
+.radioBx{display: block; position: relative; padding-left: 35px; margin-bottom: 12px; cursor: pointer; font-size: 22px; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; position: absolute; right: 10px; top: 20px;}
+.radioBx input{position:absolute;opacity:0;cursor:pointer;height:0;width:0;}
+
+.checkmark{position:absolute;top:0;left:0;height:30px;width:30px;background-color:#E6E6E6; border:1px solid #D4D4D4; border-radius: 40px;}
+
+.radioBx:hover input ~ .checkmark{background-color:#f2f2f2;}
+
+.radioBx input:checked ~ .checkmark{background-color:#E36F3D; border-color:#E36F3D}
+
+.checkmark:after{content:"";position:absolute;display:none;}
+
+.radioBx input:checked ~ .checkmark:after{display:block;}
+
+.radioBx .checkmark:after{ left: 11px; top: 7px; width: 6px; height: 11px; border: solid white; border-width: 0 2px 2px 0; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg);}
+
 /* Responsvie */
 @media(max-width:1024px){
 body.active .head-logo{width:240px;padding-left:15px!important;padding-right:15px!important;}
