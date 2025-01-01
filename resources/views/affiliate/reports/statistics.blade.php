@@ -119,7 +119,7 @@
         </div>
 
         <div class="my-[20px]">
-            Chart ---------------
+            <canvas id="statisticsGraph"></canvas>
         </div>
 
 
@@ -224,10 +224,63 @@
         </div>
 
     </div>
-
-
-
-
-
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const ctx = document.getElementById('statisticsGraph').getContext('2d');
+
+        fetch("{{ route('chart.data') }}")
+            .then(response => response.json())
+            .then(data => {
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: data.labels, // Dynamic labels from API
+                        datasets: [
+                            {
+                                label: 'Rounded Line Dataset',
+                                data: data.lineData, // Dynamic data from API
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                borderWidth: 2,
+                                tension: 0.6, // Smoothness of the line (rounded effect)
+                                fill: true, // Optional: Fill area under the line
+                                pointRadius: 5, // Point size
+                                pointBackgroundColor: 'rgba(75, 192, 192, 1)'
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top'
+                            },
+                            tooltip: {
+                                enabled: true // Show tooltips on hover
+                            }
+                        },
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Months'
+                                }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Values'
+                                }
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(error => console.error('Error fetching chart data:', error));
+    });
+</script>
 @stop

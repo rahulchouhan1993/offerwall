@@ -2,7 +2,7 @@
    
 
     <div class="mb-[70px]">
-        <a href="#"
+        <a href="{{ route('dashboard.index') }}"
             class="group flex items-center gap-[10px] px-[10px] py-[10px] text-[16px] font-[400] text-[#848589] hover:text-[#EEEEEE]">
             <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -15,7 +15,7 @@
 
     <div class="mb-[70px]">
         <h2 class="text-[12px] font-[600] text-[#848589] uppercase mb-[5px] px-[10px]">REPORTS</h2>
-        <a href="#"
+        <a href="{{ route('report.statistics') }}"
             class="group flex items-center gap-[10px] px-[10px] py-[10px] text-[16px] font-[400] text-[#848589] hover:text-[#EEEEEE]">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -24,7 +24,7 @@
             </svg> Statistics
         </a>
 
-        <a href="#"
+        <a href="{{ route('report.conversions') }}"
             class="group flex items-center gap-[10px] px-[10px] py-[10px] text-[16px] font-[400] text-[#848589] hover:text-[#EEEEEE]">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -34,7 +34,7 @@
             Conversions
         </a>
 
-        <a href="#"
+        <a href="{{ route('report.postbacks') }}"
             class="group flex items-center gap-[10px] px-[10px] py-[10px] text-[16px] font-[400] text-[#848589] hover:text-[#EEEEEE]">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -44,7 +44,7 @@
             Postbacks
         </a>
 
-        <a href="#"
+        <a href="{{ route('report.exported') }}"
             class="group flex items-center gap-[10px] px-[10px] py-[10px] text-[16px] font-[400] text-[#848589] hover:text-[#EEEEEE]">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -59,7 +59,7 @@
 
     <div class="mb-[70px]">
         <h2 class="text-[12px] font-[600] text-[#848589] uppercase mb-[5px] px-[10px]">APPS</h2>
-        <a href="#"
+        <a href="{{ route('apps.index') }}"
             class="group flex items-center gap-[10px] px-[10px] py-[10px] text-[16px] font-[400] text-[#848589] hover:text-[#EEEEEE]">
             <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -69,7 +69,7 @@
             App List
         </a>
 
-        <a href="#"
+        <a href="{{ route('apps.add') }}"
             class="group flex items-center gap-[10px] px-[10px] py-[10px] text-[16px] font-[400] text-[#848589] hover:text-[#EEEEEE]">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -80,7 +80,7 @@
             Add App
         </a>
 
-        <a href="#"
+        <a href="{{ route('apps.testpostback') }}"
             class="group flex items-center gap-[10px] px-[10px] py-[10px] text-[16px] font-[400] text-[#848589] hover:text-[#EEEEEE]">
             <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path

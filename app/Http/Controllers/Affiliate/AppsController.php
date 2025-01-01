@@ -17,4 +17,8 @@ class AppsController extends Controller
     public function testPostback(){
         return view('Affiliate.apps.test-postback');
     }
+
+    public function integration(){
+        return view('Affiliate.apps.integration');
+    }
 }

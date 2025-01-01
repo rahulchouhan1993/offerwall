@@ -41,6 +41,7 @@ Route::get('/admin/app-blocker',[AdminUsersController::class,'appBlocker'])->nam
 Route::get('/affiliate/apps',[AppsController::class,'index'])->name('apps.index');
 Route::get('/affiliate/add-app',[AppsController::class,'add'])->name('apps.add');
 Route::get('/affiliate/test-postback',[AppsController::class,'testPostback'])->name('apps.testpostback');
+Route::get('/affiliate/integration',[AppsController::class,'integration'])->name('apps.integration');
 
 Route::get('/affiliate/chart-data', [ChartController::class, 'chartData'])->name('chart.data'); 
 // Route::get('/', function () {
