@@ -1,6 +1,6 @@
 @extends('layouts.affiliate.default')
 @section('content')
-<!-- <p>You will find <b>content</b> file in resources/views/affiliate/dashboard/index.blade.php</p> -->
+
 <div class="px-[15px] py-[15px]  md:px-[20px] md:py-[20px] lg:px-[30px] lg:py-[30px]">
     <div class="flex flex-wrap md:flex-nowrap items-center gap-[15px] mb-[30px]">
         <div class="flex flex-col justify-center bg-[#E745F5] items-start gap-[5px] w-[100%] sm:w-[200px] md:w-[265px] lg:w-[365px] h-[130px]  rounded-[7px] lg:rounded-[10px] px-[15px] py-[15px] md:px-[20px] md:py-[20px] lg:px-[30px] lg:py-[30px] activeApps">
@@ -78,5 +78,5 @@
             })
             .catch(error => console.error('Error fetching chart data:', error));
     });
-</script
+</script>
 @stop
