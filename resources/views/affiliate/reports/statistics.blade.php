@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="w-[100%] flex flex-col lg:flex-row items-start lg:items-center justify-start gap-[10px]">
-                    <label class="min-w-[160px] w-[10%] text-[14px] font-[500] text-[#898989] ">Range::</label>
+                    <label class="min-w-[160px] w-[10%] text-[14px] font-[500] text-[#898989] ">Range:</label>
                     <select
                         class="w-[100%] lg:w-[90%] bg-[#F6F6F6] px-[15px] py-[12px] text-[14px] font-[600] text-[#4D4D4D] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none">
                         <option>Select date</option>
@@ -30,19 +30,17 @@
                 </div>
 
               
-                <div class="w-[100%] flex items-center flex-wrap justify-start lg:flex-nowrap gap-[10px]">
+                <div class="w-[100%] flex items-center flex-wrap justify-end lg:flex-nowrap gap-[10px]">
                     <label class="min-w-[160px] w-[10%] text-[14px] font-[500] text-[#898989] ">Filter by:</label>
-                    <div class="w-[100%] xl:w-[90%] flex flex-wrap xl:flex-nowrap  items-center gap-[5px] md:gap-[8px] lg:gap-[10px] xl:gap-[15px]">
-                        <div class="w-[100%] xl:w-[80%] flex flex-wrap xl:flex-nowrap items-center gap-[10px]">
+                    <div class="w-[100%] xl:w-[90%] flex flex-wrap lg:flex-nowrap  items-center gap-[5px] md:gap-[8px] lg:gap-[10px] xl:gap-[15px]">
+                        <div class="w-[100%] lg:w-[65%] xl:w-[75%] flex flex-wrap xl:flex-nowrap items-center gap-[10px]">
                             <select
                                 class="w-[100%] bg-[#F6F6F6] px-[15px] py-[12px] text-[14px] font-[600] text-[#4D4D4D] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none">
                                 <option>Select date</option>
-                        <option>Select date 2</option>
+                                <option>Select date 2</option>
                             </select>
-
-                          
                         </div>
-                        <div class="w-[100%] xl:w-[20%] flex items-center justify-start xl:justify-between gap-[10px]">
+                        <div class="w-[100%] lg:w-[35%] xl:w-[24%] flex items-center justify-end  gap-[10px]">
                             <button
                                 class="w-[140px] bg-[#E36F3D] px-[20px] py-[11px] w-[100px] rounded-[4px] text-[14px] font-[500] text-[#fff] text-center">Apply</button>
                             <button
@@ -155,6 +153,38 @@
                             Payout</th>
                         
                     </tr>
+
+                    <tr>
+                        <td
+                            class="border-b-[1px] border-b-[#E6E6E6] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap ">
+                            00</td>
+                        <td
+                            class="border-b-[1px] border-b-[#E6E6E6] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap ">
+                            11</td>
+                        <td
+                            class="border-b-[1px] border-b-[#E6E6E6] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap ">
+                            11</td>
+                        <td
+                            class="border-b-[1px] border-b-[#E6E6E6] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap ">
+                            1</td>
+                        <td
+                            class="border-b-[1px] border-b-[#E6E6E6] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap ">
+                            9.09%
+                        </td>
+
+                        <td
+                            class="border-b-[1px] border-b-[#E6E6E6] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap ">
+                            $0.01</td>
+                       
+                        <td
+                            class="border-b-[1px] border-b-[#E6E6E6] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap ">
+                            $0.000</td>
+                        <td
+                            class="border-b-[1px] border-b-[#E6E6E6] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap ">
+                            $0.07</td>
+                       
+                    </tr>
+
 
                     <tr>
                         <td

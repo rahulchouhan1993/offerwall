@@ -7,11 +7,13 @@
     <title>OfferWall-Admin | Dashboard</title>
 
     <!-- Fonts -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+    <!-- For Select Box Js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <!-- Styles / Scripts -->
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -36,6 +38,25 @@
         });
     });
     </script>
+
+    <!-- For Select Box Script -->
+    <script>
+    document.addEventListener("alpine:init", () => {
+        Alpine.data("select", () => ({
+            open: false,
+            language: "",
+
+            toggle() {
+                this.open = !this.open;
+            },
+
+            setLanguage(val) {
+                this.language = val;
+                this.open = false;
+            },
+        }));
+    });
+</script>
 </body>
 
 </html>

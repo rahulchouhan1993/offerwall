@@ -3,22 +3,34 @@
 
 <div class="px-[15px] py-[15px]  md:px-[20px] md:py-[20px] lg:px-[30px] lg:py-[30px]">
     <div class="flex flex-wrap md:flex-nowrap items-center gap-[15px] mb-[30px]">
-        <div class="flex flex-col justify-center bg-[#E745F5] items-start gap-[5px] w-[100%] sm:w-[200px] md:w-[265px] lg:w-[365px] h-[130px]  rounded-[7px] lg:rounded-[10px] px-[15px] py-[15px] md:px-[20px] md:py-[20px] lg:px-[30px] lg:py-[30px] activeApps">
+        <div class="pinkbg flex flex-col justify-center  items-start gap-[5px] w-[100%] sm:w-[200px] md:w-[265px] lg:w-[365px] h-[130px]  rounded-[7px] lg:rounded-[10px] px-[15px] py-[15px] md:px-[20px] md:py-[20px] lg:px-[30px] lg:py-[30px] activeApps">
             <h2 class="text-[18px] font-[500] text-[#fff]">Active Apps</h2>
             <h3 class="text-[38px] font-[700] text-[#fff]">70</h3>
         </div>
 
         <div
-            class="flex flex-col justify-center bg-[#42C5FF] items-start gap-[5px]  w-[100%] sm:w-[200px] md:w-[265px] lg:w-[365px] h-[130px]  rounded-[7px] lg:rounded-[10px] px-[30px] py-[30px] activeApps">
+            class="bluebg flex flex-col justify-center items-start gap-[5px]  w-[100%] sm:w-[200px] md:w-[265px] lg:w-[365px] h-[130px]  rounded-[7px] lg:rounded-[10px] px-[30px] py-[30px] activeApps">
             <h2 class="text-[18px] font-[500] text-[#fff]">Revenue</h2>
             <h3 class="text-[38px] font-[700] text-[#fff]">$100</h3>
         </div>
     </div>
 
-    <div class="bg-[#fff] px-[30px] py-[30px] rounded-[10px]">
+    <div class="bg-[#fff] px-[15px] py-[15px] lg:px-[30px] lg:py-[30px] rounded-[8px] lg:rounded-[10px]">
         <h2 class="mb-[15px] text-[20px] font-[500] text-[#1A1A1A] mb-[15px]">Your Revenue</h2>
         <div class="w-full">
             <canvas id="roundedLineChart"></canvas>
+        </div>
+        <div class="flex items-center gap-[5px] md:gap-[15px]">
+            <button
+                class="w-[120px] md:w-[120px] lg:w-[130px] bg-[#E36F3D] px-[5px] py-[10px] rounded-[4px] text-[12px] m:text-[14px] font-[500] text-[#fff] text-center">Last
+                7 Days</button>
+            <button
+                class="w-[120px] md:w-[120px] lg:w-[130px] bg-[#FFF3ED] px-[5px] py-[10px] rounded-[4px] text-[12px] m:text-[14px]  font-[500] text-[#E36F3D] text-center">Last
+                15 Days</button>
+
+            <button
+                class="w-[120px] md:w-[125px] lg:w-[130px] bg-[#FFF3ED] px-[5px] py-[10px] rounded-[4px] text-[12px] m:text-[14px]  font-[500] text-[#E36F3D] text-center">Last
+                30 Days</button>
         </div>
     </div>
 </div> 

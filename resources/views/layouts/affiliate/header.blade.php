@@ -1,8 +1,8 @@
 <div class="fixed w-[100%] h-[50px] md:h-[80px] lg:h-[80px] top-[0] z-[9] w-[100%] bg-[#fff]   flex items-center gap-[0]">
-    <div class="flex items-center w-[290px] bg-[#090B13] py-[15px] px-[15px] md:py-[30px] md:px-[35px] lg:py-[30px] lg:px-[35px] head-logo">
+    <div class="flex items-center w-[290px] bg-[#090B13] py-[15px] px-[15px] md:py-[30px] md:px-[30px] lg:py-[30px] lg:px-[30px] head-logo">
         <img src="/images/dashboardlogo.png" alt="img">
     </div>
-    <div class="w-[100%] flex  items-center justify-between gap-[15px] font-[600] py-[15px] px-[15px] md:py-[30px] md:px-[35px] lg:py-[30px] lg:px-[35px] head-w-cal">
+    <div class="w-[100%] flex  items-center justify-between gap-[15px] font-[600] py-[15px] px-[15px] md:py-[30px] md:px-[30px] lg:py-[30px] lg:px-[30px] head-w-cal">
         <div class="flex items-center  gap-[15px]">
             <button id="menuToggle" class="p-[0]"><i
                     class="ri-menu-line  text-[#E36F3D] text-[25px]"></i></button>

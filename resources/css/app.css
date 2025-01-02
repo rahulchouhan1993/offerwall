@@ -35,6 +35,12 @@ input:checked + .slider:before{-webkit-transform:translateX(23px);-ms-transform:
 /* Rounded sliders */
  .slider.round{border-radius:34px;}
 .slider.round:before{border-radius:50%;}
+.pinkbg{background: conic-gradient(from 126deg at 71% 37%, #E746F5, #D62BE6);}
+.bluebg{background: conic-gradient(from 126deg at 71% 37%, #42C5FF, #2DB0E8);}
+.orangebg{background: conic-gradient(from 126deg at 71% 37%, #EF7947, #E16C39);}
+.greenbg{background: conic-gradient(from 126deg at 71% 37%, #88E528, #78CE1F);}
+
+
 /* Responsvie */
 @media(max-width:1024px){body.active .head-logo{width:240px;padding-left:15px!important;padding-right:15px!important;}
 .head-logo{width:240px;padding-left:15px!important;padding-right:15px!important;}

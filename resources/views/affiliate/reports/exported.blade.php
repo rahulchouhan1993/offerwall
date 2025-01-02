@@ -11,8 +11,8 @@
                
 
                 <div class="inline-flex w-[100%] md:w-auto items-center gap-[10px]">
-                    <input type="text" name="" id="" class="w-[100%] md:w-[100%] lg:w-[90%] bg-[#F6F6F6] px-[15px] py-[10px] text-[12px] font-[500] text-[#808080] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none" placeholder="Search file here">
-                    <button class="w-[100px] md:w-[110px] lg:w-[140px] bg-[#E36F3D] px-[20px] py-[10px] w-[100px] rounded-[4px] text-[14px] font-[500] text-[#fff] text-center">Search</button>
+                    <input type="text" name="" id="" class="w-[100%] md:w-[250] lg:w-[290] xl:w-[300px] bg-[#F6F6F6] px-[15px] py-[10px] text-[12px] font-[500] text-[#808080] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none" placeholder="Search file here">
+                    <button class="w-[100px] md:w-[100px] lg:w-[107px] bg-[#E36F3D] px-[20px] py-[10px] w-[100px] rounded-[4px] text-[14px] font-[500] text-[#fff] text-center">Search</button>
                 </div>
             </div>
 
@@ -23,32 +23,32 @@
                 <div class="w-[100%] overflow-x-scroll tableScroll">
                     <table class="w-[100%] border-collapse border-spacing-0 rounded-[10px] border-separate border border-[#E6E6E6]">
                         <tr>
-                            <th class="bg-[#F6F6F6] rounded-tl-[10px] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-center whitespace-nowrap "></th>
+                            <th class="w-[95px] bg-[#F6F6F6] rounded-tl-[10px] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-center whitespace-nowrap "></th>
                             <th class="bg-[#F6F6F6] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap">Export Date</th>
                             <th class="bg-[#F6F6F6] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap">Report Type</th>
                             <th class="bg-[#F6F6F6] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap">Exported report</th>
                         </tr>
 
                         <tr>
-                            <td class="max-w-[200px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-center whitespace-normal "><svg class="m-auto" width="21" height="26" viewBox="0 0 21 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <td class="border-b-[1px] border-b-[#E6E6E6] max-w-[95px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-center whitespace-normal "><svg class="m-auto" width="21" height="26" viewBox="0 0 21 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M11.7 9.1V1.95L18.85 9.1M2.6 0C1.157 0 0 1.157 0 2.6V23.4C0 24.0896 0.273928 24.7509 0.761522 25.2385C1.24912 25.7261 1.91044 26 2.6 26H18.2C18.8896 26 19.5509 25.7261 20.0385 25.2385C20.5261 24.7509 20.8 24.0896 20.8 23.4V7.8L13 0H2.6Z" fill="#E36F3D"/>
                                 </svg>
                                 </td>
-                            <td class="text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap ">Dec 20. 2024</td>
-                            <td class="text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap ">PDF</td>
-                            <td class="text-[14px] font-[500] text-[#5E72E4] px-[10px] py-[10px] text-left whitespace-nowrap ">Reports001.pdf</td>
+                            <td class="border-b-[1px] border-b-[#E6E6E6] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap ">Dec 20. 2024</td>
+                            <td class="border-b-[1px] border-b-[#E6E6E6] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap ">PDF</td>
+                            <td class="border-b-[1px] border-b-[#E6E6E6] text-[14px] font-[500] text-[#5E72E4] px-[10px] py-[10px] text-left whitespace-nowrap ">Reports001.pdf</td>
                            
                         </tr>
 
                         <tr>
-                            <td class="max-w-[200px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-center whitespace-normal "><svg class="m-auto" width="24" height="26" viewBox="0 0 24 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <td class="border-b-[1px] border-b-[#E6E6E6] max-w-[200px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-center whitespace-normal "><svg class="m-auto" width="24" height="26" viewBox="0 0 24 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M18.8942 1.768L17.3017 0H4.7606C3.8558 0 3.5061 0.6708 3.5061 1.1947V5.9137H5.265V2.1489C5.265 1.9487 5.434 1.7797 5.629 1.7797H14.6029C14.8005 1.7797 14.8993 1.8148 14.8993 1.9773V8.2433H21.2862C21.5371 8.2433 21.6346 8.3733 21.6346 8.5631V23.8641C21.6346 24.1839 21.5046 24.232 21.3096 24.232H5.629C5.5323 24.2296 5.4403 24.1898 5.37239 24.121C5.30449 24.0521 5.26598 23.9595 5.265 23.8628V22.464H3.5178V24.6675C3.4944 25.4475 3.9104 26 4.7606 26H22.178C23.088 26 23.3987 25.3409 23.3987 24.7403V6.7431L22.9437 6.2491L18.8942 1.768ZM16.6868 1.976L17.1899 2.5402L20.5647 6.2491L20.7506 6.474H17.3017C17.0417 6.474 16.877 6.43067 16.8077 6.344C16.7384 6.25907 16.6981 6.12343 16.6868 5.9371V1.976ZM15.2698 13.8671H21.2199V15.6013H15.2685L15.2698 13.8671ZM15.2698 10.4013H21.2199V12.1342H15.2685L15.2698 10.4013ZM15.2698 17.3342H21.2199V19.0684H15.2685L15.2698 17.3342ZM0 7.3138V21.1809H13.6045V7.3138H0ZM6.8029 15.379L5.9709 16.6504H6.8029V18.2H2.6208L5.655 13.637L2.9666 9.5342H5.213L6.8042 11.921L8.3941 9.5342H10.6392L7.9456 13.637L10.9837 18.2H8.6528L6.8029 15.379Z" fill="#75B237"/>
                                 </svg>
                                 
                                 </td>
-                            <td class="text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap ">Dec 20. 2024</td>
-                            <td class="text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap ">PDF</td>
-                            <td class="text-[14px] font-[500] text-[#5E72E4] px-[10px] py-[10px] text-left whitespace-nowrap ">Reports001.pdf</td>
+                            <td class="border-b-[1px] border-b-[#E6E6E6] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap ">Dec 20. 2024</td>
+                            <td class="border-b-[1px] border-b-[#E6E6E6] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap ">PDF</td>
+                            <td class="border-b-[1px] border-b-[#E6E6E6] text-[14px] font-[500] text-[#5E72E4] px-[10px] py-[10px] text-left whitespace-nowrap ">Reports001.pdf</td>
                            
                         </tr>
 
