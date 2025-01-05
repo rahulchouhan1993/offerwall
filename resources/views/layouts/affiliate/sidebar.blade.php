@@ -1,7 +1,7 @@
-<div class="bg-[#090B13] px-[20px] py-[35px] pt-[20px] sidebar">
+<div class="bg-[#090B13] pl-[20px] pr-[20px] 2xl:pl-[35px] 2xl:pr-[20px] py-[20px] 2xl:py-[35px] pt-[20px] sidebar">
    
 
-    <div class="mb-[50px]">
+    <div class="mb-[20px] 2xl:mb-[50px]">
         <a href="{{ route('dashboard.index') }}"
             class="group flex items-center gap-[10px] px-[10px] py-[10px] text-[16px] font-[400] text-[#848589] hover:text-[#EEEEEE]">
             <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -13,7 +13,7 @@
         </a>
     </div>
 
-    <div class="mb-[50px]">
+    <div class="mb-[20px] 2xl:mb-[50px]">
         <h2 class="text-[12px] font-[600] text-[#848589] uppercase mb-[5px] px-[10px]">REPORTS</h2>
         <a href="{{ route('report.statistics') }}"
             class="group flex items-center gap-[10px] px-[10px] py-[10px] text-[16px] font-[400] text-[#848589] hover:text-[#EEEEEE]">
@@ -57,7 +57,7 @@
 
 
 
-    <div class="mb-[50px]">
+    <div class="mb-[20px] 2xl:mb-[50px]">
         <h2 class="text-[12px] font-[600] text-[#848589] uppercase mb-[5px] px-[10px]">APPS</h2>
         <a href="{{ route('apps.index') }}"
             class="group flex items-center gap-[10px] px-[10px] py-[10px] text-[16px] font-[400] text-[#848589] hover:text-[#EEEEEE]">
@@ -96,7 +96,7 @@
 
 
 
-    <div class="mb-[50px]">
+    <div class="mb-[20px] 2xl:mb-[50px]">
         <h2 class="text-[12px] font-[600] text-[#848589] uppercase mb-[5px] px-[10px]">Support</h2>
         <a href="#"
             class="active group flex items-center gap-[10px] px-[10px] py-[10px] text-[16px] font-[400] text-[#848589] hover:text-[#EEEEEE] active:text-[#EEEEEE]]">
