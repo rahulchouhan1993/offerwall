@@ -10,13 +10,25 @@
         <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"rel="stylesheet"/>
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <!-- Styles / Scripts -->
         @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
             @vite(['resources/css/app.css', 'resources/js/app.js']) 
         @endif
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     </head>
     <body class="font-sans antialiased dark:bg-black dark:text-white/50">
+        <script>
+            @if (session('success'))
+                toastr.success("{{ session('success') }}");
+            @endif
+        
+            @if (session('error'))
+                toastr.error("{{ session('error') }}");
+            @endif
+        </script>
         @include('layouts.affiliate.header')
         <div class="pt-[50px] md:pt-[80px] flex dashboardMain">
             @include('layouts.affiliate.sidebar')

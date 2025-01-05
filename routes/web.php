@@ -3,47 +3,63 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Affiliate\AppsController;
 use App\Http\Controllers\Affiliate\ChartController;
 use App\Http\Controllers\Affiliate\DashboardController;
-use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Affiliate\PaymentsController;
 use App\Http\Controllers\Affiliate\ReportsController;
+use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminReportsController;
 use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\UsersController;
 
 //Users Routes
-Route::get('/',[UsersController::class,'login'])->name('login');
-Route::get('/admin/affiliates',[AdminUsersController::class,'affiliates'])->name('admin.users.affiliates');
-Route::get('/admin/add-affiliate',[AdminUsersController::class,'addAffiliates'])->name('admin.users.addaffiliates');
-Route::get('/admin/advertiser',[AdminUsersController::class,'advertisers'])->name('admin.users.advertisers');
+Route::match(['post','get'],'/',[UsersController::class,'login'])->name('login');
+// Routes with Auth Middleware
+Route::middleware('auth')->group(function () {
+    Route::get('/logout',[UsersController::class,'logout'])->name('users.logout');
+    // Admin Routes
+    Route::prefix('admin')->group(function () {
+        // Dashboard
+        Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard.index');
 
+        // Settings
+        Route::match(['post','get'],'/settings', [AdminDashboardController::class, 'setting'])->name('admin.dashboard.setting');
 
-//Dashboard Routes
-Route::get('/affiliate/dashboard',[DashboardController::class,'index'])->name('dashboard.index');
-Route::get('/admin/dashboard',[AdminDashboardController::class,'index'])->name('admin.dashboard.index');
+        // User Management
+        Route::get('/affiliates', [AdminUsersController::class, 'affiliates'])->name('admin.users.affiliates');
+        Route::get('/add-affiliate', [AdminUsersController::class, 'addAffiliates'])->name('admin.users.addaffiliates');
+        Route::get('/advertiser', [AdminUsersController::class, 'advertisers'])->name('admin.users.advertisers');
 
-//Settings Routes
-Route::get('/affiliate/settings',[DashboardController::class,'setting'])->name('dashboard.setting');
-Route::get('/admin/settings',[AdminDashboardController::class,'setting'])->name('admin.dashboard.setting');
+        // Reports
+        Route::get('/statistics', [AdminReportsController::class, 'statistics'])->name('admin.report.statistics');
+        Route::get('/report-permission', [AdminReportsController::class, 'permission'])->name('admin.report.permission');
 
-//Payment Routes
-Route::get('/affiliate/now-payments',[PaymentsController::class,'index'])->name('payment.index');
+        // Apps
+        Route::match(['post','get'],'/app-blocker', [AdminUsersController::class, 'appBlocker'])->name('admin.users.appblocker');
+    });
 
-//Report Routes
-Route::get('/affiliate/statistics',[ReportsController::class,'statistics'])->name('report.statistics');
-Route::get('/admin/statistics',[AdminReportsController::class,'statistics'])->name('admin.report.statistics');
-Route::get('/affiliate/conversions',[ReportsController::class,'conversions'])->name('report.conversions');
-Route::get('/affiliate/postbacks',[ReportsController::class,'postbacks'])->name('report.postbacks');
-Route::get('/affiliate/exported-reports',[ReportsController::class,'exported'])->name('report.exported');
-Route::get('/admin/report-permission',[AdminReportsController::class,'permission'])->name('admin.report.permission');
+    // Affiliate Routes
+    Route::prefix('affiliate')->group(function () {
+        // Dashboard
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
-//Apps Routes
-Route::get('/admin/app-blocker',[AdminUsersController::class,'appBlocker'])->name('admin.users.appblocker');
-Route::get('/affiliate/apps',[AppsController::class,'index'])->name('apps.index');
-Route::get('/affiliate/add-app',[AppsController::class,'add'])->name('apps.add');
-Route::get('/affiliate/test-postback',[AppsController::class,'testPostback'])->name('apps.testpostback');
-Route::get('/affiliate/integration',[AppsController::class,'integration'])->name('apps.integration');
+        // Settings
+        Route::get('/settings', [DashboardController::class, 'setting'])->name('dashboard.setting');
 
-Route::get('/affiliate/chart-data', [ChartController::class, 'chartData'])->name('chart.data'); 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+        // Payments
+        Route::get('/now-payments', [PaymentsController::class, 'index'])->name('payment.index');
+
+        // Reports
+        Route::get('/statistics', [ReportsController::class, 'statistics'])->name('report.statistics');
+        Route::get('/conversions', [ReportsController::class, 'conversions'])->name('report.conversions');
+        Route::get('/postbacks', [ReportsController::class, 'postbacks'])->name('report.postbacks');
+        Route::get('/exported-reports', [ReportsController::class, 'exported'])->name('report.exported');
+
+        // Apps
+        Route::get('/apps', [AppsController::class, 'index'])->name('apps.index');
+        Route::get('/add-app', [AppsController::class, 'add'])->name('apps.add');
+        Route::get('/test-postback', [AppsController::class, 'testPostback'])->name('apps.testpostback');
+        Route::get('/integration', [AppsController::class, 'integration'])->name('apps.integration');
+
+        // Chart Data
+        Route::get('/chart-data', [ChartController::class, 'chartData'])->name('chart.data');
+    });
+});

@@ -39,7 +39,7 @@
                             href="#">Billing</a>
 
                         <a class="flex items-center gap-x-3.5 py-[10px] px-[10px] text-[16px] text-[#F23765] font-[600] hover:bg-[#f2f2f2] focus:outline-none focus:bg-[f2f2f2]"
-                            href="#">Sign Out</a>
+                            href="{{ route('users.logout') }}">Sign Out</a>
 
                     </div>
                 </div>

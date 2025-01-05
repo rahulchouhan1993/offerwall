@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('last_name')->nullable(true)->after('name');
+            $table->enum('role', ['admin', 'affiliate'])->after('last_name');
             $table->string('api_key')->nullable(true)->after('email');
             $table->string('postback_key')->nullable(true)->after('api_key');
         });

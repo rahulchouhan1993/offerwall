@@ -11,6 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- For Select Box Js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -18,9 +19,24 @@
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @endif
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 </head>
 
 <body class="font-sans antialiased dark:bg-black dark:text-white/50">
+    <div class="loader-fcustm fixed inset-0 flex flex-col items-center justify-center bg-white bg-opacity-75 backdrop-blur-md z-50">
+        <div class="w-10 h-10 border-4 border-[#E36F3D] border-t-transparent rounded-full animate-spin"></div>
+        <p class="mt-4 text-lg font-semibold text-[#E36F3D]">Loading...</p>
+    </div>
+    <script>
+        @if (session('success'))
+            toastr.success("{{ session('success') }}");
+        @endif
+    
+        @if (session('error'))
+            toastr.error("{{ session('error') }}");
+        @endif
+    </script>
     @include('layouts.admin.header')
     <div class="pt-[50px] md:pt-[80px] flex dashboardMain">
         @include('layouts.admin.sidebar')
@@ -29,34 +45,34 @@
             @include('layouts.admin.footer')
         </div>
     </div>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const button = document.getElementById('menuToggle');
-
-        button.addEventListener('click', function() {
-            document.body.classList.toggle('active');
-        });
-    });
-    </script>
-
     <!-- For Select Box Script -->
     <script>
-    document.addEventListener("alpine:init", () => {
-        Alpine.data("select", () => ({
-            open: false,
-            language: "",
+        $(document).ready(function(){
+            $('.loader-fcustm').fadeOut(1000)
+        })
+        document.addEventListener('DOMContentLoaded', function() {
+            const button = document.getElementById('menuToggle');
 
-            toggle() {
-                this.open = !this.open;
-            },
+            button.addEventListener('click', function() {
+                document.body.classList.toggle('active');
+            });
+        });
+        document.addEventListener("alpine:init", () => {
+            Alpine.data("select", () => ({
+                open: false,
+                language: "",
 
-            setLanguage(val) {
-                this.language = val;
-                this.open = false;
-            },
-        }));
-    });
-</script>
+                toggle() {
+                    this.open = !this.open;
+                },
+
+                setLanguage(val) {
+                    this.language = val;
+                    this.open = false;
+                },
+            }));
+        });
+    </script>
 </body>
 
 </html>
