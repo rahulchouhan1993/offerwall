@@ -69,11 +69,101 @@
                 </div>
                 <h2 class="text-[18px] text-[#1A1A1A] font-[700] leading-[20px] ">Country Block</h2>
                 <p class="text-[14px] text-[#898989] font-[600]">App will not work on Defined Country</p>
-                <select name="country" class="w-[100%] py-[8px] px-[8px] text-[14px] text-[#4D4D4D] bg-[#F6F6F6] border border-[#E6E6E6]">
+                <!-- <select name="country" class="w-[100%] py-[8px] px-[8px] text-[14px] text-[#4D4D4D] bg-[#F6F6F6] border border-[#E6E6E6]">
                     <option value="">Select Country</option>
                     <option value="">Select Country 2</option>
-                </select>
+                </select> -->
+
+                <div class="w-full">
+  <div class="relative w-[100%]">
+    <button type="button" class="flex items-center justify-between gap-[5px] w-[100%] py-[8px] px-[8px] text-[14px] text-[#4D4D4D] bg-[#F6F6F6] border border-[#E6E6E6] w-full px-4 py-2 border border-gray-300 rounded-md text-left  focus:outline-none " id="dropdownButton">
+      Select Countries <svg width="11" height="6" viewBox="0 0 11 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10 0.75L5.5 5.25L1 0.75" stroke="#A1A1A1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+    </button>
+    <div class="vScroll  absolute overflow-y-auto z-10 max-h-[150px] hidden w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg" id="dropdownMenu">
+    <div class="p-2 flex flex-col gap-[8px]">
+        <label class="flex items-center gap-[8px] text-sm text-gray-700">
+          <input type="checkbox" class="peer hidden" id="usa" value="USA" />
+          <div class=" peer-checked:bg-[#e36f3d] inline-block w-4 h-4 border border-gray-400 relative">
+            <!-- Check Icon -->
+            <svg class="peer-checked:block hidden w-4 h-4 text-blue-500 absolute top-[5px] left-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          United States
+        </label>
+        <label class="flex items-center gap-[8px] text-sm text-gray-700">
+          <input type="checkbox" class="peer hidden" id="canada" value="Canada" />
+           <div class=" peer-checked:bg-[#e36f3d] inline-block w-4 h-4 border border-gray-400 relative">
+            <!-- Check Icon -->
+            <svg class="peer-checked:block hidden w-4 h-4 text-blue-500 absolute top-0 left-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          Canada
+        </label>
+        <label class="flex items-center gap-[8px] text-sm text-gray-700">
+          <input type="checkbox" class="peer hidden" id="india" value="India" />
+           <div class=" peer-checked:bg-[#e36f3d] inline-block w-4 h-4 border border-gray-400 relative">
+            <!-- Check Icon -->
+            <svg class="peer-checked:block hidden w-4 h-4 text-blue-500 absolute top-0 left-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          India
+        </label>
+        <label class="flex items-center gap-[8px] text-sm text-gray-700">
+          <input type="checkbox" class="peer hidden" id="uk" value="UK" />
+           <div class=" peer-checked:bg-[#e36f3d] inline-block w-4 h-4 border border-gray-400 relative">
+            <!-- Check Icon -->
+            <svg class="peer-checked:block hidden w-4 h-4 text-blue-500 absolute top-0 left-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          United Kingdom
+        </label>
+        <label class="flex items-center gap-[8px] text-sm text-gray-700">
+          <input type="checkbox" class="peer hidden" id="australia" value="Australia" />
+           <div class=" peer-checked:bg-[#e36f3d] inline-block w-4 h-4 border border-gray-400 relative">
+            <!-- Check Icon -->
+            <svg class="peer-checked:block hidden w-[15px] h-[15px] text-blue-500 absolute top-0 left-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 15 15" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          Australia
+        </label>
+        <label class="flex items-center gap-[8px] text-sm text-gray-700">
+          <input type="checkbox" class="peer hidden" id="germany" value="Germany" />
+           <div class=" peer-checked:bg-[#e36f3d] inline-block w-4 h-4 border border-gray-400 relative">
+            <!-- Check Icon -->
+            <svg class="peer-checked:block hidden w-4 h-4 text-blue-500 absolute top-0 left-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          Germany
+        </label>
+        <label class="flex items-center gap-[8px] text-sm text-gray-700">
+          <input type="checkbox" class="peer hidden" id="japan" value="Japan" />
+           <div class=" peer-checked:bg-[#e36f3d] inline-block w-4 h-4 border border-gray-400 relative">
+            <!-- Check Icon -->
+            <svg class="peer-checked:block hidden w-4 h-4 text-blue-500 absolute top-0 left-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          Japan
+        </label>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
             </div>
+        </div>
+        <div class="flex justify-end mt-[15px]">
+        <button class="w-[140px] bg-[#E36F3D] px-[20px] py-[11px] w-[100px] rounded-[4px] text-[14px] font-[500] text-[#fff] text-center">Submit</button>
         </div>
         </form>
     </div>

@@ -23,7 +23,7 @@
                         <th class=" bg-[#F6F6F6] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap">Affise Status</th>
                         <th class=" bg-[#F6F6F6] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap">Offerwall Status</th>
                         <th class=" bg-[#F6F6F6] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap">API</th>
-                        <th class=" bg-[#F6F6F6] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap">Action</th>
+                        <th class=" bg-[#F6F6F6] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap text-center">Action</th>
                     </tr>
                 @if(!empty($allAffiliates['partners']))
                     @foreach ($allAffiliates['partners'] as $affiliate)
@@ -46,29 +46,64 @@
 
                         <td class="text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap  border-b-[1px] border-b-[#E6E6E6]">{{ $affiliate['api_key'] }}</td>
                         
-                        <td class="w-[150px] max-w-[150px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap  border-b-[1px] border-b-[#E6E6E6]">
-                            <select class="w-[120px] lg:max-w-[100px]  bg-[#F6F6F6] px-[10px] py-[8px] text-[12px] font-[500] text-[#808080] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none">
-                                <option>Action</option>
-                                <option>Action 2</option>
-                            </select>
+                        <td class="w-[120px] max-w-[120px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap  border-b-[1px] border-b-[#E6E6E6] text-center">
+                            <div class="flex items-center justify-center gap-[10px]">
+                            <button class="text-[17px] text-[#E36F3D]">
+                            <i class="ri-edit-box-line"></i>
+                            </button>
+                           
+                            <button class="text-[17px] text-[#F23765]">
+                            <i class="ri-delete-bin-line"></i>
+                            </button>
+
+                           
+                            </div>
+
+                            
+                        <!-- Dropdown Action Button -->
+                        <!-- <div class="relative">
+                            <button class="flex items-center gap-[5px] dropdown-btn bg-[#F6F6F6] border-[1px] border-[#E6E6E6] text-[#808080] text-[12px] font-[600] uppercase px-[12px] py-[5px] rounded hover:bg-[#F6F6F6]">
+                            Action <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1L5 5L9 1" stroke="#A1A1A1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div> -->
                         </td>
                     </tr>
                     @endforeach
                 @endif
                 </table>
-                <div class="pagination">
+                    <!-- Dropdown Action Menu -->
+                    <ul
+                        id="dropdown-menu"
+                        class="hidden absolute bg-white border border-gray-300 rounded shadow-lg z-50 w-[120px]"
+                    >
+                        <li class=" border-b-[1px] border-b-[#f2f2f2]">
+                            <a href="#" class="block px-[12px] py-[6px] hover:bg-gray-100 cursor-pointer text-[13px]">Delte</a>
+                        </li>
+                        <li><a href="#" class="block px-[12px] py-[6px] hover:bg-gray-100 cursor-pointer text-[13px]">Edit</a></li>
+                    </ul>
+                    
+                <div class="pagination mt-[20px] flex gap-[10px] items-center justify-end">
                     @if($prevPage)
-                        <a href="{{ route('admin.users.affiliates', ['page' => $prevPage, 'status' => $userType]) }}" class="btn">Previous</a>
+                        <a href="{{ route('admin.users.affiliates', ['page' => $prevPage, 'status' => $userType]) }}"  class="btn group inline-flex gap-[8px] items-center bg-[#FFF3ED] border border-[#FED5C3] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#E36F3D] text-center hover:bg-[#E36F3D] hover:text-[#fff]"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 1L1 5L5 9" stroke="#E36F3D" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" class="group-hover:stroke-[#fff] " />
+                        </svg> Previous</a>
                     @endif
                 
                     @for($i = 1; $i <= ceil($totalCount / $perPage); $i++)
-                        <a href="{{ route('admin.users.affiliates', ['page' => $i, 'status' => $userType]) }}" class="{{ $i == $currentPage ? 'btn-active' : 'btn' }}">
+                        <a href="{{ route('admin.users.affiliates', ['page' => $i, 'status' => $userType]) }}" class="{{ $i == $currentPage ? 'btn-active btn inline-flex gap-[8px] items-center bg-[#fff] border border-[#E6E6E6] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#808080] text-center hover:bg-[#E36F3D] hover:text-[#fff]' : 'btn inline-flex gap-[8px] items-center bg-[#fff] border border-[#E6E6E6] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#808080] text-center hover:bg-[#E36F3D] hover:text-[#fff]' }}">
                             {{ $i }}
                         </a>
                     @endfor
                 
                     @if($nextPage)
-                        <a href="{{ route('admin.users.affiliates', ['page' => $nextPage, 'status' => $userType]) }}" class="btn">Next</a>
+                        <a href="{{ route('admin.users.affiliates', ['page' => $nextPage, 'status' => $userType]) }}" class="btn group inline-flex gap-[5px] items-center bg-[#FFF3ED] border border-[#FED5C3] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#E36F3D] text-center hover:bg-[#E36F3D] hover:text-[#fff]">Next <svg width="6" height="10" viewBox="0 0 6 10" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1L5 5L1 9" stroke="#E36F3D" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" class="group-hover:stroke-[#fff] " />
+                        </svg></a>
                     @endif
                 </div>
             </div>

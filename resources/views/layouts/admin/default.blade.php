@@ -73,6 +73,73 @@
             }));
         });
     </script>
+    
+
+
+
+
+
+
+
+
+
+
+    <!-- Table Drop Down -->
+    <script>
+      const dropdownMenu = document.getElementById('dropdown-menu');
+
+// Add event listeners to all dropdown buttons
+document.querySelectorAll('.dropdown-btn').forEach((button) => {
+  button.addEventListener('click', function (e) {
+    e.stopPropagation(); // Prevent event bubbling
+
+    // Get the position of the clicked button
+    const buttonRect = button.getBoundingClientRect();
+
+    // Position the dropdown menu below the button and aligned to the right
+    dropdownMenu.style.top = `${buttonRect.bottom + window.scrollY}px`; // Below the button
+    dropdownMenu.style.left = ''; // Clear left to avoid conflicts
+    dropdownMenu.style.right = `${window.innerWidth - buttonRect.right}px`; // Align to the right edge
+
+    // Toggle visibility
+    if (dropdownMenu.classList.contains('hidden')) {
+      dropdownMenu.classList.remove('hidden');
+      dropdownMenu.classList.add('block');
+    } else {
+      dropdownMenu.classList.remove('block');
+      dropdownMenu.classList.add('hidden');
+    }
+  });
+});
+
+// Close dropdowns when clicking outside
+document.addEventListener('click', function () {
+  dropdownMenu.classList.remove('hidden');
+  dropdownMenu.classList.add('hidden');
+});
+
+
+
+    </script>
+
+
+<!-- Multiple select country -->
+<script>
+  // Toggle the dropdown menu visibility
+  document.getElementById("dropdownButton").addEventListener("click", function() {
+    const menu = document.getElementById("dropdownMenu");
+    menu.classList.toggle("hidden");
+  });
+
+  // Close the dropdown if clicked outside
+  document.addEventListener("click", function(event) {
+    const button = document.getElementById("dropdownButton");
+    const menu = document.getElementById("dropdownMenu");
+    if (!button.contains(event.target) && !menu.contains(event.target)) {
+      menu.classList.add("hidden");
+    }
+  });
+</script>
 </body>
 
 </html>
