@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
@@ -13,6 +14,11 @@ class UsersController extends Controller
                 'email' => ['required', 'email'],
                 'password' => ['required'],
             ]);
+
+            $user = User::where('email', $credentials['email'])->first();
+            if ($user && $user->status == 0) {
+                return redirect()->back()->with('error', 'Your account is inactive. Please contact support.');
+            }
      
             if (Auth::attempt($credentials)) {
                 $request->session()->regenerate();

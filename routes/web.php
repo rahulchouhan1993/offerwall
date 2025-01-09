@@ -25,7 +25,8 @@ Route::middleware('auth')->group(function () {
 
         // User Management
         Route::get('/affiliates', [AdminUsersController::class, 'affiliates'])->name('admin.users.affiliates');
-        Route::get('/add-affiliate', [AdminUsersController::class, 'addAffiliates'])->name('admin.users.addaffiliates');
+        Route::post('/add-affiliate', [AdminUsersController::class, 'addAffiliates'])->name('admin.users.addaffiliates');
+        Route::get('/update-status/{id}', [AdminUsersController::class, 'updateStatus'])->name('admin.affiliate.status');
         Route::get('/advertiser', [AdminUsersController::class, 'advertisers'])->name('admin.users.advertisers');
 
         // Reports

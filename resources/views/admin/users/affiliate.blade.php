@@ -1,11 +1,13 @@
 @extends('layouts.admin.default')
 @section('content')
+@php 
+use App\Models\User;
+@endphp
 <div class="bg-[#f2f2f2] p-[15px] lg:p-[35px]">
     <div class="flex flex-col lg:flex-row justify-between items-start gap-[15px] w-[100%] ">
         <div class="w-[100%] lg:w-[100%] bg-[#fff] p-[15px] md:p-[20px] rounded-[10px]">
             <div class="flex items-center justify-between gap-[10px] mb-[20px]">
                 <h2 class="text-[20px] text-[#1A1A1A] font-[600]">Affiliates</h2>
-
                 <select name="status" onchange="filterRecords(this)" class="w-[100%] w-[250px] xl:max-w-[300px]  bg-[#F6F6F6] px-[15px] py-[12px] text-[12px] font-[500] text-[#808080] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none">
                     <option value="" @if($userType == '') selected @endif>All</option>
                     <option value="active" @if($userType == 'active') selected @endif>Active</option>
@@ -40,25 +42,33 @@
                         @elseif($affiliate['status']=='not active')
                             <td class="text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap border-b-[1px] border-b-[#E6E6E6]"><div class="text-[#30c2ee]">Not Active</div></td>
                         @endif
-                        
-                        <td class=" text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap  border-b-[1px] border-b-[#E6E6E6]"><div class="inline-flex bg-[#FFE7ED] border border-[#FFA6BC] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#F23765] text-center uppercase">Not Active</div></td>
-                        {{-- <td class=" text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap "><div class="inline-flex bg-[#F3FEE7] border border-[#BCEE89] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#6EBF1A] text-center uppercase">Active</div></td> --}}
 
+                        @php
+                            $validateUserCreation = User::where('affiseId',$affiliate['id'])->first();
+                        @endphp
+
+                        @if(is_null($validateUserCreation) || $validateUserCreation->status == 0)
+                            <td class=" text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap  border-b-[1px] border-b-[#E6E6E6]"><div class="inline-flex bg-[#FFE7ED] border border-[#FFA6BC] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#F23765] text-center uppercase">Not Active</div></td>
+                        @else
+                            <td class=" text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap "><div class="inline-flex bg-[#F3FEE7] border border-[#BCEE89] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#6EBF1A] text-center uppercase">Active</div></td>
+                        @endif
+                       
                         <td class="text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap  border-b-[1px] border-b-[#E6E6E6]">{{ $affiliate['api_key'] }}</td>
-                        
                         <td class="w-[120px] max-w-[120px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap  border-b-[1px] border-b-[#E6E6E6] text-center">
-                            <div class="flex items-center justify-center gap-[10px]">
-                            <button class="text-[17px] text-[#E36F3D]">
-                            <i class="ri-edit-box-line"></i>
-                            </button>
-                           
-                            <button class="text-[17px] text-[#F23765]">
-                            <i class="ri-delete-bin-line"></i>
-                            </button>
-
-                           
-                            </div>
-
+                        <div class="flex items-center justify-center gap-[10px]">
+                            @if(!$validateUserCreation && $affiliate['status']=='active')
+                                <a href="javascript:void(0);" onclick="addAffiliateUser(this,{{ $affiliate['id'] }},'{{ $affiliate['email'] }}','{{ $affiliate['login'] }}')" class="text-[17px] text-[#E36F3D]">
+                                    Add User
+                                </a>
+                            @elseif(!empty($validateUserCreation))
+                                <a href="{{ route('admin.affiliate.status',['id'=>$validateUserCreation->id]) }}" class="text-[17px] text-[#E36F3D]">
+                                    Update Status
+                                </a>
+                            @endif
+                            <a href="javascript:void(0);" class="text-[17px] text-[#F23765]">
+                                Delete
+                            </a>
+                        </div>
                             
                         <!-- Dropdown Action Button -->
                         <!-- <div class="relative">
@@ -110,10 +120,27 @@
         </div>
     </div>
 </div>
+<form id="affiliateAddForm" method="post" action="{{ route('admin.users.addaffiliates') }}">
+    @csrf
+    <input type="hidden" id="affiliateName" name="name" value="">
+    <input type="hidden" id="affiliateEmail" name="email" value="">
+    <input type="hidden" id="affiliateId" name="id" value="0">
+</form>
 <script>
     function filterRecords(element){
         $('.loader-fcustm').show();
         window.location.href="/admin/affiliates?status="+$(element).val();
+    }
+
+    function addAffiliateUser(element,id,email,name){
+        var conf = confirm('Are you sure you want to add affiliate to offerwall?');
+        if(conf){
+            $('#affiliateName').val(name);
+            $('#affiliateEmail').val(email);
+            $('#affiliateId').val(id);
+            $('.loader-fcustm').fadeIn(1000)
+            $('#affiliateAddForm').submit();
+        }
     }
 </script>
 @stop
