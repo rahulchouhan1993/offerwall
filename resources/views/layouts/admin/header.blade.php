@@ -45,7 +45,7 @@
                     class="hs-dropdown-toggle py-[4px] px-[4px]  inline-flex items-center gap-x-2 border border-[#E6E6E6] rounded-[60px] bg-[#F6F6F6] text-[13px] lg:text-[13px] font-[600] text-[#1A1A1A] shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                     aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
                     <img src="/images/usericon.png" alt="img" class="rouded-[60px] w-30px h-[30px]">
-                    Make (Aff ID: 943)
+                    {{ auth()->user()->name }}
                     <svg class="hs-dropdown-open:rotate-180 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
                         height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
@@ -57,13 +57,9 @@
                     class="px-[15px] py-[15px] hs-dropdown-menu transition-all duration-300 opacity-0 hidden bg-white rounded-lg absolute top-[40px] left-0 z-10 mt-2 shadow-[0_0px_13px_-3px_rgba(0,0,0,0.3)] rounded-[14px]"
                     role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-toggle">
                     <div class="p-1 space-y-0.5">
-                        <div
-                            class="mb-[10px] text-[13px] font-[600] text-[#1A1A1A] border-b-[1px] border-b-[#E6E6E6] pb-[15px]">
-                            Make <div class="text-[#909090] text-[13px] font-[400]">Make (Aff ID: 943)</div>
-                        </div>
-
+                      
                         <a class="flex items-center gap-x-3.5 py-[10px] px-[10px] text-[13px] text-[#4D4D4D] font-[600] hover:bg-[#f2f2f2] focus:outline-none focus:bg-[f2f2f2]"
-                            href="{{ route('admin.dashboard.setting') }}">Account Settings</a>
+                            href="{{ route('admin.dashboard.setting') }}"> Settings</a>
 
                      
                         <a class="flex items-center gap-x-3.5 py-[10px] px-[10px] text-[13px] text-[#F23765] font-[600] hover:bg-[#f2f2f2] focus:outline-none focus:bg-[f2f2f2]"

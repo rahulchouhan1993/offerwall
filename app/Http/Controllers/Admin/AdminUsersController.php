@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\Country;
+use App\Models\AppBlocker;
 use App\Models\User;
 
 class AdminUsersController extends Controller
@@ -95,10 +96,57 @@ class AdminUsersController extends Controller
 
     public function addAdvertisers(){
         
-    }
+    } 
 
     public function appBlocker(Request $request){
         $allCountries = Country::get();
-        return view('admin.users.blocker',compact('allCountries'));
+        $blockerDetails = AppBlocker::get()->toArray();
+        if($request->isMethod('post')){
+            $updateBlocker1 = AppBlocker::find(1);
+            $updateBlocker2 = AppBlocker::find(2);
+            $updateBlocker3 = AppBlocker::find(3);
+            $updateBlocker4 = AppBlocker::find(4);
+            $updateBlocker5 = AppBlocker::find(5);
+
+            if(isset($request->vpn) && $request->vpn=='on'){
+                $updateBlocker1->enabled = 1;
+            }else{
+                $updateBlocker1->enabled = 0;
+            }
+            $updateBlocker1->save();
+
+            if(isset($request->rootdevice) && $request->rootdevice=='on'){
+                $updateBlocker2->enabled = 1;
+            }else{
+                $updateBlocker2->enabled = 0;
+            }
+            $updateBlocker2->save();
+
+            if(isset($request->developermode) && $request->developermode=='on'){
+                $updateBlocker3->enabled = 1;
+            }else{
+                $updateBlocker3->enabled = 0;
+            }
+            $updateBlocker3->save();
+
+            if(isset($request->emulator) && $request->emulator=='on'){
+                $updateBlocker4->enabled = 1;
+            }else{
+                $updateBlocker4->enabled = 0;
+            }
+            $updateBlocker4->save();
+
+            if(isset($request->country) && $request->country=='on' && !empty($request->countryselected)){
+                $updateBlocker5->countries = json_encode($request->countryselected);
+                $updateBlocker5->enabled = 1;
+            }else{
+                $updateBlocker5->countries = NULL;
+                $updateBlocker5->enabled = 0;
+            }
+            $updateBlocker5->save();
+            
+            return redirect()->back()->with('success', 'Record updated successfully.');
+        }
+        return view('admin.users.blocker',compact('allCountries','blockerDetails'));
     }
 }
