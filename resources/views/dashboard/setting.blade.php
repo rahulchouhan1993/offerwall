@@ -1,4 +1,4 @@
-@extends('layouts.admin.default')
+@extends('layouts.default')
 @section('content')
 <div class="p-[15px] md:p-[35px] ">
     <div class="bg-[#fff] p-[15px] md:p-[20px] lg:p-[40px] rounded-[8px] md:rounded-[10px]">

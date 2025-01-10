@@ -1,4 +1,4 @@
-@extends('layouts.admin.default')
+@extends('layouts.default')
 @section('content')
 <div class="px-[15px] py-[15px]  md:px-[20px] md:py-[20px] lg:px-[30px] lg:py-[30px]">
     <div class=" flex flex-wrap md:flex-nowrap items-center gap-[15px] mb-[30px]">

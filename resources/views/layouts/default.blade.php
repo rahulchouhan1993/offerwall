@@ -37,12 +37,12 @@
             toastr.error("{{ session('error') }}");
         @endif
     </script>
-    @include('layouts.admin.header')
+    @include('layouts.header')
     <div class="pt-[50px] md:pt-[80px] flex dashboardMain">
-        @include('layouts.admin.sidebar')
+        @include('layouts.sidebar')
         <div class="dashboardContainer bg-[#F2F2F2]  pb-[100px]">
             @yield('content')
-            @include('layouts.admin.footer')
+            @include('layouts.footer')
         </div>
     </div>
     <!-- For Select Box Script -->

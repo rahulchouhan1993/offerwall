@@ -1,6 +1,6 @@
 <div class="bg-[#090B13] px-[20px] py-[35px] pt-[20px] sidebar">
     <div class="mb-[50px]">
-       <a href="{{ route('admin.users.affiliates') }}"
+       <a href="{{ route('admin.dashboard.index') }}"
           class="group flex items-center gap-[10px] px-[10px] py-[10px] text-[16px] font-[400] text-[#848589] hover:text-[#EEEEEE]">
           <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
              <path

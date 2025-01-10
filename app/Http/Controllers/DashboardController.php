@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class AdminDashboardController extends Controller
+class DashboardController extends Controller
 {
     public function index(){
-        return view('admin.dashboard.index');
+        return view('dashboard.index');
     }
 
     public function setting(Request $request){
@@ -37,6 +37,6 @@ class AdminDashboardController extends Controller
             return redirect()->route('admin.dashboard.setting')->with('success', 'Profile updated successfully!');
 
         }
-        return view('admin.dashboard.setting',compact('user'));
+        return view('dashboard.setting',compact('user'));
     }
 }

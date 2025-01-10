@@ -1,4 +1,4 @@
-@extends('layouts.admin.default')
+@extends('layouts.default')
 @section('content')
 <div class="bg-[#f2f2f2] p-[15px] md:p-[35px]">
     <div class="flex items-start flex-wrap xl:flex-nowrap gap-[20px] justify-between">
