@@ -75,6 +75,32 @@
     </script>
     
 
+     <!-- Modal -->
+  <script>
+    // Elements
+    const openModalButton = document.getElementById('openModal');
+    const closeModalButton = document.getElementById('closeModal');
+    const modal = document.getElementById('popupModal');
+
+    // Open Modal
+    openModalButton.addEventListener('click', () => {
+      modal.classList.remove('hidden');
+    });
+
+    // Close Modal
+    closeModalButton.addEventListener('click', () => {
+      modal.classList.add('hidden');
+    });
+
+    // Close Modal by clicking outside of it
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.add('hidden');
+      }
+    });
+  </script>
+
+
 
 
 

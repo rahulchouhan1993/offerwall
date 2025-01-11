@@ -53,7 +53,7 @@
                     @endif
                 
                     @for($i = 1; $i <= ceil($totalCount / $perPage); $i++)
-                        <a href="{{ route('admin.users.advertisers', ['page' => $i]) }}" class="{{ $i == $currentPage ? 'btn-active  btn inline-flex gap-[8px] items-center bg-[#fff] border border-[#E6E6E6] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#808080] text-center hover:bg-[#E36F3D] hover:text-[#fff]' : 'btn inline-flex gap-[8px] items-center bg-[#fff] border border-[#E6E6E6] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#808080] text-center hover:bg-[#E36F3D] hover:text-[#fff]' }}">
+                        <a href="{{ route('admin.users.advertisers', ['page' => $i]) }}" class="{{ $i == $currentPage ? 'btn-active  btn inline-flex gap-[8px] items-center bg-[#fff] border border-[#E6E6E6] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#808080] text-center hover:bg-[#E36F3D] hover:text-[#fff]  active:bg-[#E36F3D] active:text-[#fff]' : 'btn inline-flex gap-[8px] items-center bg-[#fff] border border-[#E6E6E6] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#808080] text-center hover:bg-[#E36F3D] hover:text-[#fff]' }}">
                             {{ $i }}
                         </a>
                     @endfor
@@ -70,54 +70,54 @@
         </div>
 
         <div class="flex w-[100%] lg:w-[40%] bg-[#fff] p-[15px] md:p-[20px] rounded-[10px]">
-            <div class="flex flex-col gap-[25px] w-[100%] ">
+            <div class="flex flex-col gap-[15px] w-[100%] ">
                 <div class="flex flex-wrap md:flex-nowrap gap-[20px] w-[100%">
-                    <div class="flex flex-col gap-[10px] w-[100%] md:w-[100%]">
+                    <div class="flex flex-col gap-[5px] w-[100%] md:w-[100%]">
                         <label for="" class="text-[14] text-[#898989]">Name</label>
-                        <input type="text" name="First Name"  class="flex px-[15px] py-[15px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none">
+                        <input type="text" name="First Name"  class="flex px-[15px] py-[12px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none">
                     </div>
                     
-                    <div class="flex flex-col gap-[10px] w-[100%] md:w-[100%]">
+                    <div class="flex flex-col gap-[5px] w-[100%] md:w-[100%]">
                         <label for="" class="text-[14] text-[#898989]">Affise API Key</label>
-                        <input type="text" name="First Name"  class="flex px-[15px] py-[15px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none">
+                        <input type="text" name="First Name"  class="flex px-[15px] py-[12px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none">
                     </div>
                 </div>
 
                 <div class="flex gap-[20px] w-[100%">
-                    <div class="flex flex-col gap-[10px] w-[100%]">
+                    <div class="flex flex-col gap-[5px] w-[100%]">
                         <label for="" class="text-[14] text-[#898989]">Postbacks URL</label>
                         <div class="flex items-center gap-[0]">
-                            <input type="text" name="First Name"  class="flex w-[100%] px-[15px] py-[15px] rounded-l-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none">
-                            <button class="flex items-center justify-center w-[110px] md:w-[170px] px-[4px] py-[12px] md:px-[15px] md:py-[15px] rounded-r-[5px] bg-[#E36F3D]  hover:bg-[#000] text-[12px] md:text-[14px] font-[500] text-[#fff] hover:text-[#fff]">Generate</button>
+                            <input type="text" name="First Name"  class="flex w-[100%] px-[15px] py-[12px] rounded-l-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none">
+                            <button class="flex items-center justify-center w-[110px] md:w-[120px] px-[4px] py-[12px] md:px-[15px] md:py-[12px] rounded-r-[5px] bg-[#E36F3D]  hover:bg-[#000] text-[12px] md:text-[14px] font-[500] text-[#fff] hover:text-[#fff]">Generate</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="flex gap-[20px] w-[100%">
-                    <div class="flex flex-col gap-[10px] w-[100%]">
+                    <div class="flex flex-col gap-[5px] w-[100%]">
                         <label for="" class="text-[14] text-[#898989]">URL Format</label>
                         <div class="relative">
-                            <input type="text" name="First Name"  class="flex w-[100%] px-[15px] py-[15px] pr-[50px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none  focus:outline-none">
+                            <input type="text" name="First Name"  class="flex w-[100%] px-[15px] py-[12px] pr-[50px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none  focus:outline-none">
                             
                         </div>
                     </div>
                 </div>
 
                 <div class="flex gap-[20px] w-[100%">
-                    <div class="flex flex-col gap-[10px] w-[100%]">
+                    <div class="flex flex-col gap-[5px] w-[100%]">
                         <label for="" class="text-[14] text-[#898989]">Allowed IP’s</label>
                         <div class="relative">
-                            <input type="text" name="First Name"  class="flex w-[100%] px-[15px] py-[15px] pr-[50px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none  focus:outline-none">
+                            <input type="text" name="First Name"  class="flex w-[100%] px-[15px] py-[12px] pr-[50px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none  focus:outline-none">
                             
                         </div>
                     </div>
                 </div>
 
 
-                <div class="flex gap-[10px] md:gap-[20px]">
-                    <button class="flex items-center justify-center w-[110px] md:w-[170px] px-[4px] py-[12px] md:px-[15px] md:py-[15px] rounded-[5px] bg-[#E36F3D]  hover:bg-[#000] text-[12px] md:text-[14px] font-[500] text-[#fff] hover:text-[#fff]">Save Changes</button>
+                <div class="flex gap-[5px] md:gap-[20px]">
+                    <button class="flex items-center justify-center w-[110px] md:w-[120px] px-[4px] py-[12px] md:px-[15px] md:py-[12px] rounded-[5px] bg-[#E36F3D]  hover:bg-[#000] text-[12px] md:text-[14px] font-[500] text-[#fff] hover:text-[#fff]">Save Changes</button>
 
-                    <button class="flex items-center justify-center w-[110px] md:w-[170px] px-[4px] py-[12px] md:px-[15px] md:py-[15px] rounded-[5px] bg-[#FFF3ED]  hover:bg-[#000] text-[14px] font-[500] text-[#E36F3D] hover:text-[#fff]">Cancle</button>
+                    <button class="flex items-center justify-center w-[110px] md:w-[120px] px-[4px] py-[12px] md:px-[15px] md:py-[12px] rounded-[5px] bg-[#FFF3ED]  hover:bg-[#000] text-[14px] font-[500] text-[#E36F3D] hover:text-[#fff]">Cancle</button>
                 </div>
             </div>
         </div>

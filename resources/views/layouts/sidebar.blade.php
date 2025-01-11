@@ -1,5 +1,5 @@
-<div class="bg-[#090B13] px-[20px] py-[35px] pt-[20px] sidebar">
-    <div class="mb-[50px]">
+<div class="bg-[#090B13] pl-[20px] pr-[20px] 2xl:pl-[35px] 2xl:pr-[20px] py-[20px] 2xl:py-[35px] pt-[20px] sidebar">
+    <div class="mb-[20px] 2xl:mb-[50px]">
        <a href="{{ route('admin.dashboard.index') }}"
           class="group flex items-center gap-[10px] px-[10px] py-[10px] text-[16px] font-[400] text-[#848589] hover:text-[#EEEEEE]">
           <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -10,7 +10,7 @@
           Dashboard
        </a>
        <a href="{{ route('admin.report.statistics') }}"
-          class="group flex items-center gap-[10px] px-[10px] py-[10px] text-[16px] font-[400] text-[#848589] hover:text-[#EEEEEE]">
+          class="group flex items-center gap-[10px] px-[10px] py-[10px] text-[16px] font-[400] text-[#848589] hover:text-[#EEEEEE] active:text-[#fff]">
           <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
              <mask id="mask0_70_1748" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="21">
                 <path d="M1.44922 2.85C1.44922 2.49196 1.59145 2.14858 1.84462 1.89541C2.0978 1.64223 2.44118 1.5 2.79922 1.5H13.5992C13.9573 1.5 14.3006 1.64223 14.5538 1.89541C14.807 2.14858 14.9492 2.49196 14.9492 2.85V19.5H2.79922C2.44118 19.5 2.0978 19.3578 1.84462 19.1046C1.59145 18.8514 1.44922 18.508 1.44922 18.15V2.85Z" fill="white" stroke="white" stroke-width="2" stroke-linejoin="round"/>
