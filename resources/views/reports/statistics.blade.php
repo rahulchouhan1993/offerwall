@@ -28,10 +28,10 @@
                 <label class="min-w-[160px] w-[10%] text-[14px] font-[500] text-[#898989] ">Range:</label>
                 <input name="range" class="dateRange w-[100%] lg:w-[90%] bg-[#F6F6F6] px-[15px] py-[12px] text-[14px] font-[600] text-[#4D4D4D] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none" type="text" value="{{ $completeDate }}" />
              </div>
-             <div class="w-[100%] flex items-center flex-wrap justify-start lg:justify-end lg:flex-nowrap gap-[10px]">
+             <div class="w-[100%] flex flex-col lg:flex-row items-start lg:items-center justify-start gap-[10px]">
                 <label class="min-w-[160px] w-[10%] text-[14px] font-[500] text-[#898989] ">Filter by:</label>
                 <div class="w-[100%] xl:w-[90%] flex flex-wrap lg:flex-nowrap  items-center gap-[5px] md:gap-[8px] lg:gap-[10px] xl:gap-[15px]">
-                   <div class="w-[100%] lg:w-[65%] xl:w-[75%] flex flex-wrap xl:flex-nowrap items-center gap-[10px]">
+                   <div class="w-[100%] lg:w-[65%] xl:w-[70.7%] flex flex-wrap xl:flex-nowrap items-center gap-[10px]">
                       <select name="filterBy" class="sel2fld filterByDrop w-[100%] bg-[#F6F6F6] px-[15px] py-[12px] text-[14px] font-[600] text-[#4D4D4D] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none">
                         <option value="">Select</option>
                         <option value="country">Country</option>
