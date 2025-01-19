@@ -6,8 +6,8 @@ use App\Models\User;
 <div class="bg-[#f2f2f2] p-[15px] lg:p-[35px]">
     <div class="flex flex-col lg:flex-row justify-between items-start gap-[15px] w-[100%] ">
         <div class="w-[100%] lg:w-[100%] bg-[#fff] p-[15px] md:p-[20px] rounded-[10px]">
-            <div class="flex items-center justify-between gap-[10px] mb-[20px]">
-                <h2 class="text-[20px] text-[#1A1A1A] font-[600]">Affiliates</h2>
+            <div class="flex flex-wrap md:flex-nowrap items-center justify-between gap-[10px] mb-[20px]">
+                <h2 class="w-full lg:w-auto text-[20px] text-[#1A1A1A] font-[600]">Affiliates</h2>
                 <select name="status" onchange="filterRecords(this)" class="w-[100%] w-[250px] xl:max-w-[300px]  bg-[#F6F6F6] px-[15px] py-[12px] text-[12px] font-[500] text-[#808080] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none">
                     <option value="" @if($userType == '') selected @endif>All</option>
                     <option value="active" @if($userType == 'active') selected @endif>Active</option>
@@ -25,7 +25,7 @@ use App\Models\User;
                         <th class=" bg-[#F6F6F6] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap">Affise Status</th>
                         <th class=" bg-[#F6F6F6] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap">Offerwall Status</th>
                         <th class=" bg-[#F6F6F6] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap">API</th>
-                        <th class=" bg-[#F6F6F6] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap text-center">Action</th>
+                        <th class=" bg-[#F6F6F6] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap text-right">Action</th>
                     </tr>
                 @if(!empty($allAffiliates['partners']))
                     @foreach ($allAffiliates['partners'] as $affiliate)
@@ -54,19 +54,21 @@ use App\Models\User;
                         @endif
                        
                         <td class="text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap  border-b-[1px] border-b-[#E6E6E6]">{{ $affiliate['api_key'] }}</td>
-                        <td class="w-[120px] max-w-[120px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap  border-b-[1px] border-b-[#E6E6E6] text-center">
-                        <div class="flex items-center justify-center gap-[10px]">
+                        <td class="w-[120px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-right whitespace-nowrap  border-b-[1px] border-b-[#E6E6E6] text-center">
+                        <div class="flex items-center justify-end gap-[10px]">
                             @if(!$validateUserCreation && $affiliate['status']=='active')
-                                <a href="javascript:void(0);" onclick="addAffiliateUser(this,{{ $affiliate['id'] }},'{{ $affiliate['email'] }}','{{ $affiliate['login'] }}')" class="text-[17px] text-[#E36F3D]">
-                                    Add User
+                                <a href="javascript:void(0);" onclick="addAffiliateUser(this,{{ $affiliate['id'] }},'{{ $affiliate['email'] }}','{{ $affiliate['login'] }}')" class="w-[30px] h-[30px] bg-[#30c2ee] rounded-[5px] flex items-center justify-center text-[17px] text-[#fff]">
+                                    <!-- Add User -->
+                                    <i class="ri-add-line"></i>
                                 </a>
                             @elseif(!empty($validateUserCreation))
-                                <a href="{{ route('admin.affiliate.status',['id'=>$validateUserCreation->id]) }}" class="text-[17px] text-[#E36F3D]">
-                                    Update Status
+                                <a href="{{ route('admin.affiliate.status',['id'=>$validateUserCreation->id]) }}" class="w-[30px] h-[30px] bg-[#6ebf1a] rounded-[5px] flex items-center justify-center text-[17px] text-[#fff]">
+                                    <!-- Update Status -->
+                                    <i class="ri-checkbox-circle-line"></i>
                                 </a>
                             @endif
-                            <a href="javascript:void(0);" class="text-[17px] text-[#F23765]">
-                                Delete
+                            <a href="javascript:void(0);" class="w-[30px] h-[30px] bg-[#f23765] rounded-[5px] flex items-center justify-center text-[17px] text-[#fff]">
+                                <i class="ri-delete-bin-line"></i>
                             </a>
                         </div>
                             
