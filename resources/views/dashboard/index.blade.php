@@ -30,19 +30,13 @@
     <div class="bg-[#fff] px-[15px] py-[15px] lg:px-[30px] lg:py-[30px] rounded-[8px] lg:rounded-[10px]">
        
         <div x-data="select" class="mb-[15px] relative w-[100%] sm:w-[290px] md:w-[300px]" @click.outside="open = false">
-            <button @click="toggle" :class="(open) && 'ring-blue-600'" class="flex w-[100%]  items-center justify-between rounded bg-[#F6F6F6] border-[1px] border-[#E6E6E6] rounded-[5px] px-[15px] py-[10px] text-[14px] text-[#4D4D4D] font-[600]">
-                                <span x-text="(language == '') ? 'Affiliatee' : language"></span>
-                                <svg width="11" height="6" viewBox="0 0 11 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 0.75L5.5 5.25L1 0.75" stroke="#A1A1A1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+           
 
-            </button>
-
-            <ul class="z-2 absolute mt-1 w-[100%]   rounded bg-[#F6F6F6] border-[1px] border-[#E6E6E6] rounded-[5px]" x-show="open">
-                <li class="cursor-pointer select-none p-2 hover:bg-gray-200" @click="setLanguage('Select Affiliate 1')">Select Affiliate</li>
-                <li class="cursor-pointer select-none p-2 hover:bg-gray-200" @click="setLanguage('Select Affiliate 2')">Select Affiliate 2</li>
-                <li class="cursor-pointer select-none p-2 hover:bg-gray-200" @click="setLanguage('Select Affiliate 3')">Select Affiliate3</li>
-            </ul>
+            <select class="sel2fld z-2 absolute mt-1 w-[100%] rounded bg-[#F6F6F6] border-[1px] border-[#E6E6E6] rounded-[5px]" x-show="open">
+                <optio>Select Affiliate</li>
+                    <optio>Select Affiliate</li>
+                        <optio>Select Affiliate</li>
+            </select>
         </div>
 
 
