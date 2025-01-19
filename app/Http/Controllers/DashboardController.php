@@ -13,6 +13,10 @@ class DashboardController extends Controller
         return view('dashboard.index');
     }
 
+    public function template(){
+        return view('dashboard.template');
+    }
+
     public function setting(Request $request){
         $user = User::find(Auth::user()->id);
         if($request->isMethod('post')){

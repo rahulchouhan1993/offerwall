@@ -16,6 +16,7 @@ Route::middleware('auth')->group(function () {
 
     // Settings
     Route::match(['post','get'],'/settings', [DashboardController::class, 'setting'])->name('admin.dashboard.setting');
+    Route::match(['post','get'],'/template', [DashboardController::class, 'template'])->name('template');
 
     // User Management
     Route::get('/affiliates', [UsersController::class, 'affiliates'])->name('admin.users.affiliates');
