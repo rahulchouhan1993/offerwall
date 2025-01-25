@@ -71,7 +71,7 @@
 
         <div class="flex w-[100%] lg:w-[40%] bg-[#fff] p-[15px] md:p-[20px] rounded-[10px]">
             <div class="flex flex-col gap-[15px] w-[100%] ">
-                <div class="flex flex-wrap md:flex-nowrap gap-[20px] w-[100%">
+                <div class="flex flex-wrap xl:flex-nowrap gap-[20px] w-[100%">
                     <div class="flex flex-col gap-[5px] w-[100%] md:w-[100%]">
                         <label for="" class="text-[14] text-[#898989]">Name</label>
                         <input type="text" name="First Name"  class="flex px-[15px] py-[12px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none">

@@ -5,10 +5,10 @@
 <div class='flex flex-wrap lg:flex-nowrap gap-[20px] w-[100%] items-start px-[15px] py-[15px]  md:px-[20px] md:py-[20px] lg:px-[30px] lg:py-[30px] bg-[#F6F6F6]'>
     <div class='w-[100%] lg:w-[70%] bg-[#fff] p-[20px] rounded-[10px]'>
         <div class='flex flex-col gap-[15px] mb-[25px]'>
-            <h2 class='mb-[2px] text-[20px] font-[600]'>General Setting</h2>
+            <h2 class='mb-[15px] text-[20px] text-[#1A1A1A] font-[600] '>General Setting</h2>
             <div class='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4'>
                 <div class="relative flex flex-col gap-[5px]">
-                    <label class='text-[13px] text-[#000] font-[600] mb-[2px]'>Theme Type</label>
+                    <label class='text-[14] text-[#898989] mb-[2px]'>Theme Type</label>
                     <select class='px-[13px] py-[10px]  bg-[#F6F6F6] border-[1px] border-[#e5e7eb] rounded-[4px] hover:outline-none focus:outline-none'>
                         <option>Theme 1</option>
                         <option>Theme 2</option>
@@ -16,12 +16,12 @@
                 </div>
 
                 <div class="relative flex flex-col gap-[5px]">
-                    <label class='text-[13px] text-[#000] font-[600] mb-[2px]'>Name</label>
+                    <label class='text-[14] text-[#898989] mb-[2px]'>Name</label>
                     <input type='text' placeholder='Desktop 1' class='px-[13px] py-[10px]  bg-[#F6F6F6] border-[1px] border-[#e5e7eb] rounded-[4px] hover:outline-none focus:outline-none' />
                 </div>
 
                 <div class="relative flex flex-col gap-[5px]">
-                    <label class='text-[13px] text-[#000] font-[600] mb-[2px]'>Select Template Status</label>
+                    <label class='text-[14] text-[#898989] mb-[2px]'>Select Template Status</label>
                     <select class='px-[13px] py-[10px]  bg-[#F6F6F6] border-[1px] border-[#e5e7eb] rounded-[4px] hover:outline-none focus:outline-none'>
                         <option>Active</option>
                         <option>Inactive</option>
@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="relative flex flex-col gap-[5px]">
-                    <label class='text-[13px] text-[#000] font-[600] mb-[2px]'>Background Color</label>
+                    <label class='text-[14] text-[#898989] mb-[2px]'>Background Color</label>
                     <div class='flex gap-[10px] bg-[#fff] p-[6px] rounded-[8px] border-[1px] border-[#e5e7eb] rounded-[4px] '>
                         <input class='min-w-[30px] h-[30px]' type="color" id="colorpicker" name="color" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" value="#bada55" /> 
 
@@ -38,28 +38,28 @@
                 </div>
 
                 <div class="relative flex flex-col gap-[5px]">
-                    <label class='text-[13px] text-[#000] font-[600] mb-[2px]'>Desktop Title</label>
+                    <label class='text-[14] text-[#898989] mb-[2px]'>Desktop Title</label>
                     <input type='text' placeholder='Desktop 1' class='px-[13px] py-[10px]  bg-[#F6F6F6] border-[1px] border-[#e5e7eb] rounded-[4px] hover:outline-none focus:outline-none' />
                 </div>
 
                 <div class="relative flex flex-col gap-[5px]">
-                    <label class='text-[13px] text-[#000] font-[600] mb-[2px]'>Desktop Description</label>
+                    <label class='text-[14] text-[#898989] mb-[2px]'>Desktop Description</label>
                     <input type='text' placeholder='Desktop 1' class='px-[13px] py-[10px]  bg-[#F6F6F6] border-[1px] border-[#e5e7eb] rounded-[4px] hover:outline-none focus:outline-none' />
                 </div>
 
                 <div class="relative flex flex-col gap-[5px]">
-                    <label class='text-[13px] text-[#000] font-[600] mb-[2px]'>Desktop Border</label>
+                    <label class='text-[14] text-[#898989] mb-[2px]'>Desktop Border</label>
                     <input type='text' placeholder='1' class='px-[13px] py-[10px]  bg-[#F6F6F6] border-[1px] border-[#e5e7eb] rounded-[4px] hover:outline-none focus:outline-none' />
                 </div>
 
                 <div class="relative flex flex-col gap-[5px]">
-                    <label class='text-[13px] text-[#000] font-[600] mb-[2px]'>Desktop Border Radius</label>
+                    <label class='text-[14] text-[#898989] mb-[2px]'>Desktop Border Radius</label>
                     <input type='text' placeholder='5' class='px-[13px] py-[10px]  bg-[#F6F6F6] border-[1px] border-[#e5e7eb] rounded-[4px] hover:outline-none focus:outline-none' />
                 </div>
 
 
                 <div class="relative flex flex-col gap-[5px]">
-                    <label class='text-[13px] text-[#000] font-[600] mb-[2px]'>Desktop Border Color</label>
+                    <label class='text-[14] text-[#898989] mb-[2px]'>Desktop Border Color</label>
                     <div class='flex gap-[10px] bg-[#fff] p-[6px] rounded-[8px] border-[1px] border-[#e5e7eb] rounded-[4px] '>
                         <input class='min-w-[30px] h-[30px]' type="color" id="colorpicker" name="color" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" value="#bada55" /> 
 
@@ -73,10 +73,10 @@
         </div>
 
         <div class='flex flex-col gap-[15px] mb-[25px]'>
-            <h2 class='mb-[2px] text-[20px] font-[600]'>General Setting</h2>
+            <h2 class='mb-[15px] text-[20px] text-[#1A1A1A] font-[600] '>General Setting</h2>
             <div class='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4'>
                 <div class="relative flex flex-col gap-[5px]">
-                    <label class='text-[13px] text-[#000] font-[600] mb-[2px]'>Theme Type</label>
+                    <label class='text-[14] text-[#898989] mb-[2px]'>Theme Type</label>
                     <select class='px-[13px] py-[10px]  bg-[#F6F6F6] border-[1px] border-[#e5e7eb] rounded-[4px] hover:outline-none focus:outline-none'>
                         <option>Theme 1</option>
                         <option>Theme 2</option>
@@ -84,12 +84,12 @@
                 </div>
 
                 <div class="relative flex flex-col gap-[5px]">
-                    <label class='text-[13px] text-[#000] font-[600] mb-[2px]'>Name</label>
+                    <label class='text-[14] text-[#898989] mb-[2px]'>Name</label>
                     <input type='text' placeholder='Desktop 1' class='px-[13px] py-[10px]  bg-[#F6F6F6] border-[1px] border-[#e5e7eb] rounded-[4px] hover:outline-none focus:outline-none' />
                 </div>
 
                 <div class="relative flex flex-col gap-[5px]">
-                    <label class='text-[13px] text-[#000] font-[600] mb-[2px]'>Select Template Status</label>
+                    <label class='text-[14] text-[#898989] mb-[2px]'>Select Template Status</label>
                     <select class='px-[13px] py-[10px]  bg-[#F6F6F6] border-[1px] border-[#e5e7eb] rounded-[4px] hover:outline-none focus:outline-none'>
                         <option>Active</option>
                         <option>Inactive</option>
@@ -97,7 +97,7 @@
                 </div>
 
                 <div class="relative flex flex-col gap-[5px]">
-                    <label class='text-[13px] text-[#000] font-[600] mb-[2px]'>Background Color</label>
+                    <label class='text-[14] text-[#898989] mb-[2px]'>Background Color</label>
                     <div class='flex gap-[10px] bg-[#fff] p-[6px] rounded-[8px] border-[1px] border-[#e5e7eb] rounded-[4px] '>
                         <input class='min-w-[30px] h-[30px]' type="color" id="colorpicker" name="color" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" value="#bada55" /> 
 
@@ -106,28 +106,28 @@
                 </div>
 
                 <div class="relative flex flex-col gap-[5px]">
-                    <label class='text-[13px] text-[#000] font-[600] mb-[2px]'>Desktop Title</label>
+                    <label class='text-[14] text-[#898989] mb-[2px]'>Desktop Title</label>
                     <input type='text' placeholder='Desktop 1' class='px-[13px] py-[10px]  bg-[#F6F6F6] border-[1px] border-[#e5e7eb] rounded-[4px] hover:outline-none focus:outline-none' />
                 </div>
 
                 <div class="relative flex flex-col gap-[5px]">
-                    <label class='text-[13px] text-[#000] font-[600] mb-[2px]'>Desktop Description</label>
+                    <label class='text-[14] text-[#898989] mb-[2px]'>Desktop Description</label>
                     <input type='text' placeholder='Desktop 1' class='px-[13px] py-[10px]  bg-[#F6F6F6] border-[1px] border-[#e5e7eb] rounded-[4px] hover:outline-none focus:outline-none' />
                 </div>
 
                 <div class="relative flex flex-col gap-[5px]">
-                    <label class='text-[13px] text-[#000] font-[600] mb-[2px]'>Desktop Border</label>
+                    <label class='text-[14] text-[#898989] mb-[2px]'>Desktop Border</label>
                     <input type='text' placeholder='1' class='px-[13px] py-[10px]  bg-[#F6F6F6] border-[1px] border-[#e5e7eb] rounded-[4px] hover:outline-none focus:outline-none' />
                 </div>
 
                 <div class="relative flex flex-col gap-[5px]">
-                    <label class='text-[13px] text-[#000] font-[600] mb-[2px]'>Desktop Border Radius</label>
+                    <label class='text-[14] text-[#898989] mb-[2px]'>Desktop Border Radius</label>
                     <input type='text' placeholder='5' class='px-[13px] py-[10px]  bg-[#F6F6F6] border-[1px] border-[#e5e7eb] rounded-[4px] hover:outline-none focus:outline-none' />
                 </div>
 
 
                 <div class="relative flex flex-col gap-[5px]">
-                    <label class='text-[13px] text-[#000] font-[600] mb-[2px]'>Desktop Border Color</label>
+                    <label class='text-[14] text-[#898989] mb-[2px]'>Desktop Border Color</label>
                     <div class='flex gap-[10px] bg-[#fff] p-[6px] rounded-[8px] border-[1px] border-[#e5e7eb] rounded-[4px] '>
                         <input class='min-w-[30px] h-[30px]' type="color" id="colorpicker" name="color" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" value="#bada55" /> 
 
