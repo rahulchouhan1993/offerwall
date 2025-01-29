@@ -98,22 +98,22 @@ use App\Models\User;
                     
                 <div class="pagination mt-[20px] flex gap-[10px] items-center justify-end">
                     @if($prevPage)
-                        <a href="{{ route('admin.users.affiliates', ['page' => $prevPage, 'status' => $userType]) }}"  class="btn group inline-flex gap-[8px] items-center bg-[#FFF3ED] border border-[#FED5C3] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#E36F3D] text-center hover:bg-[#E36F3D] hover:text-[#fff]"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5 1L1 5L5 9" stroke="#E36F3D" stroke-width="1.5" stroke-linecap="round"
+                        <a href="{{ route('admin.users.affiliates', ['page' => $prevPage, 'status' => $userType]) }}"  class="btn group inline-flex gap-[8px] items-center bg-[#F5EAF5] border border-[#FED5C3] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#D272D2] text-center hover:bg-[#D272D2] hover:text-[#fff]"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 1L1 5L5 9" stroke="#D272D2" stroke-width="1.5" stroke-linecap="round"
                                 stroke-linejoin="round" class="group-hover:stroke-[#fff] " />
                         </svg> Previous</a>
                     @endif
                 
                     @for($i = 1; $i <= ceil($totalCount / $perPage); $i++)
-                        <a href="{{ route('admin.users.affiliates', ['page' => $i, 'status' => $userType]) }}" class="{{ $i == $currentPage ? 'btn-active btn inline-flex gap-[8px] items-center bg-[#fff] border border-[#E6E6E6] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#808080] text-center hover:bg-[#E36F3D] hover:text-[#fff]' : 'btn inline-flex gap-[8px] items-center bg-[#fff] border border-[#E6E6E6] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#808080] text-center hover:bg-[#E36F3D] hover:text-[#fff]' }}">
+                        <a href="{{ route('admin.users.affiliates', ['page' => $i, 'status' => $userType]) }}" class="{{ $i == $currentPage ? 'btn-active btn inline-flex gap-[8px] items-center bg-[#fff] border border-[#E6E6E6] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#808080] text-center hover:bg-[#D272D2] hover:text-[#fff]' : 'btn inline-flex gap-[8px] items-center bg-[#fff] border border-[#E6E6E6] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#808080] text-center hover:bg-[#D272D2] hover:text-[#fff]' }}">
                             {{ $i }}
                         </a>
                     @endfor
                 
                     @if($nextPage)
-                        <a href="{{ route('admin.users.affiliates', ['page' => $nextPage, 'status' => $userType]) }}" class="btn group inline-flex gap-[5px] items-center bg-[#FFF3ED] border border-[#FED5C3] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#E36F3D] text-center hover:bg-[#E36F3D] hover:text-[#fff]">Next <svg width="6" height="10" viewBox="0 0 6 10" fill="none"
+                        <a href="{{ route('admin.users.affiliates', ['page' => $nextPage, 'status' => $userType]) }}" class="btn group inline-flex gap-[5px] items-center bg-[#F5EAF5] border border-[#FED5C3] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#D272D2] text-center hover:bg-[#D272D2] hover:text-[#fff]">Next <svg width="6" height="10" viewBox="0 0 6 10" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 1L5 5L1 9" stroke="#E36F3D" stroke-width="1.5" stroke-linecap="round"
+                            <path d="M1 1L5 5L1 9" stroke="#D272D2" stroke-width="1.5" stroke-linecap="round"
                                 stroke-linejoin="round" class="group-hover:stroke-[#fff] " />
                         </svg></a>
                     @endif

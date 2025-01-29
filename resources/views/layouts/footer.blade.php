@@ -6,7 +6,7 @@
 <!-- Modal -->
 <div id="popupModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden z-[999]">
     <div class="relative bg-white w-[95%] max-w-[600px] p-[20px] rounded-[10px] shadow-lg">
-    <button id="closeModal" class="absolute flex items-center justify-center top-[-6px] right-[-6px] lg:top-[-10px] lg:right-[-10px] w-[35px] h-[35px]  bg-[#E36F3D] rounded-[60px] text-[14px] font-[500] text-[#fff] text-center">
+    <button id="closeModal" class="absolute flex items-center justify-center top-[-6px] right-[-6px] lg:top-[-10px] lg:right-[-10px] w-[35px] h-[35px]  bg-[#D272D2] rounded-[60px] text-[14px] font-[500] text-[#fff] text-center">
       <i class="ri-close-large-line"></i>
       </button>
 
@@ -41,6 +41,6 @@
                 </div>
 
                 <div class="flex gap-[10px] md:gap-[20px]">
-                    <button type="submit" class=" bg-[#E36F3D] px-[10px] py-[11px] w-[150px] rounded-[4px] text-[14px] font-[500] text-[#fff] text-center">Send the Postback</button>
+                    <button type="submit" class=" bg-[#D272D2] px-[10px] py-[11px] w-[150px] rounded-[4px] text-[14px] font-[500] text-[#fff] text-center">Send the Postback</button>
                 </div>
             </div>

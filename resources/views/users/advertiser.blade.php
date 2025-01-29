@@ -46,22 +46,22 @@
 
                 <div class="pagination  mt-[20px] flex gap-[10px] items-center justify-end">
                     @if($prevPage)
-                        <a href="{{ route('admin.users.advertisers', ['page' => $prevPage]) }}" class="btn group inline-flex gap-[8px] items-center bg-[#FFF3ED] border border-[#FED5C3] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#E36F3D] text-center hover:bg-[#E36F3D] hover:text-[#fff]"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5 1L1 5L5 9" stroke="#E36F3D" stroke-width="1.5" stroke-linecap="round"
+                        <a href="{{ route('admin.users.advertisers', ['page' => $prevPage]) }}" class="btn group inline-flex gap-[8px] items-center bg-[#F5EAF5] border border-[#FED5C3] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#D272D2] text-center hover:bg-[#D272D2] hover:text-[#fff]"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 1L1 5L5 9" stroke="#D272D2" stroke-width="1.5" stroke-linecap="round"
                                 stroke-linejoin="round" class="group-hover:stroke-[#fff] " />
                         </svg> Previous</a>
                     @endif
                 
                     @for($i = 1; $i <= ceil($totalCount / $perPage); $i++)
-                        <a href="{{ route('admin.users.advertisers', ['page' => $i]) }}" class="{{ $i == $currentPage ? 'btn-active  btn inline-flex gap-[8px] items-center bg-[#fff] border border-[#E6E6E6] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#808080] text-center hover:bg-[#E36F3D] hover:text-[#fff]  active:bg-[#E36F3D] active:text-[#fff]' : 'btn inline-flex gap-[8px] items-center bg-[#fff] border border-[#E6E6E6] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#808080] text-center hover:bg-[#E36F3D] hover:text-[#fff]' }}">
+                        <a href="{{ route('admin.users.advertisers', ['page' => $i]) }}" class="{{ $i == $currentPage ? 'btn-active  btn inline-flex gap-[8px] items-center bg-[#fff] border border-[#E6E6E6] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#808080] text-center hover:bg-[#D272D2] hover:text-[#fff]  active:bg-[#D272D2] active:text-[#fff]' : 'btn inline-flex gap-[8px] items-center bg-[#fff] border border-[#E6E6E6] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#808080] text-center hover:bg-[#D272D2] hover:text-[#fff]' }}">
                             {{ $i }}
                         </a>
                     @endfor
                 
                     @if($nextPage)
-                        <a href="{{ route('admin.users.advertisers', ['page' => $nextPage]) }}" class="btn group inline-flex gap-[5px] items-center bg-[#FFF3ED] border border-[#FED5C3] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#E36F3D] text-center hover:bg-[#E36F3D] hover:text-[#fff]">Next <svg width="6" height="10" viewBox="0 0 6 10" fill="none"
+                        <a href="{{ route('admin.users.advertisers', ['page' => $nextPage]) }}" class="btn group inline-flex gap-[5px] items-center bg-[#F5EAF5] border border-[#FED5C3] rounded-[5px] px-[10px] py-[4px] text-[12px] font-[600] text-[#D272D2] text-center hover:bg-[#D272D2] hover:text-[#fff]">Next <svg width="6" height="10" viewBox="0 0 6 10" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 1L5 5L1 9" stroke="#E36F3D" stroke-width="1.5" stroke-linecap="round"
+                            <path d="M1 1L5 5L1 9" stroke="#D272D2" stroke-width="1.5" stroke-linecap="round"
                                 stroke-linejoin="round" class="group-hover:stroke-[#fff] " />
                         </svg></a>
                     @endif
@@ -88,7 +88,7 @@
                         <label for="" class="text-[14] text-[#898989]">Postbacks URL</label>
                         <div class="flex items-center gap-[0]">
                             <input type="text" name="First Name"  class="flex w-[100%] px-[15px] py-[12px] rounded-l-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none">
-                            <button class="flex items-center justify-center w-[110px] md:w-[120px] px-[4px] py-[12px] md:px-[15px] md:py-[12px] rounded-r-[5px] bg-[#E36F3D]  hover:bg-[#000] text-[12px] md:text-[14px] font-[500] text-[#fff] hover:text-[#fff]">Generate</button>
+                            <button class="flex items-center justify-center w-[110px] md:w-[120px] px-[4px] py-[12px] md:px-[15px] md:py-[12px] rounded-r-[5px] bg-[#D272D2]  hover:bg-[#000] text-[12px] md:text-[14px] font-[500] text-[#fff] hover:text-[#fff]">Generate</button>
                         </div>
                     </div>
                 </div>
@@ -115,9 +115,9 @@
 
 
                 <div class="flex gap-[5px] md:gap-[20px]">
-                    <button class="flex items-center justify-center w-[110px] md:w-[120px] px-[4px] py-[12px] md:px-[15px] md:py-[12px] rounded-[5px] bg-[#E36F3D]  hover:bg-[#000] text-[12px] md:text-[14px] font-[500] text-[#fff] hover:text-[#fff]">Save Changes</button>
+                    <button class="flex items-center justify-center w-[110px] md:w-[120px] px-[4px] py-[12px] md:px-[15px] md:py-[12px] rounded-[5px] bg-[#D272D2]  hover:bg-[#000] text-[12px] md:text-[14px] font-[500] text-[#fff] hover:text-[#fff]">Save Changes</button>
 
-                    <button class="flex items-center justify-center w-[110px] md:w-[120px] px-[4px] py-[12px] md:px-[15px] md:py-[12px] rounded-[5px] bg-[#FFF3ED]  hover:bg-[#000] text-[14px] font-[500] text-[#E36F3D] hover:text-[#fff]">Cancle</button>
+                    <button class="flex items-center justify-center w-[110px] md:w-[120px] px-[4px] py-[12px] md:px-[15px] md:py-[12px] rounded-[5px] bg-[#F5EAF5]  hover:bg-[#000] text-[14px] font-[500] text-[#D272D2] hover:text-[#fff]">Cancle</button>
                 </div>
             </div>
         </div>

@@ -141,7 +141,7 @@
         </div>
 
         <div class='mt-[8px]'>
-            <button class='px-[10px] py-[10px] w-[160px] flex justify-center text-center text-[15px] text-[#fff] bg-[#e36f3d] rounded-[8px]'>Generate Template</button>
+            <button class='px-[10px] py-[10px] w-[160px] flex justify-center text-center text-[15px] text-[#fff] bg-[#D272D2] rounded-[8px]'>Generate Template</button>
         </div>
 
     </div>

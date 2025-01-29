@@ -8,7 +8,7 @@
      <form method="POST">
       @csrf
         <div class="flex flex-wrap xl:flex-nowrap items-center gap-[10px] ">
-           <div class="relative flex flex-col items-start justify-center gap-[8px] px-[10px] md:px-[15px] xl:px-[25px] rounded-[10px] bg-[#F6F6F6] border-[1px] border-[#E6E6E6] w-[33%] md:w-[24%] xl:w-[20%] h-[320px] active:bg-[#FFF3ED] active:border-[#FED5C3]  hover:bg-[#FFF3ED] hover:border-[#FED5C3]">
+           <div class="relative flex flex-col items-start justify-center gap-[8px] px-[10px] md:px-[15px] xl:px-[25px] rounded-[10px] bg-[#F6F6F6] border-[1px] border-[#E6E6E6] w-[33%] md:w-[24%] xl:w-[20%] h-[320px] active:bg-[#F5EAF5] active:border-[#FED5C3]  hover:bg-[#F5EAF5] hover:border-[#FED5C3]">
               <label class="radioBx">
               <input type="checkbox" name="vpn" @checked($blockerDetails[0]['enabled'] == 1)>
               <span class="checkmark"></span>
@@ -19,7 +19,7 @@
               <h2 class="text-[18px] text-[#1A1A1A] font-[700] leading-[20px] ">Block VPN Acces</h2>
               <p class="text-[14px] text-[#898989] font-[600]">User can not access App with VPN.</p>
            </div>
-           <div class="relative flex flex-col items-start justify-center gap-[8px] px-[10px] md:px-[15px] xl:px-[25px] rounded-[10px] bg-[#F6F6F6] border-[1px] border-[#E6E6E6] w-[33%] md:w-[24%] xl:w-[20%] h-[320px] active:bg-[#FFF3ED] active:border-[#FED5C3]  hover:bg-[#FFF3ED] hover:border-[#FED5C3]">
+           <div class="relative flex flex-col items-start justify-center gap-[8px] px-[10px] md:px-[15px] xl:px-[25px] rounded-[10px] bg-[#F6F6F6] border-[1px] border-[#E6E6E6] w-[33%] md:w-[24%] xl:w-[20%] h-[320px] active:bg-[#F5EAF5] active:border-[#FED5C3]  hover:bg-[#F5EAF5] hover:border-[#FED5C3]">
               <label class="radioBx">
               <input type="checkbox" name="rootdevice" @checked($blockerDetails[1]['enabled'] == 1)>
               <span class="checkmark"></span>
@@ -30,7 +30,7 @@
               <h2 class="text-[18px] text-[#1A1A1A] font-[700] leading-[20px] ">Block Rooted Devices</h2>
               <p class="text-[14px] text-[#898989] font-[600]">App will not work on Rooted device.</p>
            </div>
-           <div class="relative flex flex-col items-start justify-center gap-[8px] px-[10px] md:px-[15px] xl:px-[25px] rounded-[10px] bg-[#F6F6F6] border-[1px] border-[#E6E6E6] w-[33%] md:w-[24%] xl:w-[20%] h-[320px] active:bg-[#FFF3ED] active:border-[#FED5C3]  hover:bg-[#FFF3ED] hover:border-[#FED5C3]">
+           <div class="relative flex flex-col items-start justify-center gap-[8px] px-[10px] md:px-[15px] xl:px-[25px] rounded-[10px] bg-[#F6F6F6] border-[1px] border-[#E6E6E6] w-[33%] md:w-[24%] xl:w-[20%] h-[320px] active:bg-[#F5EAF5] active:border-[#FED5C3]  hover:bg-[#F5EAF5] hover:border-[#FED5C3]">
               <label class="radioBx">
               <input type="checkbox" name="developermode" @checked($blockerDetails[2]['enabled'] == 1)>
               <span class="checkmark"></span>
@@ -41,7 +41,7 @@
               <h2 class="text-[18px] text-[#1A1A1A] font-[700] leading-[20px] ">Termux Block</h2>
               <p class="text-[14px] text-[#898989] font-[600]">If Developer mode is enabled in device then app not work.</p>
            </div>
-           <div class="relative flex flex-col items-start justify-center gap-[8px] px-[10px] md:px-[15px] xl:px-[25px] rounded-[10px] bg-[#F6F6F6] border-[1px] border-[#E6E6E6] w-[33%] md:w-[24%] xl:w-[20%] h-[320px] active:bg-[#FFF3ED] active:border-[#FED5C3]  hover:bg-[#FFF3ED] hover:border-[#FED5C3]">
+           <div class="relative flex flex-col items-start justify-center gap-[8px] px-[10px] md:px-[15px] xl:px-[25px] rounded-[10px] bg-[#F6F6F6] border-[1px] border-[#E6E6E6] w-[33%] md:w-[24%] xl:w-[20%] h-[320px] active:bg-[#F5EAF5] active:border-[#FED5C3]  hover:bg-[#F5EAF5] hover:border-[#FED5C3]">
               <label class="radioBx">
               <input type="checkbox" name="emulator" @checked($blockerDetails[3]['enabled'] == 1)>
               <span class="checkmark"></span>
@@ -52,7 +52,7 @@
               <h2 class="text-[18px] text-[#1A1A1A] font-[700] leading-[20px] ">Emulator Block</h2>
               <p class="text-[14px] text-[#898989] font-[600]">App will not work on android emulator</p>
            </div>
-           <div class="relative flex flex-col items-start justify-center gap-[8px] px-[10px] md:px-[15px] xl:px-[25px] rounded-[10px] bg-[#F6F6F6] border-[1px] border-[#E6E6E6] w-[33%] md:w-[25%] lg:w-[25%] xl:w-[20%] h-[320px] active:bg-[#FFF3ED] active:border-[#FED5C3]  hover:bg-[#FFF3ED] hover:border-[#FED5C3]">
+           <div class="relative flex flex-col items-start justify-center gap-[8px] px-[10px] md:px-[15px] xl:px-[25px] rounded-[10px] bg-[#F6F6F6] border-[1px] border-[#E6E6E6] w-[33%] md:w-[25%] lg:w-[25%] xl:w-[20%] h-[320px] active:bg-[#F5EAF5] active:border-[#FED5C3]  hover:bg-[#F5EAF5] hover:border-[#FED5C3]">
               <label class="radioBx">
               <input type="checkbox" name="country" onclick="checkSelecttion(this)" @checked($blockerDetails[4]['enabled'] == 1)>
               <span class="checkmark"></span>
@@ -86,7 +86,7 @@
                         @endphp
                           <label class="flex items-center gap-[8px] text-sm text-gray-700">
                              <input type="checkbox" name="countryselected[]" {{ $checkd }} class="peer hidden" value="{{ $country->iso }}" />
-                             <div class=" peer-checked:bg-[#e36f3d] inline-block w-4 h-4 border border-gray-400 relative">
+                             <div class=" peer-checked:bg-[#D272D2] inline-block w-4 h-4 border border-gray-400 relative">
                                 <svg class="peer-checked:block hidden w-4 h-4 text-blue-500 absolute top-[5px] left-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
@@ -101,7 +101,7 @@
            </div>
         </div>
         <div class="flex justify-end mt-[15px]">
-           <button class="w-[140px] bg-[#E36F3D] px-[20px] py-[11px] w-[100px] rounded-[4px] text-[14px] font-[500] text-[#fff] text-center">Submit</button>
+           <button class="w-[140px] bg-[#D272D2] px-[20px] py-[11px] w-[100px] rounded-[4px] text-[14px] font-[500] text-[#fff] text-center">Submit</button>
         </div>
      </form>
   </div>
