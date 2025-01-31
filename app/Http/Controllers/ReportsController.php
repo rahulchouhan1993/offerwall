@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Country;
+use App\Models\User;
 use Illuminate\Support\Facades\Http;
 
 class ReportsController extends Controller
@@ -98,8 +99,17 @@ class ReportsController extends Controller
         echo $returnOptions;die;
     }
     
-    public function reportStatus(){
+    public function reportStatus(Request $request){
         $pageTitle = 'Report Status';
-        return view('reports.status',compact('pageTitle'));
+        $adminDetails = User::find(1);
+        if($request->isMethod('post')){
+            $adminDetails->conversion_report = ($request->conversion=='on') ? 1 : 0;
+            $adminDetails->postback_report = ($request->postback=='on') ? 1 : 0;
+            $adminDetails->contet = $request->content;
+            $adminDetails->save();
+
+            redirect()->back()->with('success', 'Details Updated!!');
+        }
+        return view('reports.status',compact('pageTitle','adminDetails'));
     }
 }
