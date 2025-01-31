@@ -27,7 +27,8 @@ Route::middleware('auth')->group(function () {
     // Reports
     Route::get('/statistics', [ReportsController::class, 'statistics'])->name('admin.report.statistics');
     Route::get('/report-permission', [ReportsController::class, 'permission'])->name('admin.report.permission');
-
+    Route::get('/report-status', [ReportsController::class, 'reportStatus'])->name('report.status');
+    
     // Apps
     Route::match(['post','get'],'/app-blocker', [UsersController::class, 'appBlocker'])->name('admin.users.appblocker');
     // Chart Data

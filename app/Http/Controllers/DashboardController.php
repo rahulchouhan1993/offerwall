@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\App;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -10,14 +12,36 @@ use Illuminate\Support\Facades\Hash;
 class DashboardController extends Controller
 {
     public function index(){
-        return view('dashboard.index');
+        $pageTitle = 'Dashboard';
+        $activeApps = App::where('status',1)->count();
+        $allAffiliatesCount = 0;
+        $affiliateOptions = [];
+        $url = env('AFFISE_API_END') . "admin/partners";
+        $response = HTTP::withHeaders([
+            'API-Key' => env('AFFISE_API_KEY'),
+        ])->get($url);
+
+        if ($response->successful()) {
+            $resposeData = $response->json();
+            if(isset($resposeData['partners']) && !empty($resposeData['partners'])){
+                foreach($resposeData['partners'] as $affiliate){
+                    if(!empty($affiliate['login'])){
+                        $affiliateOptions[$affiliate['id']] = $affiliate['login'];
+                    }
+                }
+            }
+            $allAffiliatesCount = $resposeData['pagination']['total_count'] ?? 0;
+        }
+        return view('dashboard.index',compact('activeApps','allAffiliatesCount','affiliateOptions','pageTitle'));
     }
 
     public function template(){
-        return view('dashboard.template');
+        $pageTitle = 'Offerwall Template';
+        return view('dashboard.template',compact('pageTitle'));
     }
 
     public function setting(Request $request){
+        $pageTitle = 'Settings';
         $user = User::find(Auth::user()->id);
         if($request->isMethod('post')){
             $validatedData = $request->validate([
@@ -41,6 +65,6 @@ class DashboardController extends Controller
             return redirect()->route('admin.dashboard.setting')->with('success', 'Profile updated successfully!');
 
         }
-        return view('dashboard.setting',compact('user'));
+        return view('dashboard.setting',compact('user','pageTitle'));
     }
 }

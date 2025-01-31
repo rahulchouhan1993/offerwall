@@ -90,20 +90,6 @@
             </div>
         </form>
     </div>
-
-
-
-
-    <!-- Button to Open Modal -->
-  <button id="openModal" class="w-[120px] bg-[#D272D2] px-[10px] py-[11px] w-[100px] rounded-[4px] text-[14px] font-[500] text-[#fff] text-center">
-    Open Popup
-  </button>
-
-
-  
-
-
-      
     </div>
   </div>
 </div>

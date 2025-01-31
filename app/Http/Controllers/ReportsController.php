@@ -97,4 +97,9 @@ class ReportsController extends Controller
         
         echo $returnOptions;die;
     }
+    
+    public function reportStatus(){
+        $pageTitle = 'Report Status';
+        return view('reports.status',compact('pageTitle'));
+    }
 }

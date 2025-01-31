@@ -131,7 +131,7 @@ use App\Models\User;
 <script>
     function filterRecords(element){
         $('.loader-fcustm').show();
-        window.location.href="/admin/affiliates?status="+$(element).val();
+        window.location.href="/affiliates?status="+$(element).val();
     }
 
     function addAffiliateUser(element,id,email,name){

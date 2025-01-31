@@ -40,6 +40,7 @@ class UsersController extends Controller
     }
 
     public function affiliates(Request $request){
+        $pageTitle = 'Affiliates';
         $userType = $request->status ?? ''; 
         $page = $request->page ?? '1'; 
         $perPage = 25;
@@ -56,10 +57,11 @@ class UsersController extends Controller
             $prevPage = $pagination['prev_page'] ?? null;
             $nextPage = $pagination['next_page'] ?? null;
         }
-        return view('users.affiliate',compact('allAffiliates','userType','pagination','currentPage','totalCount','perPage','prevPage','nextPage'));
+        return view('users.affiliate',compact('allAffiliates','userType','pagination','currentPage','totalCount','perPage','prevPage','nextPage','pageTitle'));
     }
 
     public function addAffiliates(Request $request){
+        
         if($request->isMethod('post')){
             if($request->id>0){
                 $validateUser = User::where('affiseId',$request->id)->exists();
@@ -92,6 +94,7 @@ class UsersController extends Controller
     }
 
     public function advertisers(Request $request){
+        $pageTitle = 'Advertisers';
         $page = $request->page ?? '1'; 
         $perPage = 10;
         $url = env('AFFISE_API_END') . "admin/advertisers?limit={$perPage}&page={$page}";
@@ -106,7 +109,7 @@ class UsersController extends Controller
             $prevPage = $pagination['prev_page'] ?? null;
             $nextPage = $pagination['next_page'] ?? null;
         }
-        return view('users.advertiser',compact('allAdvertsers','pagination','currentPage','totalCount','perPage','prevPage','nextPage'));
+        return view('users.advertiser',compact('pageTitle','allAdvertsers','pagination','currentPage','totalCount','perPage','prevPage','nextPage'));
     }
 
     public function updateStatus($id){
@@ -125,6 +128,7 @@ class UsersController extends Controller
     } 
 
     public function appBlocker(Request $request){
+        $pageTitle = 'Fraud Tools';
         $allCountries = Country::get();
         $blockerDetails = AppBlocker::get()->toArray();
         if($request->isMethod('post')){
@@ -173,7 +177,7 @@ class UsersController extends Controller
             
             return redirect()->back()->with('success', 'Record updated successfully.');
         }
-        return view('users.blocker',compact('allCountries','blockerDetails'));
+        return view('users.blocker',compact('allCountries','blockerDetails','pageTitle'));
     }
 
     public function logout(Request $request){

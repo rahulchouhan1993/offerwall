@@ -6,7 +6,7 @@
 
         <div class="flex items-center  gap-[5px] md:gap-[10px] xl:gap-[15px]">
             <button id="menuToggle" class="p-[0]"><i class="ri-menu-line  text-[#D272D2] text-[20px] md:text-[25px]"></i></button>
-            <h2 class="text-[#1A1A1A] text-[18px] font-[600]">Dashboard</h2>
+            <h2 class="text-[#1A1A1A] text-[18px] font-[600]">{{ $pageTitle }}</h2>
         </div>
         <div class=" flex items-center gap-[8px]">
            
