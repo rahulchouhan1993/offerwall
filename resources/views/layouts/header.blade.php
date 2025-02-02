@@ -9,10 +9,6 @@
             <h2 class="text-[#1A1A1A] text-[18px] font-[600]">{{ $pageTitle }}</h2>
         </div>
         <div class=" flex items-center gap-[8px]">
-           
-
-
-
             <div class="hs-dropdown relative inline-flex">
                 <button id="hs-dropdown-toggle" type="button"
                     class="hs-dropdown-toggle py-[4px] pl-[4px] pr-[15px] md:pr-[34px] 2xl:pl-[6px] 2xl:pr-[40px]  inline-flex items-center gap-x-2 border border-[#E6E6E6] rounded-[60px] bg-[#F6F6F6] text-[13px] lg:text-[13px] 2xl:text-[16px] font-[600] text-[#1A1A1A] shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"

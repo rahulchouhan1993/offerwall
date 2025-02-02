@@ -31,6 +31,8 @@ Route::middleware('auth')->group(function () {
     
     // Apps
     Route::match(['post','get'],'/app-blocker', [UsersController::class, 'appBlocker'])->name('admin.users.appblocker');
+    Route::get('/getAffiliaetApp/{id?}', [ReportsController::class, 'getAffiliaetApp'])->name('getAffiliaetApp');
+    
     // Chart Data
     Route::get('/chart-data', [ChartController::class, 'chartData'])->name('chart.data');
     Route::get('/filterGroup/{type?}', [ReportsController::class, 'filterGroup'])->name('filterGroup');

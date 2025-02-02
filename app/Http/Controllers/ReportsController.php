@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Country;
+use App\Models\App;
 use App\Models\User;
 use Illuminate\Support\Facades\Http;
 
@@ -11,6 +12,8 @@ class ReportsController extends Controller
 {
     public function statistics(Request $request){
         $pageTitle = 'Statistics';
+        $allRegisteredAffiliates = User::where('status',1)->where('role','affiliate')->get();
+        $allAffiliatesApp = [];
         $completeDate = '';
         if($request->isMethod('GET') && !empty($request->range)){
             $completeDate = $request->range;
@@ -31,7 +34,11 @@ class ReportsController extends Controller
         $endDate = $seperateDate[1] ?? date('Y-m-d');
         $filterByText =  $request['filterInValue'];
         $filterByValue =  $request['filterIn'];
-        
+        $filterByAff =  $request['affiliate'];
+        $filterByAffApp =  $request['appid'];
+        if($filterByAff>0){
+            $allAffiliatesApp = App::where('affiliateId',$filterByAff)->get();
+        }
         if(!empty($recordGroupBy) && !empty($startDate) && !empty($endDate)){
             $queryString = http_build_query([
                 'filter[date_from]' => $startDate ?? '2020-01-01',
@@ -53,8 +60,19 @@ class ReportsController extends Controller
                 $allStatistics = $response->json();
             }
         }
-        
-        return view('reports.statistics',compact('pageTitle','allStatistics','recordGroupBy','completeDate','filterByCountry','filterByDevice','filterByOs','filterByOffer','filterBy','filterByText','filterByValue'));
+    
+        return view('reports.statistics',compact('pageTitle','allStatistics','recordGroupBy','completeDate','filterByCountry','filterByDevice','filterByOs','filterByOffer','filterBy','filterByText','filterByValue','allRegisteredAffiliates','filterByAff','filterByAffApp','allAffiliatesApp'));
+    }
+
+    public function getAffiliaetApp($affiliateId){
+        $allApps = App::where('affiliateId',$affiliateId)->get();
+        $option = '<option value="">Select App</option>';
+        if($allApps && $allApps->isNotEmpty()){
+            foreach($allApps as $app){
+                $option.= '<option value="'.$app->id.'">'.$app->appName.'</option>';
+            }
+        }
+        echo $option;die;
     }
 
     public function permission(){

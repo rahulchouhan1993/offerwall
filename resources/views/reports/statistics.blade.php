@@ -9,6 +9,28 @@
        <form method="get" id="filterStats" >
        <div class="flex flex-col items-center justify-center gap-[15px]">
           <div class="w-full flex flex-col gap-[10px]">
+            <div class="w-[100%] flex flex-col lg:flex-row items-start lg:items-center justify-start gap-[10px]">
+               <label class="min-w-[160px] w-[100%] md:w-[10%] text-[14px] font-[500] text-[#898989] ">Affiliates:</label>
+               <select name="affiliate" class="getAppsOfAffiliate sel2fld w-[100%] lg:w-[90%] bg-[#F6F6F6] px-[15px] py-[12px] text-[14px] font-[600] text-[#4D4D4D] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none">
+                  <option value="" >Select</option>
+                  @if($allRegisteredAffiliates && $allRegisteredAffiliates->isNotEmpty())
+                     @foreach ($allRegisteredAffiliates as $registeredAffiliate)
+                        <option value="{{ $registeredAffiliate->id }}" @if($filterByAff==$registeredAffiliate->id) selected @endif>{{ $registeredAffiliate->name }} {{ $registeredAffiliate->last_name }}</option>
+                     @endforeach
+                  @endif
+               </select>
+            </div>
+            <div class="w-[100%] flex flex-col lg:flex-row items-start lg:items-center justify-start gap-[10px]">
+               <label class="min-w-[160px] w-[100%] md:w-[10%] text-[14px] font-[500] text-[#898989] ">Apps:</label>
+               <select name="appid" class="appendAffiliateApps sel2fld w-[100%] lg:w-[90%] bg-[#F6F6F6] px-[15px] py-[12px] text-[14px] font-[600] text-[#4D4D4D] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none">
+                  <option value="" >Select</option>
+                  @if($allAffiliatesApp && $allAffiliatesApp->isNotEmpty())
+                     @foreach ($allAffiliatesApp as $affiliateApp)
+                        <option value="{{ $affiliateApp->id }}" @if($filterByAffApp==$affiliateApp->id) selected @endif>{{ $affiliateApp->appName }} </option>
+                     @endforeach
+                  @endif
+               </select>
+            </div>
              <div class="w-[100%] flex flex-col lg:flex-row items-start lg:items-center justify-start gap-[10px]">
                 <label
                    class="min-w-[160px] w-[100%] md:w-[10%] text-[14px] font-[500] text-[#898989] ">Group by:</label>
@@ -235,6 +257,24 @@
          success: function (response) {
             $('.loader-fcustm').hide();
             $('.search-input-filter').html(response).select2();
+         },
+         error: function (xhr) {
+            $('#response').html('<p>An error occurred. Please try again.</p>');
+         }
+      });
+   });
+
+   $(document).on('change','.getAppsOfAffiliate',function(){
+      $('.loader-fcustm').show();
+      $.ajax({
+         headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+         },
+         url: '{{ route("getAffiliaetApp") }}/'+$(this).val(),
+         type: 'GET',
+         success: function (response) {
+            $('.loader-fcustm').hide();
+            $('.appendAffiliateApps').html(response).select2();
          },
          error: function (xhr) {
             $('#response').html('<p>An error occurred. Please try again.</p>');
