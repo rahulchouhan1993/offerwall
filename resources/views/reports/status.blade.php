@@ -11,7 +11,7 @@
             <form method="POST">
                 @csrf
             <div class="flex items-center gap-[20px] mb-[20px]">
-                <h2 class="text-[16px] text-[#4D4D4D]  font-[600]">Disable Conversion Report</h2>
+                <h2 class="text-[16px] text-[#4D4D4D]  font-[600]">Conversion Report</h2>
                 <div class="switch">
                     <label class="switch">
                         <input type="checkbox" {{ $adminDetails->conversion_report == 1 ? 'checked' : '' }} name="conversion">
@@ -21,7 +21,7 @@
             </div>
 
             <div class="flex items-center gap-[20px]">
-                <h2 class="text-[16px] text-[#4D4D4D] font-[600]">Disable Postback Report</h2>
+                <h2 class="text-[16px] text-[#4D4D4D] font-[600]">Postback Report</h2>
                 <div class="switch">
                     <label class="switch">
                         <input type="checkbox" name="postback" {{ $adminDetails->postback_report == 1 ? 'checked' : '' }}>

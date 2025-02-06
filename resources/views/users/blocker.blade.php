@@ -3,7 +3,7 @@
 <div class="bg-[#f2f2f2] p-[15px] md:p-[35px]">
   <div class="bg-[#fff] p-[15px] md:p-[20px] rounded-[8px] md:rounded-[10px]">
      <h2 class="mb-[20px] text-[20px] text-[#1A1A1A] font-[600] ">
-        App blocker 
+        App blockers
      </h2>
      <form method="POST">
       @csrf
@@ -17,7 +17,7 @@
                  <img src="/images/vpn.png" alt="img">
               </div>
               <h2 class="text-[18px] text-[#1A1A1A] font-[700] leading-[20px] ">Block VPN Acces</h2>
-              <p class="text-[14px] text-[#898989] font-[600]">User can not access App with VPN.</p>
+              <p class="text-[14px] text-[#898989] font-[600]">User can not access the app with VPN enabled.</p>
            </div>
            <div class="relative flex flex-col items-start justify-center gap-[8px] px-[10px] md:px-[15px] xl:px-[25px] rounded-[10px] bg-[#F6F6F6] border-[1px] border-[#E6E6E6] w-[33%] md:w-[24%] xl:w-[20%] h-[320px] active:bg-[#F5EAF5] active:border-[#FED5C3]  hover:bg-[#F5EAF5] hover:border-[#FED5C3]">
               <label class="radioBx">
@@ -28,7 +28,7 @@
                  <img src="/images/rooted.png" alt="img">
               </div>
               <h2 class="text-[18px] text-[#1A1A1A] font-[700] leading-[20px] ">Block Rooted Devices</h2>
-              <p class="text-[14px] text-[#898989] font-[600]">App will not work on Rooted device.</p>
+              <p class="text-[14px] text-[#898989] font-[600]">App will not work on rooted device.</p>
            </div>
            <div class="relative flex flex-col items-start justify-center gap-[8px] px-[10px] md:px-[15px] xl:px-[25px] rounded-[10px] bg-[#F6F6F6] border-[1px] border-[#E6E6E6] w-[33%] md:w-[24%] xl:w-[20%] h-[320px] active:bg-[#F5EAF5] active:border-[#FED5C3]  hover:bg-[#F5EAF5] hover:border-[#FED5C3]">
               <label class="radioBx">
@@ -39,7 +39,7 @@
                  <img src="/images/termux.png" alt="img">
               </div>
               <h2 class="text-[18px] text-[#1A1A1A] font-[700] leading-[20px] ">Termux Block</h2>
-              <p class="text-[14px] text-[#898989] font-[600]">If Developer mode is enabled in device then app not work.</p>
+              <p class="text-[14px] text-[#898989] font-[600]">If developer mode is enabled on device then this app will not work.</p>
            </div>
            <div class="relative flex flex-col items-start justify-center gap-[8px] px-[10px] md:px-[15px] xl:px-[25px] rounded-[10px] bg-[#F6F6F6] border-[1px] border-[#E6E6E6] w-[33%] md:w-[24%] xl:w-[20%] h-[320px] active:bg-[#F5EAF5] active:border-[#FED5C3]  hover:bg-[#F5EAF5] hover:border-[#FED5C3]">
               <label class="radioBx">
@@ -50,7 +50,7 @@
                  <img src="/images/emul.png" alt="img">
               </div>
               <h2 class="text-[18px] text-[#1A1A1A] font-[700] leading-[20px] ">Emulator Block</h2>
-              <p class="text-[14px] text-[#898989] font-[600]">App will not work on android emulator</p>
+              <p class="text-[14px] text-[#898989] font-[600]">App will not work on the android emulators</p>
            </div>
            <div class="relative flex flex-col items-start justify-center gap-[8px] px-[10px] md:px-[15px] xl:px-[25px] rounded-[10px] bg-[#F6F6F6] border-[1px] border-[#E6E6E6] w-[33%] md:w-[25%] lg:w-[25%] xl:w-[20%] h-[320px] active:bg-[#F5EAF5] active:border-[#FED5C3]  hover:bg-[#F5EAF5] hover:border-[#FED5C3]">
               <label class="radioBx">
@@ -61,7 +61,7 @@
                  <img src="/images/country.png" alt="img">
               </div>
               <h2 class="text-[18px] text-[#1A1A1A] font-[700] leading-[20px] ">Country Block</h2>
-              <p class="text-[14px] text-[#898989] font-[600]">App will not work on Defined Country</p>
+              <p class="text-[14px] text-[#898989] font-[600]">App will not work on the selected countries</p>
               <div class="w-full" id="selectCountrySection" @if($blockerDetails[4]['enabled'] == 0) style="display:none;" @endif>
                  <div class="relative w-[100%]">
                     <button type="button" class="flex items-center justify-between gap-[5px] w-[100%] py-[8px] px-[8px] text-[14px] text-[#4D4D4D] bg-[#F6F6F6] border border-[#E6E6E6] w-full px-4 py-2 border border-gray-300 rounded-md text-left  focus:outline-none " id="dropdownButton">

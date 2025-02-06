@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\App;
+use App\Models\Template;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,9 +36,29 @@ class DashboardController extends Controller
         return view('dashboard.index',compact('activeApps','allAffiliatesCount','affiliateOptions','pageTitle'));
     }
 
-    public function template(){
+    public function template(Request $request){
         $pageTitle = 'Offerwall Template';
-        return view('dashboard.template',compact('pageTitle'));
+        $templateColor = Template::find(1);
+        if($request->isMethod('post')){
+            $templateColor->bodyBg = $request->bodyBg;
+            $templateColor->headerTextColor = $request->headerTextColor;
+            $templateColor->headerButtonBg = $request->headerButtonBg;
+            $templateColor->headerButtonColor = $request->headerButtonColor;
+            $templateColor->NotificationBg = $request->NotificationBg;
+            $templateColor->notificationText = $request->notificationText;
+            $templateColor->offerBg = $request->offerBg;
+            $templateColor->offerBgInner = $request->offerBgInner;
+            $templateColor->offerText = $request->offerText;
+            $templateColor->offerInfoBg = $request->offerInfoBg;
+            $templateColor->offerInfoText = $request->offerInfoText;
+            $templateColor->offerInfoBorder = $request->offerInfoBorder;
+            $templateColor->offerButtonBg = $request->offerButtonBg;
+            $templateColor->offerButtonText = $request->offerButtonText;
+            $templateColor->footerText = $request->footerText;
+            $templateColor->save();
+            return redirect()->back()->with('success','Template updated successfully');
+        }
+        return view('dashboard.template',compact('pageTitle','templateColor'));
     }
 
     public function setting(Request $request){

@@ -57,7 +57,7 @@
 
             <div class="flex flex-col items-start w-[100%] xl:w-[32%] gap-[10px] bg-[#fff] p-[15px] rounded-[10px]">
                 <h2 class="mb-[5px] text-[17px] md:text-[18px] lg:text-[20px] text-[#1A1A1A] font-[600] ">
-                    Top Affiliates by App
+                    Affiliate Leaderboard By App
                 </h2>
                 <div class="w-[100%] overflow-x-scroll tableScroll">
                     <table
@@ -96,7 +96,7 @@
 
             <div class="flex flex-col items-start  w-[100%] xl:w-[32%]  gap-[10px] bg-[#fff] p-[15px] rounded-[10px]">
                 <h2 class="mb-[5px] text-[17px] md:text-[17px] lg:text-[20px] text-[#1A1A1A] font-[600] ">
-                    Top Affiliates by Conversions
+                    Affiliate Leaderboard By Conversions
                 </h2>
                 <div class="w-[100%] overflow-x-scroll tableScroll">
                     <table
@@ -133,7 +133,7 @@
 
             <div class="flex flex-col items-start  w-[100%] xl:w-[32%]  gap-[10px] bg-[#fff] p-[15px] rounded-[10px]">
                 <h2 class="mb-[5px] text-[17px] md:text-[17px] lg:text-[20px] text-[#1A1A1A] font-[600] ">
-                    Top Affiliates by Revenue
+                    Affiliate Leaderboard By Revenue
                 </h2>
                 <div class="w-[100%] overflow-x-scroll tableScroll">
                     <table
