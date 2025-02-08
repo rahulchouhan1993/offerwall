@@ -50,7 +50,7 @@
                  <img src="/images/emul.png" alt="img">
               </div>
               <h2 class="text-[18px] text-[#1A1A1A] font-[700] leading-[20px] ">Emulator Block</h2>
-              <p class="text-[14px] text-[#898989] font-[600]">App will not work on the android emulators</p>
+              <p class="text-[14px] text-[#898989] font-[600]">App will not work on the android emulators.</p>
            </div>
            <div class="relative flex flex-col items-start justify-center gap-[8px] px-[10px] md:px-[15px] xl:px-[25px] rounded-[10px] bg-[#F6F6F6] border-[1px] border-[#E6E6E6] w-[33%] md:w-[25%] lg:w-[25%] xl:w-[20%] h-[320px] active:bg-[#F5EAF5] active:border-[#FED5C3]  hover:bg-[#F5EAF5] hover:border-[#FED5C3]">
               <label class="radioBx">
@@ -60,8 +60,8 @@
               <div class="mb-[15px]">
                  <img src="/images/country.png" alt="img">
               </div>
-              <h2 class="text-[18px] text-[#1A1A1A] font-[700] leading-[20px] ">Country Block</h2>
-              <p class="text-[14px] text-[#898989] font-[600]">App will not work on the selected countries</p>
+              <h2 class="text-[18px] text-[#1A1A1A] font-[700] leading-[20px] ">Block Countries</h2>
+              <p class="text-[14px] text-[#898989] font-[600]">App will not work on the selected countries.</p>
               <div class="w-full" id="selectCountrySection" @if($blockerDetails[4]['enabled'] == 0) style="display:none;" @endif>
                  <div class="relative w-[100%]">
                     <button type="button" class="flex items-center justify-between gap-[5px] w-[100%] py-[8px] px-[8px] text-[14px] text-[#4D4D4D] bg-[#F6F6F6] border border-[#E6E6E6] w-full px-4 py-2 border border-gray-300 rounded-md text-left  focus:outline-none " id="dropdownButton">
@@ -101,7 +101,7 @@
            </div>
         </div>
         <div class="flex justify-end mt-[15px]">
-           <button class="w-[140px] bg-[#D272D2] px-[20px] py-[11px] w-[100px] rounded-[4px] text-[14px] font-[500] text-[#fff] text-center">Submit</button>
+           <button class="w-[140px] bg-[#D272D2] px-[20px] py-[11px] w-[100px] rounded-[4px] text-[14px] font-[500] text-[#fff] text-center">Save</button>
         </div>
      </form>
   </div>

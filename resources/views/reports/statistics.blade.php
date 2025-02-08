@@ -34,7 +34,7 @@
              <div class="w-[100%] flex flex-col lg:flex-row items-start lg:items-center justify-start gap-[10px]">
                 <label
                    class="min-w-[160px] w-[100%] md:w-[10%] text-[14px] font-[500] text-[#898989] ">Group by:</label>
-                <select name="groupBy" class="sel2fld w-[100%] lg:w-[90%] bg-[#F6F6F6] px-[15px] py-[12px] text-[14px] font-[600] text-[#4D4D4D] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none">
+                <select name="groupBy" class="groupby-fltr w-[100%] lg:w-[90%] bg-[#F6F6F6] px-[15px] py-[12px] text-[14px] font-[600] text-[#4D4D4D] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none">
                    <option value="hour" @if($recordGroupBy=='hour') selected @endif>Hour</option>
                    <option value="day" @if($recordGroupBy=='day') selected @endif>Date</option>
                    <option value="month" @if($recordGroupBy=='month') selected @endif>Month</option>
@@ -262,6 +262,11 @@
 
    $('.search-input-filter').select2({
       placeholder: "Select a filter by option",
+      allowClear: true // Adds a clear (X) button
+   });
+
+   $('.groupby-fltr').select2({
+      placeholder: "Select group by option",
       allowClear: true // Adds a clear (X) button
    });
 
