@@ -156,7 +156,7 @@
     </form>
     </div>
 
-    <div class='flex w-[100%] lg:w-[40%] bg-[#e06060] p-[10px] rounded-[5px] bodyBg-colordy'>
+    <div class='flex w-[100%] lg:w-[40%] bg-[#e06060] p-[10px] rounded-[5px] bodyBg-colordy sticky top-[100px]'>
     <div style=" display:flex;flex-direction: column; align-items: start; width: 100%;">
         <div style="display: flex;align-items: center; justify-content: space-between; width: 100%;">
             <ul style="display: flex; align-items: center; justify-content: start; gap: 15px; padding: 0; margin: 0; list-style: none;">
@@ -178,7 +178,7 @@
         </div>
 
         <div style="display: flex; flex-direction: column; align-items: flex-start; width:100%; gap:5px; padding: 10px; background: #F9F9F9;" class="offerBg-colordy">
-            <div class="boxList offerBgInner-colordy" style="display: flex ; align-items: center; justify-content: space-between; gap: 10px; padding: 10px; background: #fff; border: 1px solid #f1f1f1; width: 100%;" >
+            <div class="boxList offerBgInner-colordy" style="display: flex ; align-items: center; justify-content: space-between; gap: 10px; padding: 10px; background: #fff;width: 100%;" >
                 <div style="width:18% ">
                     <img src="../images/mk13.png" alt="img" style=" max-width: 100%; object-fit: cover;">
                 </div>

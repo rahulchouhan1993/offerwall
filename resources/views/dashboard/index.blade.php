@@ -56,7 +56,7 @@
         <div class="flex items-start flex-wrap gap-[10px] xl:flex-nowrap gap-[15px] justify-between">
 
             <div class="flex flex-col items-start w-[100%] xl:w-[32%] gap-[10px] bg-[#fff] p-[15px] rounded-[10px]">
-                <h2 class="mb-[5px] text-[17px] md:text-[18px] lg:text-[20px] text-[#1A1A1A] font-[600] ">
+                <h2 class="mb-[5px] text-[17px] text-[#1A1A1A] font-[600] ">
                     Affiliate Leaderboard By App
                 </h2>
                 <div class="w-[100%] overflow-x-scroll tableScroll">
@@ -95,7 +95,7 @@
 
 
             <div class="flex flex-col items-start  w-[100%] xl:w-[32%]  gap-[10px] bg-[#fff] p-[15px] rounded-[10px]">
-                <h2 class="mb-[5px] text-[17px] md:text-[17px] lg:text-[20px] text-[#1A1A1A] font-[600] ">
+                <h2 class="mb-[5px] text-[17px] text-[#1A1A1A] font-[600] ">
                     Affiliate Leaderboard By Conversions
                 </h2>
                 <div class="w-[100%] overflow-x-scroll tableScroll">
@@ -132,7 +132,7 @@
             </div>
 
             <div class="flex flex-col items-start  w-[100%] xl:w-[32%]  gap-[10px] bg-[#fff] p-[15px] rounded-[10px]">
-                <h2 class="mb-[5px] text-[17px] md:text-[17px] lg:text-[20px] text-[#1A1A1A] font-[600] ">
+                <h2 class="mb-[5px] text-[17px] text-[#1A1A1A] font-[600] ">
                     Affiliate Leaderboard By Revenue
                 </h2>
                 <div class="w-[100%] overflow-x-scroll tableScroll">

@@ -7,8 +7,8 @@
      </h2>
      <form method="POST">
       @csrf
-        <div class="flex flex-wrap xl:flex-nowrap items-center gap-[10px] ">
-           <div class="relative flex flex-col items-start justify-center gap-[8px] px-[10px] md:px-[15px] xl:px-[25px] rounded-[10px] bg-[#F6F6F6] border-[1px] border-[#E6E6E6] w-[33%] md:w-[24%] xl:w-[20%] h-[320px] active:bg-[#F5EAF5] active:border-[#FED5C3]  hover:bg-[#F5EAF5] hover:border-[#FED5C3]">
+        <div class="flex flex-wrap 2xl:flex-nowrap items-center gap-[10px] ">
+           <div class="relative flex flex-col items-start justify-start gap-[8px] px-[10px] md:px-[15px] xl:px-[25px] pt-[60px] xl:pt-[80px] rounded-[10px] bg-[#F6F6F6] border-[1px] border-[#E6E6E6] w-[100%] sm:w-[48%] lg:w-[32%] 2xl:w-[20%] h-[320px] active:bg-[#F5EAF5] active:border-[#FED5C3]  hover:bg-[#F5EAF5] hover:border-[#FED5C3]">
               <label class="radioBx">
               <input type="checkbox" name="vpn" @checked($blockerDetails[0]['enabled'] == 1)>
               <span class="checkmark"></span>
@@ -19,7 +19,7 @@
               <h2 class="text-[18px] text-[#1A1A1A] font-[700] leading-[20px] ">Block VPN Acces</h2>
               <p class="text-[14px] text-[#898989] font-[600]">User can not access the app with VPN enabled.</p>
            </div>
-           <div class="relative flex flex-col items-start justify-center gap-[8px] px-[10px] md:px-[15px] xl:px-[25px] rounded-[10px] bg-[#F6F6F6] border-[1px] border-[#E6E6E6] w-[33%] md:w-[24%] xl:w-[20%] h-[320px] active:bg-[#F5EAF5] active:border-[#FED5C3]  hover:bg-[#F5EAF5] hover:border-[#FED5C3]">
+           <div class="relative flex flex-col items-start justify-start gap-[8px] px-[10px] md:px-[15px] xl:px-[25px] pt-[60px] xl:pt-[80px] rounded-[10px] bg-[#F6F6F6] border-[1px] border-[#E6E6E6] w-[100%] sm:w-[48%] lg:w-[32%] 2xl:w-[20%] h-[320px] active:bg-[#F5EAF5] active:border-[#FED5C3]  hover:bg-[#F5EAF5] hover:border-[#FED5C3]">
               <label class="radioBx">
               <input type="checkbox" name="rootdevice" @checked($blockerDetails[1]['enabled'] == 1)>
               <span class="checkmark"></span>
@@ -30,7 +30,7 @@
               <h2 class="text-[18px] text-[#1A1A1A] font-[700] leading-[20px] ">Block Rooted Devices</h2>
               <p class="text-[14px] text-[#898989] font-[600]">App will not work on rooted device.</p>
            </div>
-           <div class="relative flex flex-col items-start justify-center gap-[8px] px-[10px] md:px-[15px] xl:px-[25px] rounded-[10px] bg-[#F6F6F6] border-[1px] border-[#E6E6E6] w-[33%] md:w-[24%] xl:w-[20%] h-[320px] active:bg-[#F5EAF5] active:border-[#FED5C3]  hover:bg-[#F5EAF5] hover:border-[#FED5C3]">
+           <div class="relative flex flex-col items-start justify-start gap-[8px] px-[10px] md:px-[15px] xl:px-[25px] pt-[60px] xl:pt-[80px] rounded-[10px] bg-[#F6F6F6] border-[1px] border-[#E6E6E6] w-[100%] sm:w-[48%] lg:w-[32%] 2xl:w-[20%] h-[320px] active:bg-[#F5EAF5] active:border-[#FED5C3]  hover:bg-[#F5EAF5] hover:border-[#FED5C3]">
               <label class="radioBx">
               <input type="checkbox" name="developermode" @checked($blockerDetails[2]['enabled'] == 1)>
               <span class="checkmark"></span>
@@ -41,7 +41,7 @@
               <h2 class="text-[18px] text-[#1A1A1A] font-[700] leading-[20px] ">Termux Block</h2>
               <p class="text-[14px] text-[#898989] font-[600]">If developer mode is enabled on device then this app will not work.</p>
            </div>
-           <div class="relative flex flex-col items-start justify-center gap-[8px] px-[10px] md:px-[15px] xl:px-[25px] rounded-[10px] bg-[#F6F6F6] border-[1px] border-[#E6E6E6] w-[33%] md:w-[24%] xl:w-[20%] h-[320px] active:bg-[#F5EAF5] active:border-[#FED5C3]  hover:bg-[#F5EAF5] hover:border-[#FED5C3]">
+           <div class="relative flex flex-col items-start justify-start gap-[8px] px-[10px] md:px-[15px] xl:px-[25px] pt-[60px] xl:pt-[80px] rounded-[10px] bg-[#F6F6F6] border-[1px] border-[#E6E6E6] w-[100%] sm:w-[48%] lg:w-[32%] 2xl:w-[20%] h-[320px] active:bg-[#F5EAF5] active:border-[#FED5C3]  hover:bg-[#F5EAF5] hover:border-[#FED5C3]">
               <label class="radioBx">
               <input type="checkbox" name="emulator" @checked($blockerDetails[3]['enabled'] == 1)>
               <span class="checkmark"></span>
@@ -52,7 +52,7 @@
               <h2 class="text-[18px] text-[#1A1A1A] font-[700] leading-[20px] ">Emulator Block</h2>
               <p class="text-[14px] text-[#898989] font-[600]">App will not work on the android emulators.</p>
            </div>
-           <div class="relative flex flex-col items-start justify-center gap-[8px] px-[10px] md:px-[15px] xl:px-[25px] rounded-[10px] bg-[#F6F6F6] border-[1px] border-[#E6E6E6] w-[33%] md:w-[25%] lg:w-[25%] xl:w-[20%] h-[320px] active:bg-[#F5EAF5] active:border-[#FED5C3]  hover:bg-[#F5EAF5] hover:border-[#FED5C3]">
+           <div class="relative flex flex-col items-start justify-start gap-[8px] px-[10px] md:px-[15px] xl:px-[25px] pt-[60px] xl:pt-[80px] rounded-[10px] bg-[#F6F6F6] border-[1px] border-[#E6E6E6] w-[100%] sm:w-[48%] lg:w-[32%] 2xl:w-[20%] h-[320px] active:bg-[#F5EAF5] active:border-[#FED5C3]  hover:bg-[#F5EAF5] hover:border-[#FED5C3]">
               <label class="radioBx">
               <input type="checkbox" name="country" onclick="checkSelecttion(this)" @checked($blockerDetails[4]['enabled'] == 1)>
               <span class="checkmark"></span>
