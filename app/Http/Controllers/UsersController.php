@@ -76,13 +76,17 @@ class UsersController extends Controller
                     if ($validator->fails()) {
                         return redirect()->back()->with('error', $validator->errors());
                     }
-            
+                    $fullname = explode(' ',$request->name);
                     User::create([
-                        'name' => $request->name,
-                        'email' => $request->email,
-                        'password' => Hash::make(rand()),
-                        'role' => 'affiliate',
+                        'unique_id' => rand(),
                         'affiseId' => $request->id,
+                        'name' => $fullname[0],
+                        'last_name' => $fullname[1],
+                        'role' => 'affiliate',
+                        'email' => $request->email,
+                        'api_key' => substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 16),
+                        'postback_key' => substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 16),
+                        'password' => Hash::make(rand())
                     ]);
                     return redirect()->back()->with('success', 'User added successfully!');
                 }

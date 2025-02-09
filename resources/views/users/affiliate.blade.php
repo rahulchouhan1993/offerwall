@@ -67,9 +67,9 @@ use App\Models\User;
                                     <i class="ri-checkbox-circle-line"></i>
                                 </a>
                             @endif
-                            <a href="javascript:void(0);" class="w-[30px] h-[30px] bg-[#f23765] rounded-[5px] flex items-center justify-center text-[17px] text-[#fff]">
+                            {{-- <a href="javascript:void(0);" class="w-[30px] h-[30px] bg-[#f23765] rounded-[5px] flex items-center justify-center text-[17px] text-[#fff]">
                                 <i class="ri-delete-bin-line"></i>
-                            </a>
+                            </a> --}}
                         </div>
                             
                         <!-- Dropdown Action Button -->

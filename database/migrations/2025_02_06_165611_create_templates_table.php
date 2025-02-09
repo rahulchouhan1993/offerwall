@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('templates', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable(true);
-            $table->integer('offer_id')->nullable(true);
+            $table->integer('app_id')->nullable(true);
             $table->string('bodyBg','10')->nullable(true);
             $table->string('headerTextColor','10')->nullable(true);
             $table->string('headerButtonBg','10')->nullable(true);
