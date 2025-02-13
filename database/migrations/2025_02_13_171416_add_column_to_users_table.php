@@ -12,9 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('affiseId')->nullable(true)->after('id');
-            $table->integer('unique_id')->nullable(true)->after('id');
-            $table->tinyInteger('status')->default(0)->after('postback_key');
+            $table->string('affise_api_key')->nullable(true)->after('affiseId');
+            $table->string('affise_postback_key')->nullable(true)->after('affise_api_key');
         });
     }
 

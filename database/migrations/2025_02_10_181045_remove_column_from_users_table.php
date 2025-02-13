@@ -12,10 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->tinyInteger('postback_report')->default(1)->after('postback_key');
-            $table->tinyInteger('conversion_report')->default(1)->after('postback_key');
-            $table->integer('unique_id')->nullable(true)->after('id');
-            $table->longText('contet')->nullable(true)->after('conversion_report');
+            $table->dropColumn('conversion_report');
+            $table->dropColumn('contet');
+            $table->dropColumn('postback_report');
         });
     }
 

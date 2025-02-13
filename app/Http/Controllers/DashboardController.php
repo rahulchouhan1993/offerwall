@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\App;
 use App\Models\Template;
+use App\Models\Setting;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -61,8 +62,8 @@ class DashboardController extends Controller
         return view('dashboard.template',compact('pageTitle','templateColor'));
     }
 
-    public function setting(Request $request){
-        $pageTitle = 'Settings';
+    public function profile(Request $request){
+        $pageTitle = 'Profile';
         $user = User::find(Auth::user()->id);
         if($request->isMethod('post')){
             $validatedData = $request->validate([
@@ -83,9 +84,31 @@ class DashboardController extends Controller
                 $user->password = Hash::make($validatedData['newpassword']);
             }
             $user->save();
-            return redirect()->route('admin.dashboard.setting')->with('success', 'Profile updated successfully!');
+            return redirect()->back()->with('success', 'Profile updated successfully!');
 
         }
-        return view('dashboard.setting',compact('user','pageTitle'));
+        return view('dashboard.profile',compact('user','pageTitle'));
+    }
+
+    public function settings(Request $request){
+        $pageTitle = 'Settings';
+        $settingsData = Setting::find(1);
+        if($request->isMethod('post')){
+            $settingsData->default_description = $request->default_description;
+            $settingsData->default_info = $request->default_info;
+            $settingsData->support_email = $request->support_email;
+            $settingsData->twitter = $request->twitter;
+            $settingsData->linkedin = $request->linkedin;
+            $settingsData->facebook = $request->facebook;
+            $settingsData->conversion_report = ($request->conversion=='on') ? 1 : 0;
+            $settingsData->postback_report = ($request->postback=='on') ? 1 : 0;
+            $settingsData->content = $request->content;
+            $settingsData->default_info = $request->default_info;
+            $settingsData->default_info = $request->default_info;
+            $settingsData->save();
+
+            return redirect()->back()->with('success','Setting Updated Successfully');
+        }
+        return view('dashboard.setting',compact('settingsData','pageTitle'));
     }
 }

@@ -57,7 +57,7 @@ use App\Models\User;
                         <td class="w-[120px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-right whitespace-nowrap  border-b-[1px] border-b-[#E6E6E6] text-center">
                         <div class="flex items-center justify-end gap-[10px]">
                             @if(!$validateUserCreation && $affiliate['status']=='active')
-                                <a href="javascript:void(0);" onclick="addAffiliateUser(this,{{ $affiliate['id'] }},'{{ $affiliate['email'] }}','{{ $affiliate['login'] }}')" class="w-[30px] h-[30px] bg-[#30c2ee] rounded-[5px] flex items-center justify-center text-[17px] text-[#fff]">
+                                <a href="javascript:void(0);" onclick="addAffiliateUser(this,{{ $affiliate['id'] }},'{{ $affiliate['email'] }}','{{ $affiliate['login'] }}','{{ $affiliate['api_key'] }}')" class="w-[30px] h-[30px] bg-[#30c2ee] rounded-[5px] flex items-center justify-center text-[17px] text-[#fff]">
                                     <!-- Add User -->
                                     <i class="ri-add-line"></i>
                                 </a>
@@ -127,6 +127,7 @@ use App\Models\User;
     <input type="hidden" id="affiliateName" name="name" value="">
     <input type="hidden" id="affiliateEmail" name="email" value="">
     <input type="hidden" id="affiliateId" name="id" value="0">
+    <input type="hidden" id="api_key" name="api_key" value="0">
 </form>
 <script>
     function filterRecords(element){
@@ -134,11 +135,12 @@ use App\Models\User;
         window.location.href="/affiliates?status="+$(element).val();
     }
 
-    function addAffiliateUser(element,id,email,name){
+    function addAffiliateUser(element,id,email,name,api_key){
         var conf = confirm('Are you sure you want to add affiliate to offerwall?');
         if(conf){
             $('#affiliateName').val(name);
             $('#affiliateEmail').val(email);
+            $('#api_key').val(api_key);
             $('#affiliateId').val(id);
             $('.loader-fcustm').fadeIn(1000)
             $('#affiliateAddForm').submit();

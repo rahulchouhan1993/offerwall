@@ -80,6 +80,7 @@ class UsersController extends Controller
                     User::create([
                         'unique_id' => rand(),
                         'affiseId' => $request->id,
+                        'affise_api_key' => $request->api_key,
                         'name' => $fullname[0],
                         'last_name' => $fullname[1],
                         'role' => 'affiliate',
