@@ -102,9 +102,15 @@ class DashboardController extends Controller
             $settingsData->facebook = $request->facebook;
             $settingsData->conversion_report = ($request->conversion=='on') ? 1 : 0;
             $settingsData->postback_report = ($request->postback=='on') ? 1 : 0;
-            $settingsData->content = $request->content;
-            $settingsData->default_info = $request->default_info;
-            $settingsData->default_info = $request->default_info;
+            if ($request->hasFile('default_image')) {
+                $file = $request->file('default_image');
+                $filename = time() . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path('uploads'), $filename);
+                $settingsData->default_image = $filename;
+            }else{
+                $settingsData->default_image = $settingsData->default_image;
+            }
+            //$settingsData->content = $request->content;
             $settingsData->save();
 
             return redirect()->back()->with('success','Setting Updated Successfully');
