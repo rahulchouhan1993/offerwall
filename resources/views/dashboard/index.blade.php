@@ -55,7 +55,7 @@
     <div class="mt-[20px]">
         <div class="flex items-start flex-wrap gap-[10px] xl:flex-nowrap gap-[15px] justify-between">
 
-            <div class="flex flex-col items-start w-[100%] xl:w-[32%] gap-[10px] bg-[#fff] p-[15px] rounded-[10px]">
+            <div class="flex flex-col items-start w-[100%] xl:w-[32%] gap-[10px] bg-[#fff] p-[15px] rounded-[10px] min-h-[340px]">
                 <h2 class="mb-[5px] text-[17px] text-[#1A1A1A] font-[600] ">
                     Affiliate Leaderboard By App
                 </h2>
@@ -85,8 +85,8 @@
                         @endforeach
                         @else
                         <tr>
-                            <th
-                                class="bg-[#F6F6F6] rounded-tl-[10px] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap ">
+                            <th colspan="2"
+                                class="bg-[#F6F6F6] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap ">
                                No Stats Found</th>
                             </th>
                         </tr>
@@ -96,7 +96,7 @@
             </div>
 
 
-            <div class="flex flex-col items-start  w-[100%] xl:w-[32%]  gap-[10px] bg-[#fff] p-[15px] rounded-[10px]">
+            <div class="flex flex-col items-start  w-[100%] xl:w-[32%]  gap-[10px] bg-[#fff] p-[15px] rounded-[10px] min-h-[340px]">
                 <h2 class="mb-[5px] text-[17px] text-[#1A1A1A] font-[600] ">
                     Affiliate Leaderboard By Conversions
                 </h2>
@@ -128,7 +128,7 @@
                 </div>
             </div>
 
-            <div class="flex flex-col items-start  w-[100%] xl:w-[32%]  gap-[10px] bg-[#fff] p-[15px] rounded-[10px]">
+            <div class="flex flex-col items-start  w-[100%] xl:w-[32%]  gap-[10px] bg-[#fff] p-[15px] rounded-[10px] min-h-[340px]">
                 <h2 class="mb-[5px] text-[17px] text-[#1A1A1A] font-[600] ">
                     Affiliate Leaderboard By Revenue
                 </h2>
