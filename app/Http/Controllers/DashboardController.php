@@ -47,22 +47,8 @@ class DashboardController extends Controller
             ->orderByDesc('trackings_sum_revenue') // Sort by highest revenue
         ->get();
     
-        $affiliateOptions = [];
-        $url = env('AFFISE_API_END') . "admin/partners";
-        $response = HTTP::withHeaders([
-            'API-Key' => env('AFFISE_API_KEY'),
-        ])->get($url);
-
-        if ($response->successful()) {
-            $resposeData = $response->json();
-            if(isset($resposeData['partners']) && !empty($resposeData['partners'])){
-                foreach($resposeData['partners'] as $affiliate){
-                    if(!empty($affiliate['login'])){
-                        $affiliateOptions[$affiliate['id']] = $affiliate['login'];
-                    }
-                }
-            }
-        }
+        $affiliateOptions = User::where('status',1)->where('role','affiliate')->get();
+       
         return view('dashboard.index',compact('activeApps','allAffiliatesCount','affiliateOptions','pageTitle','totalRevenue','totalPayouts','affiliateByApp','affiliateByRevenue'));
     }
 

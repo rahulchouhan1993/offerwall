@@ -1,10 +1,11 @@
 <?php
 namespace App\Http\Controllers;
+
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use App\Models\App;
 use App\Models\Tracking;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+
 class ChartController extends Controller
 {
     public function chartData(Request $request)
@@ -13,27 +14,51 @@ class ChartController extends Controller
         $requestedDate = $request->dateRange;
 
         $trackingStats = Tracking::query();
-        if ($requestedAffiliate) {
-            $trackingStats->where('affiliate_id', $requestedAffiliate);
+        if ($requestedAffiliate>0) {
+            $trackingStats->where('user_id', $requestedAffiliate);
         }
-
+        
         if ($requestedDate) {
             [$startDate, $endDate] = explode(' - ', $requestedDate);
-            $startDate = \Carbon\Carbon::parse($startDate)->startOfDay();
-            $endDate = \Carbon\Carbon::parse($endDate)->endOfDay();
+            $startDate = Carbon::parse($startDate)->startOfDay();
+            $endDate = Carbon::parse($endDate)->endOfDay();
             $trackingStats->whereBetween('conversion_time', [$startDate, $endDate]);
         }
 
-        $trackingStats = $trackingStats->get();
-        $labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug','Sep','Oct','Nov','Dec'];
-        $lineData = [10, 20, 15, 30, 25,10, 20, 15, 30, 25,10, 20];
-        $barData = [5, 15, 10, 25, 20,5, 15, 10, 25, 20,20,20];
+        // Define labels and default data for both conversions and clicks
+        $labelKey = [
+            'Jan' => 0, 'Feb' => 1, 'Mar' => 2, 'Apr' => 3, 'May' => 4, 'Jun' => 5,
+            'Jul' => 6, 'Aug' => 7, 'Sep' => 8, 'Oct' => 9, 'Nov' => 10, 'Dec' => 11
+        ];
+        $labels = array_keys($labelKey);
+        
+        // Initialize both datasets with zero values
+        $conversionData = array_fill(0, 12, 0);
+        $clickData = array_fill(0, 12, 0);
 
-        return response()->json([
+        $trackingStats = $trackingStats->get();
+        if ($trackingStats->isNotEmpty()) {
+            foreach ($trackingStats as $tracking) {
+                $monthName = Carbon::parse($tracking->conversion_time)->format('M');
+                $monthKey = $labelKey[$monthName];
+
+                // Count conversions
+                if (!is_null($tracking->conversion_id)) {
+                    $conversionData[$monthKey] += 1;
+                }
+
+                // Count clicks
+                $clickData[$monthKey] += 1; 
+            }
+        }
+
+        // Response data with both datasets
+        $responseData = [
             'labels' => $labels,
-            'lineData' => $lineData,
-            'barData' => $barData,
-        ]);
+            'conversionData' => $conversionData, // Line 1: Conversions
+            'clickData' => $clickData, // Line 2: Clicks
+        ];
+
+        return response()->json($responseData);
     }
 }
-

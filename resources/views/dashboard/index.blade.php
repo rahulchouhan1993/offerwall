@@ -30,9 +30,9 @@
         <div x-data="select" class="mb-[15px] relative w-[100%] sm:w-[290px] md:w-[300px]" @click.outside="open = false">
             <input name="range" class="dateRange w-[100%] lg:w-[90%] bg-[#F6F6F6] px-[15px] py-[12px] text-[14px] font-[600] text-[#4D4D4D] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none" type="text" value="">
             <select class="sel2fld select-affiliate-dash z-2 absolute mt-1 w-[100%] rounded bg-[#F6F6F6] border-[1px] border-[#E6E6E6] rounded-[5px]" x-show="open">
-                <option>Select Affiliate</option>
-                @foreach ($affiliateOptions as $affiliateId => $affiliateName)
-                    <option value="{{ $affiliateId }}">{{ $affiliateName }}</option>
+                <option value="">Select Affiliate</option>
+                @foreach ($affiliateOptions as $affiliateData)
+                    <option value="{{ $affiliateData->id }}">{{ $affiliateData->name.' '.$affiliateData->last_name }}</option>
                 @endforeach
             </select>
         </div>
@@ -165,8 +165,9 @@
     </div>
 </div>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const ctx = document.getElementById('roundedLineChart').getContext('2d');
+    let myChart; // Store chart instance globally
 
     function fetchChartData() {
         const dateRange = $('.dateRange').val();
@@ -175,21 +176,40 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch(`{{ route('chart.data') }}?date_range=${encodeURIComponent(dateRange)}&affiliate=${encodeURIComponent(affiliate)}`)
             .then(response => response.json())
             .then(data => {
-                new Chart(ctx, {
+                // ✅ Destroy previous chart if it exists
+                if (myChart) {
+                    myChart.destroy();
+                }
+
+                // ✅ Create new chart
+                myChart = new Chart(ctx, {
                     type: 'line',
                     data: {
-                        labels: data.labels, // Dynamic labels from API
-                        datasets: [{
-                            label: 'Rounded Line Dataset',
-                            data: data.lineData, // Dynamic data from API
-                            borderColor: 'rgba(75, 192, 192, 1)',
-                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                            borderWidth: 2,
-                            tension: 0.6, // Smoothness of the line (rounded effect)
-                            fill: true, // Optional: Fill area under the line
-                            pointRadius: 5, // Point size
-                            pointBackgroundColor: 'rgba(75, 192, 192, 1)'
-                        }]
+                        labels: data.labels, // Months
+                        datasets: [
+                            {
+                                label: 'Conversions',
+                                data: data.conversionData, // Conversion Data
+                                borderColor: '#d272d2', // Deep Purple Border
+                                backgroundColor: 'rgba(210, 114, 210, 0.2)', // Soft Purple Fill
+                                borderWidth: 2,
+                                tension: 0.4, // Smooth line effect
+                                fill: true,
+                                pointRadius: 5,
+                                pointBackgroundColor: '#d272d2'
+                            },
+                            {
+                                label: 'Clicks',
+                                data: data.clickData, // Clicks Data
+                                borderColor: '#ff6384', // Red Border
+                                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                                borderWidth: 2,
+                                tension: 0.4,
+                                fill: true,
+                                pointRadius: 5,
+                                pointBackgroundColor: '#ff6384'
+                            }
+                        ]
                     },
                     options: {
                         responsive: true,
@@ -199,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 position: 'top'
                             },
                             tooltip: {
-                                enabled: true // Show tooltips on hover
+                                enabled: true
                             }
                         },
                         scales: {
@@ -213,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 beginAtZero: true,
                                 title: {
                                     display: true,
-                                    text: 'Revenue'
+                                    text: 'Count'
                                 }
                             }
                         }
@@ -223,11 +243,11 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(error => console.error('Error fetching chart data:', error));
     }
 
-    // Fetch data when page loads
+    // Fetch chart data initially
     fetchChartData();
 
-    // Fetch data when filters change
-    $('.dateRange, .select-affiliate-dash').on('change', function() {
+    // ✅ Re-fetch chart data when filters (date range or affiliate) change
+    $('.dateRange, .select-affiliate-dash').on('change', function () {
         fetchChartData();
     });
 });
