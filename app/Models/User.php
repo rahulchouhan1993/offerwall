@@ -53,4 +53,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function apps()
+    {
+        return $this->hasMany(App::class,'affiliateId','id');
+    }
+
+    public function trackings()
+    {
+        return $this->hasMany(Tracking::class,'user_id','id');
+    }
 }

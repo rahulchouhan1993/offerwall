@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\App;
 use App\Models\Template;
 use App\Models\Setting;
+use App\Models\Tracking;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +17,36 @@ class DashboardController extends Controller
     public function index(){
         $pageTitle = 'Dashboard';
         $activeApps = App::where('status',1)->count();
-        $allAffiliatesCount = 0;
+        $allAffiliatesCount = User::where('role','affiliate')->count();
+        $totalRevenue = Tracking::sum('revenue');
+        $totalPayouts = Tracking::sum('payout');
+
+        // affiliate leaderboard
+        $affiliateByApp = User::where('status', '1')
+            ->where('role', 'affiliate')
+            ->whereHas('apps', function ($query) {
+                $query->where('status', '1');
+            })
+            ->withCount(['apps' => function ($query) {
+                $query->where('status', '1');
+            }])
+        ->get();
+       
+        //conversion leaderboard
+        $affiliateByRevenue = User::where('status', '1') // Active users
+            ->where('role', 'affiliate') // Only affiliates
+            ->whereHas('trackings', function ($query) {
+                $query->whereNotNull('conversion_id'); // Ensure there is a valid conversion
+            })
+            ->withCount(['trackings' => function ($query) {
+                $query->whereNotNull('conversion_id'); // Count only valid conversions
+            }])
+            ->withSum(['trackings' => function ($query) {
+                $query->whereNotNull('conversion_id'); // Sum only for valid conversions
+            }], 'revenue') // Sum the revenue column
+            ->orderByDesc('trackings_sum_revenue') // Sort by highest revenue
+        ->get();
+    
         $affiliateOptions = [];
         $url = env('AFFISE_API_END') . "admin/partners";
         $response = HTTP::withHeaders([
@@ -32,9 +62,8 @@ class DashboardController extends Controller
                     }
                 }
             }
-            $allAffiliatesCount = $resposeData['pagination']['total_count'] ?? 0;
         }
-        return view('dashboard.index',compact('activeApps','allAffiliatesCount','affiliateOptions','pageTitle'));
+        return view('dashboard.index',compact('activeApps','allAffiliatesCount','affiliateOptions','pageTitle','totalRevenue','totalPayouts','affiliateByApp','affiliateByRevenue'));
     }
 
     public function template(Request $request){

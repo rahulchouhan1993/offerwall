@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('content')
+@section('content') 
 <div class="px-[15px] py-[15px]  md:px-[20px] md:py-[20px] lg:px-[30px] lg:py-[30px]">
     <div class=" flex flex-wrap md:flex-nowrap items-center gap-[15px] mb-[30px]">
         <div
@@ -17,13 +17,13 @@
         <div
             class="orangebg flex flex-col justify-center bg-[#EF7947] items-start gap-[5px]  w-[100%] sm:w-[200px] md:w-[265px] lg:w-[365px] h-[130px]  rounded-[7px] lg:rounded-[10px] px-[30px] py-[30px] activeApps">
             <h2 class="text-[18px] font-[500] text-[#fff]">Revenue</h2>
-            <h3 class="text-[38px] font-[700] text-[#fff]">$150</h3>
+            <h3 class="text-[38px] font-[700] text-[#fff]">$ {{ $totalRevenue }}</h3>
         </div>
 
         <div
             class="greenbg flex flex-col justify-center bg-[#88E528] items-start gap-[5px]  w-[100%] sm:w-[200px] md:w-[265px] lg:w-[365px] h-[130px]  rounded-[7px] lg:rounded-[10px] px-[30px] py-[30px] activeApps">
             <h2 class="text-[18px] font-[500] text-[#fff]">Payouts</h2>
-            <h3 class="text-[38px] font-[700] text-[#fff]">$2000</h3>
+            <h3 class="text-[38px] font-[700] text-[#fff]">$ {{ $totalPayouts }}</h3>
         </div>
     </div>
     <div class="bg-[#fff] px-[15px] py-[15px] lg:px-[30px] lg:py-[30px] rounded-[8px] lg:rounded-[10px]">
@@ -68,27 +68,29 @@
                                 Affiliate Name</th>
                             <th
                                 class="bg-[#F6F6F6] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap">
-                                App</th>
+                                Apps</th>
 
                         </tr>
-
+                        @if($affiliateByApp->isNotEmpty())
+                        @foreach ($affiliateByApp as $affiliateApp)
                         <tr>
-                            <td
-                                class="max-w-[500px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-normal border-b-[1px] border-b-[#E6E6E6] ">
-                                The_cash_bag</td>
-                            <td
+                            <th
+                                class="max-w-[500px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-normal border-b-[1px] border-b-[#E6E6E6]">
+                                {{ $affiliateApp->name.' '.$affiliateApp->last_name }}</th>
+                            <th
                                 class="max-w-[500px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-normal  border-b-[1px] border-b-[#E6E6E6]">
-                                The Cash Bag</td>
+                                {{ $affiliateApp->apps_count }}</th>
+                            </th>
                         </tr>
-
+                        @endforeach
+                        @else
                         <tr>
-                            <td
-                                class="max-w-[500px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-normal ">
-                                The_cash_bag</td>
-                            <td
-                                class="max-w-[500px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-normal ">
-                                The Cash Bag</td>
+                            <th
+                                class="bg-[#F6F6F6] rounded-tl-[10px] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap ">
+                               No Stats Found</th>
+                            </th>
                         </tr>
+                        @endif
                     </table>
                 </div>
             </div>
@@ -110,23 +112,18 @@
                                 Conversions</th>
 
                         </tr>
+                        @if($affiliateByRevenue->isNotEmpty())
+                        @foreach ($affiliateByRevenue as $detailedStats)
                         <tr>
                             <td
                                 class="max-w-[500px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-normal border-b-[1px] border-b-[#E6E6E6] ">
-                                The_cash_bag</td>
+                                {{ $detailedStats->name.' '.$detailedStats->name }}</td>
                             <td
                                 class="max-w-[500px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-normal  border-b-[1px] border-b-[#E6E6E6]">
-                                The Cash Bag</td>
+                                {{ $detailedStats->trackings_count }}</td>
                         </tr>
-
-                        <tr>
-                            <td
-                                class="max-w-[500px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-normal ">
-                                The_cash_bag</td>
-                            <td
-                                class="max-w-[500px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-normal ">
-                                23</td>
-                        </tr>
+                        @endforeach
+                        @endif
                     </table>
                 </div>
             </div>
@@ -147,24 +144,18 @@
                                 Revenue</th>
 
                         </tr>
-
+                        @if($affiliateByRevenue->isNotEmpty())
+                        @foreach ($affiliateByRevenue as $detailedStats)
                         <tr>
                             <td
                                 class="max-w-[500px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-normal border-b-[1px] border-b-[#E6E6E6] ">
-                                The_cash_bag</td>
+                                {{ $detailedStats->name.' '.$detailedStats->name }}</td>
                             <td
                                 class="max-w-[500px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-normal  border-b-[1px] border-b-[#E6E6E6]">
-                                The Cash Bag</td>
+                                $ {{ $detailedStats->trackings_sum_revenue }}</td>
                         </tr>
-
-                        <tr>
-                            <td
-                                class="max-w-[500px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-normal ">
-                                The_cash_bag</td>
-                            <td
-                                class="max-w-[500px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-normal ">
-                                $25</td>
-                        </tr>
+                        @endforeach
+                        @endif
                     </table>
                 </div>
             </div>
