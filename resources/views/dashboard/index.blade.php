@@ -28,7 +28,8 @@
     </div>
     <div class="bg-[#fff] px-[15px] py-[15px] lg:px-[30px] lg:py-[30px] rounded-[8px] lg:rounded-[10px]">
         <div x-data="select" class="mb-[15px] relative w-[100%] sm:w-[290px] md:w-[300px]" @click.outside="open = false">
-            <select class="sel2fld z-2 absolute mt-1 w-[100%] rounded bg-[#F6F6F6] border-[1px] border-[#E6E6E6] rounded-[5px]" x-show="open">
+            <input name="range" class="dateRange w-[100%] lg:w-[90%] bg-[#F6F6F6] px-[15px] py-[12px] text-[14px] font-[600] text-[#4D4D4D] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none" type="text" value="">
+            <select class="sel2fld select-affiliate-dash z-2 absolute mt-1 w-[100%] rounded bg-[#F6F6F6] border-[1px] border-[#E6E6E6] rounded-[5px]" x-show="open">
                 <option>Select Affiliate</option>
                 @foreach ($affiliateOptions as $affiliateId => $affiliateName)
                     <option value="{{ $affiliateId }}">{{ $affiliateName }}</option>
@@ -38,7 +39,7 @@
         <div class="w-full">
             <canvas id="roundedLineChart"></canvas>
         </div>
-        <div class="flex items-center gap-[5px] md:gap-[15px]">
+        {{-- <div class="flex items-center gap-[5px] md:gap-[15px]">
             <button
                 class="w-[120px] md:w-[120px] lg:w-[130px] bg-[#D272D2] px-[5px] py-[10px] rounded-[4px] text-[12px] m:text-[14px] font-[500] text-[#fff] text-center">Last
                 7 Days</button>
@@ -49,7 +50,7 @@
             <button
                 class="w-[120px] md:w-[125px] lg:w-[130px] bg-[#F5EAF5] px-[5px] py-[10px] rounded-[4px] text-[12px] m:text-[14px]  font-[500] text-[#D272D2] text-center">Last
                 30 Days</button>
-        </div>
+        </div> --}}
     </div>
 
     <div class="mt-[20px]">
@@ -167,55 +168,69 @@
 document.addEventListener('DOMContentLoaded', function() {
     const ctx = document.getElementById('roundedLineChart').getContext('2d');
 
-    fetch("{{ route('chart.data') }}")
-        .then(response => response.json())
-        .then(data => {
-            new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: data.labels, // Dynamic labels from API
-                    datasets: [{
-                        label: 'Rounded Line Dataset',
-                        data: data.lineData, // Dynamic data from API
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        borderWidth: 2,
-                        tension: 0.6, // Smoothness of the line (rounded effect)
-                        fill: true, // Optional: Fill area under the line
-                        pointRadius: 5, // Point size
-                        pointBackgroundColor: 'rgba(75, 192, 192, 1)'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            display: true,
-                            position: 'top'
-                        },
-                        tooltip: {
-                            enabled: true // Show tooltips on hover
-                        }
+    function fetchChartData() {
+        const dateRange = $('.dateRange').val();
+        const affiliate = $('.select-affiliate-dash').val();
+
+        fetch(`{{ route('chart.data') }}?date_range=${encodeURIComponent(dateRange)}&affiliate=${encodeURIComponent(affiliate)}`)
+            .then(response => response.json())
+            .then(data => {
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: data.labels, // Dynamic labels from API
+                        datasets: [{
+                            label: 'Rounded Line Dataset',
+                            data: data.lineData, // Dynamic data from API
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderWidth: 2,
+                            tension: 0.6, // Smoothness of the line (rounded effect)
+                            fill: true, // Optional: Fill area under the line
+                            pointRadius: 5, // Point size
+                            pointBackgroundColor: 'rgba(75, 192, 192, 1)'
+                        }]
                     },
-                    scales: {
-                        x: {
-                            title: {
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
                                 display: true,
-                                text: 'Months'
+                                position: 'top'
+                            },
+                            tooltip: {
+                                enabled: true // Show tooltips on hover
                             }
                         },
-                        y: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: 'Values'
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Months'
+                                }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Revenue'
+                                }
                             }
                         }
                     }
-                }
-            });
-        })
-        .catch(error => console.error('Error fetching chart data:', error));
+                });
+            })
+            .catch(error => console.error('Error fetching chart data:', error));
+    }
+
+    // Fetch data when page loads
+    fetchChartData();
+
+    // Fetch data when filters change
+    $('.dateRange, .select-affiliate-dash').on('change', function() {
+        fetchChartData();
+    });
 });
+
 </script>
 @stop
