@@ -29,7 +29,7 @@
     <div class="bg-[#fff] px-[15px] py-[15px] lg:px-[30px] lg:py-[30px] rounded-[8px] lg:rounded-[10px]">
         <div x-data="select" class="mb-[15px] relative w-[100%] sm:w-[290px] md:w-[300px]" @click.outside="open = false">
             <input name="range" class="dateRange w-[100%] lg:w-[90%] bg-[#F6F6F6] px-[15px] py-[12px] text-[14px] font-[600] text-[#4D4D4D] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none" type="text" value="">
-            <select class="sel2fld select-affiliate-dash z-2 absolute mt-1 w-[100%] rounded bg-[#F6F6F6] border-[1px] border-[#E6E6E6] rounded-[5px]" x-show="open">
+            <select class=" select-affiliate-dash z-2 absolute mt-1 w-[100%] rounded bg-[#F6F6F6] border-[1px] border-[#E6E6E6] rounded-[5px]" x-show="open">
                 <option value="">Select Affiliate</option>
                 @foreach ($affiliateOptions as $affiliateData)
                     <option value="{{ $affiliateData->id }}">{{ $affiliateData->name.' '.$affiliateData->last_name }}</option>

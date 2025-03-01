@@ -29,7 +29,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/report-permission', [ReportsController::class, 'permission'])->name('admin.report.permission');
     Route::match(['post','get'],'/report-status', [ReportsController::class, 'reportStatus'])->name('report.status');
     Route::match(['post','get'],'/settings', [DashboardController::class, 'settings'])->name('settings');
-    
+    Route::post('/export-report', [ReportsController::class, 'exportReport'])->name('report.export');
+
     // Apps
     Route::match(['post','get'],'/app-blocker', [UsersController::class, 'appBlocker'])->name('admin.users.appblocker');
     Route::get('/getAffiliaetApp/{id?}', [ReportsController::class, 'getAffiliaetApp'])->name('getAffiliaetApp');

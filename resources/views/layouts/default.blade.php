@@ -76,6 +76,11 @@
                 placeholder: "Select an option",
                 allowClear: true // Adds a clear (X) button
             });
+
+            $('.select-affiliate-dash').select2({
+                placeholder: "Select an affiliate",
+                allowClear: true // Adds a clear (X) button
+            });
         });
         
         $(function() {
