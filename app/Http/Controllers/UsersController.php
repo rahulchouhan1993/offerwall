@@ -87,7 +87,8 @@ class UsersController extends Controller
                         'email' => $request->email,
                         'api_key' => substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 16),
                         'postback_key' => substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 16),
-                        'password' => Hash::make(rand())
+                        //'password' => Hash::make(rand())
+                        'password' =>  Hash::make(1234556)
                     ]);
                     return redirect()->back()->with('success', 'User added successfully!');
                 }

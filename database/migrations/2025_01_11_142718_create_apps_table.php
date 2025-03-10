@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('rounding')->nullable(true);
             $table->string('postback')->nullable(true);
             $table->tinyInteger('status')->default(0)->nullable(true);
+            $table->tinyInteger('affiliate_status')->default(0)->nullable(true);
             $table->timestamps();
         });
     }

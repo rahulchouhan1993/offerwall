@@ -26,8 +26,8 @@ class ReportsController extends Controller
             $separateDate = explode('-', $requestedParams['range']);
             $requestedParams['strd'] = trim($separateDate[0]);
             $requestedParams['endd'] = trim($separateDate[1]);
-            $startDate = date('Y-m-d', strtotime(trim($separateDate[0])));
-            $endDate = date('Y-m-d', strtotime(trim($separateDate[1])));
+            $startDate = date('Y-m-d 00:00:00', strtotime(trim($separateDate[0])));
+            $endDate = date('Y-m-d 23::59:59', strtotime(trim($separateDate[1])));
             $trackingStats->whereBetween('click_time', [$startDate, $endDate]); 
         }
 
@@ -49,8 +49,10 @@ class ReportsController extends Controller
                 'offer' => 'offer_id'
             ];
             
-            if (isset($filterColumnMap[$requestedParams['filterBy']])) {
-                $trackingStats->where($filterColumnMap[$requestedParams['filterBy']], $requestedParams['filterIn']);
+            foreach($requestedParams['filterIn'] as $filyKey => $filterAsIn){
+                if (isset($filterColumnMap[$filyKey])) {
+                    $trackingStats->where($filterColumnMap[$filyKey], $filterAsIn[0]);
+                }
             }
         }
 

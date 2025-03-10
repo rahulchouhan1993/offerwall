@@ -18,4 +18,9 @@ class App extends Model
         'postback',
         'status',
     ];
+
+    public function users(){
+        return $this->hasOne(User::class,'id','affiliateId');
+    }
+    
 }

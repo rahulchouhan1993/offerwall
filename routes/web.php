@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ChartController;
+use App\Http\Controllers\AppsController;
 
 //Users Routes
 Route::match(['post','get'],'/',[UsersController::class,'login'])->name('login');
@@ -34,6 +35,11 @@ Route::middleware('auth')->group(function () {
     // Apps
     Route::match(['post','get'],'/app-blocker', [UsersController::class, 'appBlocker'])->name('admin.users.appblocker');
     Route::get('/getAffiliaetApp/{id?}', [ReportsController::class, 'getAffiliaetApp'])->name('getAffiliaetApp');
+    Route::get('/apps', [AppsController::class, 'index'])->name('apps.index');
+    Route::match(['get','post'],'/add-app/{id}', [AppsController::class, 'add'])->name('apps.add');
+    Route::get('/integration/{id}', [AppsController::class, 'integration'])->name('apps.integration');
+    Route::get('/update-status/{id}', [AppsController::class, 'updateStatus'])->name('apps.status');
+    Route::match(['get','post'],'/template/{id}', [AppsController::class, 'template'])->name('apps.template');
     
     // Chart Data
     Route::get('/chart-data', [ChartController::class, 'chartData'])->name('chart.data');

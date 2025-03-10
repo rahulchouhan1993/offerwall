@@ -8,8 +8,8 @@
             </div>
             <form method="POST" enctype="multipart/form-data">
             @csrf
-                <div class="flex items-center gap-[20px] mb-[20px]">
-                    <h2 class="text-[16px] text-[#4D4D4D]  font-[600]">Conversion Report</h2>
+                <div class="flex items-center justify-start flex-wrap md:flex-nowrap gap-[20px] mb-[15px]">
+                    <h2 class="w-[160px] text-[16px] text-[#4D4D4D]  font-[600]">Conversion Report</h2>
                     <div class="switch">
                         <label class="switch">
                             <input type="checkbox" {{ $settingsData->conversion_report == 1 ? 'checked' : '' }} name="conversion">
@@ -17,8 +17,8 @@
                             </label>
                     </div>
                 </div>
-                <div class="flex items-center gap-[20px]">
-                    <h2 class="text-[16px] text-[#4D4D4D] font-[600]">Postback Report</h2>
+                <div class="flex items-center justify-start flex-wrap md:flex-nowrap gap-[20px] mb-[15px]">
+                    <h2 class="w-[160px] text-[16px] text-[#4D4D4D] font-[600]">Postback Report</h2>
                     <div class="switch">
                         <label class="switch">
                             <input type="checkbox" name="postback" {{ $settingsData->postback_report == 1 ? 'checked' : '' }}>
@@ -27,25 +27,25 @@
                     </div>
                 </div>
                 
-                <div class="flex items-center gap-[20px]">
-                    <h2 class="text-[16px] text-[#4D4D4D] font-[600]">Support Email</h2>
-                    <input type="text" name="support_email" class="flex px-[15px] py-[12px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none" value="{{ $settingsData->support_email }}">
+                <div class="flex flex-col justify-start items-start flex-wrap md:flex-nowrap gap-[20px] mb-[15px]">
+                    <h2 class="w-[100%] md:w-[155px] text-[16px] text-[#4D4D4D] font-[600]">Support Email</h2>
+                    <input type="text" name="support_email" class="flex w-full px-[15px] py-[12px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none" value="{{ $settingsData->support_email }}">
                 </div>
-                <div class="flex items-center gap-[20px]">
-                    <h2 class="text-[16px] text-[#4D4D4D] font-[600]">Twitter Link</h2>
-                    <input type="text" name="twitter" class="flex px-[15px] py-[12px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none" value="{{ $settingsData->twitter }}">
+                <div class="flex flex-col justify-start items-start flex-wrap md:flex-nowrap gap-[20px] mb-[15px]">
+                    <h2 class="w-[100%] md:w-[155px] text-[16px] text-[#4D4D4D] font-[600]">Twitter Link</h2>
+                    <input type="text" name="twitter" class="flex w-full px-[15px] py-[12px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none" value="{{ $settingsData->twitter }}">
                 </div>
-                <div class="flex items-center gap-[20px]">
-                    <h2 class="text-[16px] text-[#4D4D4D] font-[600]">Facebook Link</h2>
-                    <input type="text" name="linkedin" class="flex px-[15px] py-[12px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none" value="{{ $settingsData->linkedin }}">
+                <div class="flex flex-col justify-start items-start flex-wrap md:flex-nowrap gap-[20px] mb-[15px]">
+                    <h2 class="w-[100%] md:w-[155px] text-[16px] text-[#4D4D4D] font-[600]">Facebook Link</h2>
+                    <input type="text" name="facebook" class="w-full flex px-[15px] py-[12px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none" value="{{ $settingsData->facebook }}">
                 </div>
-                <div class="flex items-center gap-[20px]">
-                    <h2 class="text-[16px] text-[#4D4D4D] font-[600]">Linked Email</h2>
-                    <input type="text" name="facebook" class="flex px-[15px] py-[12px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none" value="{{ $settingsData->facebook }}">
+                <div class="flex flex-col justify-start items-start flex-wrap md:flex-nowrap gap-[20px] mb-[15px]">
+                    <h2 class="lg:w-[200px] md:w-[155px] text-[16px] text-[#4D4D4D] font-[600]">LinkedIn</h2>
+                    <input type="text" name="linkedin" class="flex w-full px-[15px] py-[12px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none" value="{{ $settingsData->linkedin }}">
                 </div>
-                <div class="flex items-center gap-[20px]">
-                    <h2 class="text-[16px] text-[#4D4D4D] font-[600]">Default Offer Image</h2>
-                    <input type="file" name="default_image" class="flex px-[15px] py-[12px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none" >
+                <div class="flex flex-col justify-start items-start flex-wrap md:flex-nowrap gap-[20px] mb-[15px]">
+                    <h2 class="w-full text-[16px] text-[#4D4D4D] font-[600]">Default Offer Image</h2>
+                    <input type="file" name="default_image" class="flex w-full px-[15px] py-[12px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none" >
                     <img src="/uploads/{{  $settingsData->default_image }}">
                 </div>
                 <div class="flex flex-col gap-[10px] mt-[40px]">

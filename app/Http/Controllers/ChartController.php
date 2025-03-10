@@ -11,7 +11,7 @@ class ChartController extends Controller
     public function chartData(Request $request)
     {
         $requestedAffiliate = $request->affiliate;
-        $requestedDate = $request->dateRange;
+        $requestedDate = $request->date_range;
 
         $trackingStats = Tracking::query();
         if ($requestedAffiliate>0) {
@@ -20,9 +20,9 @@ class ChartController extends Controller
         
         if ($requestedDate) {
             [$startDate, $endDate] = explode(' - ', $requestedDate);
-            $startDate = Carbon::parse($startDate)->startOfDay();
-            $endDate = Carbon::parse($endDate)->endOfDay();
-            $trackingStats->whereBetween('conversion_time', [$startDate, $endDate]);
+            $startDate = \Carbon\Carbon::parse(trim($startDate))->startOfDay();
+            $endDate = \Carbon\Carbon::parse(trim($endDate))->endOfDay();
+            $trackingStats->whereBetween('click_time', [$startDate, $endDate]);
         }
 
         // Define labels and default data for both conversions and clicks
@@ -39,7 +39,7 @@ class ChartController extends Controller
         $trackingStats = $trackingStats->get();
         if ($trackingStats->isNotEmpty()) {
             foreach ($trackingStats as $tracking) {
-                $monthName = Carbon::parse($tracking->conversion_time)->format('M');
+                $monthName = Carbon::parse($tracking->click_time)->format('M');
                 $monthKey = $labelKey[$monthName];
 
                 // Count conversions
