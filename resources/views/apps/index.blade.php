@@ -3,41 +3,57 @@
 
 <div class="bg-[#f2f2f2] p-[15px] lg:p-[35px]">
     <div class="bg-[#fff] p-[15px] md:p-[20px] rounded-[10px] mb-[20px]">
-      <div class="flex items-center justify-between gap-[25px] w-[100%]  mb-[15px]">
+      <div class="flex flex-col justify-between gap-[25px] w-[100%]  mb-[15px]">
           <h2 class="text-[20px] text-[#1A1A1A] font-[600]">My Apps</h2>
           <form method="get">
-          <label> Affiliate</label>
-          <select name="affiliate" class="getAppsOfAffiliate flex px-[15px] py-[15px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none">
-            <option value="">Select status</option>
-            @if($allAffiliates->isNotEmpty())
-               @foreach($allAffiliates as $affiliate)
-                  <option value="{{ $affiliate['id'] }}" @if(isset($requestedParams['affiliate']) && $requestedParams['affiliate']==$affiliate['id']) selected @endif>{{ $affiliate['name'] }}</option>
-               @endforeach
-            @endif
-          </select>
-            
-         <label>Apps</label>
-         <select name="appid" class="appendAffiliateApps w-[100%] lg:w-[90%] bg-[#F6F6F6] px-[15px] py-[12px] text-[14px] font-[600] text-[#4D4D4D] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none">
-            <option value="" >Select</option>
-            @if($allAffiliatesApp && $allAffiliatesApp->isNotEmpty())
-               @foreach ($allAffiliatesApp as $affiliateApp)
-                  <option value="{{ $affiliateApp->id }}" @if($requestedParams['appid']==$affiliateApp->id) selected @endif>{{ $affiliateApp->appName }} </option>
-               @endforeach
-            @endif
-         </select>
-          <label> Admin Status</label>
-          <select name="admin_status" class="admin_status flex px-[15px] py-[15px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none">
-            <option value="">Select status</option>
-            <option value="approved" @if(isset($requestedParams['admin_status']) && $requestedParams['admin_status']=='approved') selected @endif>Approved</option>
-            <option value="not_approved" @if(isset($requestedParams['admin_status']) && $requestedParams['admin_status']=='not_approved') selected @endif>Not Approved</option>
-          </select>
-          <label> Affiliate Status</label>
-          <select name="affiliate_status" class=" affiliate_status flex px-[15px] py-[15px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none">
-            <option value="">Select status</option>
-            <option value="active" @if(isset($requestedParams['affiliate_status']) && $requestedParams['affiliate_status']=='active') selected @endif>Active</option>
-            <option value="archived" @if(isset($requestedParams['affiliate_status']) && $requestedParams['affiliate_status']=='archived') selected @endif>Archived</option>
-          </select>
-          <button type="submit" class="flex px-[15px] py-[15px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none">Search</button>
+          <div class="w-full flex flex-col gap-[10px]">
+            <div class="w-[100%] flex flex-col lg:flex-row items-start lg:items-center justify-start gap-[10px]">
+            <label class="min-w-[160px] w-[100%] md:w-[10%] text-[14px] font-[500] text-[#898989] "> Affiliate</label>
+            <select name="affiliate" class="getAppsOfAffiliate w-[100%] lg:w-[90%] flex px-[15px] py-[15px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none">
+               <option value="">Select status</option>
+               @if($allAffiliates->isNotEmpty())
+                  @foreach($allAffiliates as $affiliate)
+                     <option value="{{ $affiliate['id'] }}" @if(isset($requestedParams['affiliate']) && $requestedParams['affiliate']==$affiliate['id']) selected @endif>{{ $affiliate['name'] }}</option>
+                  @endforeach
+               @endif
+            </select>
+            </div>
+         
+            <div class="w-[100%] flex flex-col lg:flex-row items-start lg:items-center justify-start gap-[10px]">
+                  <label class="min-w-[160px] w-[100%] md:w-[10%] text-[14px] font-[500] text-[#898989] ">Apps</label>
+               <select name="appid" class="appendAffiliateApps w-[100%] lg:w-[90%] bg-[#F6F6F6] px-[15px] py-[12px] text-[14px] font-[600] text-[#4D4D4D] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none">
+                  <option value="" >Select</option>
+                  @if($allAffiliatesApp && $allAffiliatesApp->isNotEmpty())
+                     @foreach ($allAffiliatesApp as $affiliateApp)
+                        <option value="{{ $affiliateApp->id }}" @if($requestedParams['appid']==$affiliateApp->id) selected @endif>{{ $affiliateApp->appName }} </option>
+                     @endforeach
+                  @endif
+               </select>
+            </div>
+
+            <div class="w-[100%] flex flex-col lg:flex-row items-start lg:items-center justify-start gap-[10px]">
+               <label class="min-w-[160px] w-[100%] md:w-[10%] text-[14px] font-[500] text-[#898989] "> Admin Status</label>
+            <select name="admin_status" class="admin_status  w-[100%] lg:w-[90%] flex px-[15px] py-[15px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none">
+               <option value="">Select status</option>
+               <option value="approved" @if(isset($requestedParams['admin_status']) && $requestedParams['admin_status']=='approved') selected @endif>Approved</option>
+               <option value="not_approved" @if(isset($requestedParams['admin_status']) && $requestedParams['admin_status']=='not_approved') selected @endif>Not Approved</option>
+            </select>
+            </div>
+
+            <div class="w-[100%] flex flex-col lg:flex-row items-start lg:items-center justify-start gap-[10px]">
+               
+               <label class="min-w-[160px] w-[100%] md:w-[10%] text-[14px] font-[500] text-[#898989] "> Affiliate Status</label>
+               <select name="affiliate_status" class=" affiliate_status w-[100%] lg:w-[90%] flex px-[15px] py-[15px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none">
+                  <option value="">Select status</option>
+                  <option value="active" @if(isset($requestedParams['affiliate_status']) && $requestedParams['affiliate_status']=='active') selected @endif>Active</option>
+                  <option value="archived" @if(isset($requestedParams['affiliate_status']) && $requestedParams['affiliate_status']=='archived') selected @endif>Archived</option>
+               </select>
+            </div>
+       
+         <div class="flex justify-end">
+          <button type="submit" class="w-[90px] xl:w-[120px] bg-[#D272D2] px-[20px] py-[11px] w-[100px] rounded-[4px] text-[14px] font-[500] text-[#fff] text-center">Search</button>
+      </div>
+         </div>
           </form>
        </div>
        <div class="flex flex-col justify-between items-center gap-[5px] w-[100%] mt-[30px] ">
@@ -84,7 +100,7 @@
                     
                     <td class="text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap ">{{ date('d M Y',strtotime($apps->created_at)) }}</td>
                     <td class="w-[130px] text-[14px] font-[500] text-[#5E72E4] px-[10px] py-[10px] text-left whitespace-nowrap ">
-                       <div class="flex items-center justify-center gap-[10px]">
+                       <div class="flex items-center justify-end gap-[10px]">
                           <a title="Edit" href="{{ route('apps.add',['id'=>$apps->id]) }}" class="flex items-center justify-center w-[35px] bg-[#FFF3ED] py-[10px] w-[100px] border border-[#FED5C3] rounded-[4px] text-[14px] font-[500] text-[#D272D2] text-center">
                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" fill="none">
                               <path d="M8.29289 3.70711L1 11V15H5L12.2929 7.70711L8.29289 3.70711Z" fill="#D272D2"/>
