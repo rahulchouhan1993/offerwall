@@ -112,9 +112,9 @@ class DashboardController extends Controller
             $settingsData->default_description = $request->default_description;
             $settingsData->default_info = $request->default_info;
             $settingsData->support_email = $request->support_email;
-            $settingsData->twitter = $request->twitter;
-            $settingsData->linkedin = $request->linkedin;
-            $settingsData->facebook = $request->facebook;
+            $settingsData->twitter = $request->twitter ?? NULL;
+            $settingsData->linkedin = $request->linkedin ?? NULL;
+            //$settingsData->facebook = $request->facebook;
             $settingsData->conversion_report = ($request->conversion=='on') ? 1 : 0;
             $settingsData->postback_report = ($request->postback=='on') ? 1 : 0;
             if ($request->hasFile('default_image')) {

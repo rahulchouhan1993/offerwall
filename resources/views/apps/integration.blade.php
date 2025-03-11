@@ -31,7 +31,7 @@
                             </div>
                             <h2 class="text-[#898989] text-[14px] font-[500]">Secret ID</h2>
                         </div>
-                        <h3 class="text-[14px] text-[#4D4D4D] font-[500]">{{ base64_encode(auth()->user()->unique_id) }}</h3>
+                        <h3 class="text-[14px] text-[#4D4D4D] font-[500]">{{ base64_encode($affiliateDetails->unique_id) }}</h3>
                     </div>
                     <div class="flex items-center justify-between py-[20px] gap-[15px] border-b-[1px] border-b-[#E6E6E6]">
                         <div class="flex items-center justify-between gap-[10px]">
@@ -41,7 +41,7 @@
                             </div>
                             <h2 class="text-[#898989] text-[14px] font-[500]">API Key</h2>
                         </div>
-                        <h3 class="text-[14px] text-[#4D4D4D] font-[500]">{{ auth()->user()->api_key }}</h3>
+                        <h3 class="text-[14px] text-[#4D4D4D] font-[500]">{{ $affiliateDetails->api_key }}</h3>
                     </div>
 
                     <div class="flex items-center justify-between py-[20px] gap-[15px] border-b-[1px] border-b-[#E6E6E6]">
@@ -52,7 +52,7 @@
                             </div>
                             <h2 class="text-[#898989] text-[14px] font-[500]">Postback Secure Key</h2>
                         </div>
-                        <h3 class="text-[14px] text-[#4D4D4D] font-[500]">{{ auth()->user()->postback_key }}</h3>
+                        <h3 class="text-[14px] text-[#4D4D4D] font-[500]">{{ $affiliateDetails->postback_key }}</h3>
                     </div>
                 </div>
             </div>
@@ -73,7 +73,7 @@
                     
                     <code class="flex items-center justify-center bg-[#1E233B] h-[100%] xl:h-[125px] rounded-[8px] px-[15px] py-[15px] text-[14px] text-[#FFFFFF]"  data-lang="html">
                         
-                            &lt;iframe style="width:100%; height:800px; border:0; padding:0; margin:0;" scrolling="yes" frameborder="0" src="{{ env('OFFRWALL_URL') }}/wall?apiKey={{ auth()->user()->api_key }}&wallId={{ base64_encode($appDetail->appId) }}">&gt;&lt;/iframe&gt;
+                            &lt;iframe style="width:100%; height:800px; border:0; padding:0; margin:0;" scrolling="yes" frameborder="0" src="{{ env('OFFRWALL_URL') }}/wall?apiKey={{ $affiliateDetails->api_key }}&wallId={{ base64_encode($appDetail->appId) }}">&gt;&lt;/iframe&gt;
                    
                     </code>
                 </div>

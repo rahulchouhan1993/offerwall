@@ -32,13 +32,13 @@
                     <input type="text" name="support_email" class="flex w-full px-[15px] py-[12px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none" value="{{ $settingsData->support_email }}">
                 </div>
                 <div class="flex flex-col justify-start items-start flex-wrap md:flex-nowrap gap-[20px] mb-[15px]">
-                    <h2 class="w-[100%] md:w-[155px] text-[16px] text-[#4D4D4D] font-[600]">Twitter Link</h2>
+                    <h2 class="w-[100%] md:w-[155px] text-[16px] text-[#4D4D4D] font-[600]">Telegram Link</h2>
                     <input type="text" name="twitter" class="flex w-full px-[15px] py-[12px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none" value="{{ $settingsData->twitter }}">
                 </div>
-                <div class="flex flex-col justify-start items-start flex-wrap md:flex-nowrap gap-[20px] mb-[15px]">
+                {{-- <div class="flex flex-col justify-start items-start flex-wrap md:flex-nowrap gap-[20px] mb-[15px]">
                     <h2 class="w-[100%] md:w-[155px] text-[16px] text-[#4D4D4D] font-[600]">Facebook Link</h2>
                     <input type="text" name="facebook" class="w-full flex px-[15px] py-[12px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none" value="{{ $settingsData->facebook }}">
-                </div>
+                </div> --}}
                 <div class="flex flex-col justify-start items-start flex-wrap md:flex-nowrap gap-[20px] mb-[15px]">
                     <h2 class="lg:w-[200px] md:w-[155px] text-[16px] text-[#4D4D4D] font-[600]">LinkedIn</h2>
                     <input type="text" name="linkedin" class="flex w-full px-[15px] py-[12px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none" value="{{ $settingsData->linkedin }}">
@@ -52,10 +52,10 @@
                     <h2 class="text-[16px] text-[#4D4D4D] font-[600]">Default Offer Description</h2>
                     <textarea required name="default_description" class="flex px-[15px] py-[12px] min-h-[150px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none" >{{ $settingsData->default_description }}</textarea>
                 </div>
-                <div class="flex flex-col gap-[10px] mt-[40px]">
+                {{-- <div class="flex flex-col gap-[10px] mt-[40px]">
                     <h2 class="text-[16px] text-[#4D4D4D] font-[600]">Default Offer Info Description</h2>
                     <textarea required name="default_info" class="flex px-[15px] py-[12px] min-h-[150px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none" >{{ $settingsData->default_info }}</textarea>
-                </div>
+                </div> --}}
                 {{-- <div class="flex flex-col gap-[10px] mt-[40px]">
                     <h2 class="text-[16px] text-[#4D4D4D] font-[600]">Content</h2>
                     <textarea required name="content" class="flex px-[15px] py-[12px] min-h-[150px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none" >{{ $settingsData->content }}</textarea>

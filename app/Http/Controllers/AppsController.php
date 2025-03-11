@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\App;
+use App\Models\User;
 use App\Models\Template;
 use Illuminate\Http\Request;
 
@@ -10,10 +11,10 @@ class AppsController extends Controller
 {
     public function index(Request $request){
         $pageTitle = 'Apps';
+        $allAffiliatesApp = [];
         $requestedParams = $request->all();
         $allApps = App::with('users');
 
-        
         if (!empty($requestedParams['affiliate']) && $requestedParams['affiliate'] > 0) {
             $allApps->where('affiliateId', $requestedParams['affiliate']);
         }
@@ -46,7 +47,11 @@ class AppsController extends Controller
                 'name' => optional($app->users)->name.' '.optional($app->users)->last_name,
             ];
         });
-        return view('apps.index',compact('pageTitle','allApps','allAffiliates'));
+        
+        if(isset($requestedParams['affiliate']) && $requestedParams['affiliate']>0){
+            $allAffiliatesApp = App::where('affiliateId',$requestedParams['affiliate'])->get();
+        }
+        return view('apps.index',compact('pageTitle','allApps','allAffiliates','requestedParams','allAffiliatesApp'));
     }
 
     public function add(Request $request, $id =null){
@@ -106,7 +111,8 @@ class AppsController extends Controller
     public function integration($id){
         $pageTitle = 'Integration';
         $appDetail = App::find($id);
-        return view('apps.integration',compact('pageTitle','appDetail'));
+        $affiliateDetails = User::find($appDetail->affiliateId);
+        return view('apps.integration',compact('pageTitle','appDetail','affiliateDetails'));
     }
 
     public function updateStatus($id){
@@ -118,7 +124,7 @@ class AppsController extends Controller
     }
 
     public function template(Request $request, $id){
-        $appDetail = App::where('affiliateId',auth()->user()->id)->where('id',$id)->first();
+        $appDetail = App::where('id',$id)->first();
         if(empty($appDetail)){
             return redirect()->route('dashboard.index')->with('error','Not valid request');
         }

@@ -46,7 +46,8 @@ class ReportsController extends Controller
             $filterColumnMap = [
                 'os' => 'device_os',
                 'country' => 'country_code',
-                'offer' => 'offer_id'
+                'offer' => 'offer_id',
+                'devices' => 'device_type'
             ];
             
             foreach($requestedParams['filterIn'] as $filyKey => $filterAsIn){
@@ -130,22 +131,19 @@ class ReportsController extends Controller
     }
 
     public function filterGroup($filterBy = null){
-        $returnOptions = '';
+        $returnOptions = '<option value="">Select</option>';
         if($filterBy=='country'){
-            $allCountry = Country::get();
-            foreach($allCountry as $country){
-                $returnOptions.='<option value="'.$country->iso.'">'.$country->nicename.'</option>';
+            $allTrackings = Tracking::select('country_code', 'country_name')
+            ->groupBy('country_code', 'country_name')
+            ->pluck('country_name', 'country_code');
+            foreach($allTrackings as $isoCode =>$countryName){
+                $returnOptions.='<option value="'.$isoCode.'">'.$countryName.'</option>';
             }
         }elseif($filterBy=='devices'){
-            $url = 'https://api-makamobile.affise.com/3.1/devices';
-            $response = HTTP::withHeaders([
-                'API-Key' => env('AFFISE_API_KEY'),
-            ])->get($url);
-            
-            if ($response->successful()) {
-                $allDevices = $response->json();
-                foreach($allDevices['types'] as $devices){
-                    $returnOptions.='<option value="'.$devices.'">'.ucfirst($devices).'</option>';
+            $allTrackings = Tracking::groupBy('device_type')->pluck('device_type');
+            if(!empty($allTrackings)){
+                foreach($allTrackings as $tracking){
+                    $returnOptions.='<option value="'.$tracking.'">'.ucfirst($tracking).'</option>';
                 }
             }
         }elseif($filterBy=='os'){

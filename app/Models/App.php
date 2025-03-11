@@ -17,6 +17,7 @@ class App extends Model
         'rounding',
         'postback',
         'status',
+        'affiliate_status',
     ];
 
     public function users(){

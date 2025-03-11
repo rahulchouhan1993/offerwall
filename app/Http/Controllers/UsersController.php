@@ -100,7 +100,7 @@ class UsersController extends Controller
     }
 
     public function advertisers(Request $request){
-        $pageTitle = 'Advertisers';
+        $pageTitle = 'Advertiser';
         $page = $request->page ?? '1'; 
         $perPage = 10;
         $url = env('AFFISE_API_END') . "admin/advertisers?limit={$perPage}&page={$page}";
