@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Country;
 use App\Models\AppBlocker;
+use App\Models\Setting;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NewAccountMail;
 
 class UsersController extends Controller
 {
@@ -40,13 +43,15 @@ class UsersController extends Controller
     }
 
     public function affiliates(Request $request){
+        
+        $advertiserDetails = Setting::find(1);
         $pageTitle = 'Affiliates';
         $userType = $request->status ?? ''; 
         $page = $request->page ?? '1'; 
         $perPage = 25;
-        $url = env('AFFISE_API_END') . "admin/partners?limit={$perPage}&page={$page}&status={$userType}";
+        $url = $advertiserDetails->affise_endpoint . "admin/partners?limit={$perPage}&page={$page}&status={$userType}";
         $response = HTTP::withHeaders([
-            'API-Key' => env('AFFISE_API_KEY'),
+            'API-Key' => $advertiserDetails->affise_api_key,
         ])->get($url);
 
         if ($response->successful()) {
@@ -77,6 +82,7 @@ class UsersController extends Controller
                         return redirect()->back()->with('error', $validator->errors());
                     }
                     $fullname = explode(' ',$request->name);
+                    $randomPassword = rand();
                     User::create([
                         'unique_id' => rand(),
                         'affiseId' => $request->id,
@@ -88,8 +94,14 @@ class UsersController extends Controller
                         'api_key' => substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 16),
                         'postback_key' => substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 16),
                         //'password' => Hash::make(rand())
-                        'password' =>  Hash::make(1234556)
+                        'password' =>  Hash::make($randomPassword)
                     ]);
+                    $details = [
+                        'name' => $request->name,
+                        'email' => 'r.chouhan64@gmail.com',
+                        'password' => $randomPassword,
+                    ];
+                    Mail::to('r.chouhan64@gmail.com')->send(new NewAccountMail($details));
                     return redirect()->back()->with('success', 'User added successfully!');
                 }
             }else{
@@ -101,21 +113,16 @@ class UsersController extends Controller
 
     public function advertisers(Request $request){
         $pageTitle = 'Advertiser';
-        $page = $request->page ?? '1'; 
-        $perPage = 10;
-        $url = env('AFFISE_API_END') . "admin/advertisers?limit={$perPage}&page={$page}";
-        $response = HTTP::withHeaders([
-            'API-Key' => env('AFFISE_API_KEY'),
-        ])->get($url);
-        if ($response->successful()) {
-            $allAdvertsers = $response->json();
-            $pagination = $allAdvertsers['pagination'] ?? [];
-            $currentPage = $pagination['page'] ?? 1; 
-            $totalCount = $pagination['total_count'] ?? 0;
-            $prevPage = $pagination['prev_page'] ?? null;
-            $nextPage = $pagination['next_page'] ?? null;
+        $advertiserDetails = Setting::find(1);
+        if($request->isMethod('post')){
+            $advertiserDetails->advertiser_name = $request->advertiser_name;
+            $advertiserDetails->affise_api_key = $request->affise_api_key;
+            $advertiserDetails->affise_endpoint = $request->affise_endpoint;
+            $advertiserDetails->save();
+
+            return redirect()->back()->with('success','Details updated sucessfully');
         }
-        return view('users.advertiser',compact('pageTitle','allAdvertsers','pagination','currentPage','totalCount','perPage','prevPage','nextPage'));
+        return view('users.advertiser',compact('pageTitle','advertiserDetails'));
     }
 
     public function updateStatus($id){

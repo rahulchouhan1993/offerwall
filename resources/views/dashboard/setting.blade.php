@@ -44,9 +44,9 @@
                     <input type="text" name="linkedin" class="flex w-full px-[15px] py-[12px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none" value="{{ $settingsData->linkedin }}">
                 </div>
                 <div class="flex flex-col justify-start items-start flex-wrap md:flex-nowrap gap-[20px] mb-[15px]">
-                    <h2 class="w-full text-[16px] text-[#4D4D4D] font-[600]">Default Offer Image</h2>
+                    <h2 class="w-full text-[16px] text-[#4D4D4D] font-[600]">Default Offer Image (100 * 100px)</h2>
                     <input type="file" name="default_image" class="flex w-full px-[15px] py-[12px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none" >
-                    <img src="/uploads/{{  $settingsData->default_image }}">
+                    <img height="100px" width="100px" src="{{  $settingsData->default_image }}">
                 </div>
                 <div class="flex flex-col gap-[10px] mt-[40px]">
                     <h2 class="text-[16px] text-[#4D4D4D] font-[600]">Default Offer Description</h2>

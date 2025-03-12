@@ -121,9 +121,7 @@ class DashboardController extends Controller
                 $file = $request->file('default_image');
                 $filename = time() . '.' . $file->getClientOriginalExtension();
                 $file->move(public_path('uploads'), $filename);
-                $settingsData->default_image = $filename;
-            }else{
-                $settingsData->default_image = $settingsData->default_image;
+                $settingsData->default_image = env('APP_URL').'/uploads/'.$filename;
             }
             //$settingsData->content = $request->content;
             $settingsData->save();

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Country;
+use App\Models\Setting;
 use App\Models\App;
 use App\Models\User;
 use App\Models\Tracking;
@@ -131,6 +131,7 @@ class ReportsController extends Controller
     }
 
     public function filterGroup($filterBy = null){
+        $settingDetails = Setting::find(1);
         $returnOptions = '<option value="">Select</option>';
         if($filterBy=='country'){
             $allTrackings = Tracking::select('country_code', 'country_name')
@@ -157,9 +158,9 @@ class ReportsController extends Controller
             $allTrackings = Tracking::groupBy('offer_id')->pluck('offer_id');
             if(!empty($allTrackings)){
                 foreach($allTrackings as $tracking){
-                    $url = env('AFFISE_API_END').'offer/'.$tracking;
+                    $url = $settingDetails->affise_endpoint.'offer/'.$tracking;
                     $response = HTTP::withHeaders([
-                        'API-Key' => env('AFFISE_API_KEY'),
+                        'API-Key' => $settingDetails->affise_api_key,
                     ])->get($url);
                     
                     if ($response->successful()) {

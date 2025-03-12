@@ -24,7 +24,7 @@ use App\Models\User;
                         <th class=" bg-[#F6F6F6] rounded-tl-[10px] text-[12px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap ">Email</th>
                         <th class=" bg-[#F6F6F6] rounded-tl-[10px] text-[12px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap ">Affise Status</th>
                         <th class=" bg-[#F6F6F6] rounded-tl-[10px] text-[12px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap ">Offerwall Status</th>
-                        <th class=" bg-[#F6F6F6] rounded-tl-[10px] text-[12px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap ">API</th>
+                        <th class=" bg-[#F6F6F6] rounded-tl-[10px] text-[12px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap ">API Key</th>
                         <th class=" bg-[#F6F6F6] rounded-tl-[10px] text-[12px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap  text-right">Action</th>
                     </tr>
                 @if(!empty($allAffiliates['partners']))
