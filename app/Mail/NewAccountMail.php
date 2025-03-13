@@ -38,6 +38,7 @@ class NewAccountMail extends Mailable
     {
         return new Content(
             view: 'emails.new_account',
+            with: ['detail' => $this->details] 
         );
     }
 

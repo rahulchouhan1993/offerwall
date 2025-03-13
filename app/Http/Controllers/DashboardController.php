@@ -56,20 +56,17 @@ class DashboardController extends Controller
         $pageTitle = 'Offerwall Template';
         $templateColor = Template::find(1);
         if($request->isMethod('post')){
+            $templateColor->headerBg = $request->headerBg;
+            $templateColor->headerMenuBg = $request->headerMenuBg;
+            $templateColor->headerActiveBg = $request->headerActiveBg;
+            $templateColor->headerActiveTextColor = $request->headerActiveTextColor;
+            $templateColor->headerNonActiveTextColor = $request->headerNonActiveTextColor;
             $templateColor->bodyBg = $request->bodyBg;
-            $templateColor->headerTextColor = $request->headerTextColor;
-            $templateColor->headerButtonBg = $request->headerButtonBg;
-            $templateColor->headerButtonColor = $request->headerButtonColor;
-            $templateColor->NotificationBg = $request->NotificationBg;
-            $templateColor->notificationText = $request->notificationText;
             $templateColor->offerBg = $request->offerBg;
-            $templateColor->offerBgInner = $request->offerBgInner;
             $templateColor->offerText = $request->offerText;
-            $templateColor->offerInfoBg = $request->offerInfoBg;
-            $templateColor->offerInfoText = $request->offerInfoText;
-            $templateColor->offerInfoBorder = $request->offerInfoBorder;
             $templateColor->offerButtonBg = $request->offerButtonBg;
             $templateColor->offerButtonText = $request->offerButtonText;
+            $templateColor->footerBg = $request->footerBg;
             $templateColor->footerText = $request->footerText;
             $templateColor->save();
             return redirect()->back()->with('success','Template updated successfully');
