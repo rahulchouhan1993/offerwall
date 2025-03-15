@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="w-full">
-            <canvas id="roundedLineChart"></canvas>
+            <canvas class="w-full" id="roundedLineChart"></canvas>
         </div>
         {{-- <div class="flex items-center gap-[5px] md:gap-[15px]">
             <button
