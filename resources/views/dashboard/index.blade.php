@@ -30,13 +30,13 @@
         <div class="flex justify-between gap-[10px] items-center flex-wrap md-flex-nowrap mb-[25px]">
             <h2 class="text-[20px] text-[#1A1A1A] font-[600]">Conversion Matrix</h2>
             <div x-data="select" class="flex flex-wrap md-flex-nowrap items-start gap-[15px] " @click.outside="open = false">
-                <div class="relative w-[100%] sm:w-[290px] md:w-[300px]">
+                <div class="relative w-[100%] sm:w-[200px]">
                     {{-- <label for="" class="w-full text-[14] text-[#898989]">Date</label> --}}
-                    <input name="range" class="dateRange w-[100%] lg:w-[90%] bg-[#F6F6F6] px-[15px] py-[12px] text-[14px] font-[600] text-[#4D4D4D] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none" type="text" value="">
+                    <input name="range" class="dateRange w-[100%] lg:w-[100%] bg-[#F6F6F6] px-[15px] py-[12px] text-[13px] font-[600] text-[#4D4D4D] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none" type="text" value="">
                 </div>
-                <div class="relative w-[100%] sm:w-[290px] md:w-[300px]">
+                <div class="relative w-[100%] sm:w-[220px]">
                     {{-- <label for="" class="w-full text-[14] text-[#898989]">Affiliate</label> --}}
-                    <select class=" select-affiliate-dash z-2 absolute mt-1 w-[100%] rounded bg-[#F6F6F6] border-[1px] border-[#E6E6E6] rounded-[5px]" x-show="open">
+                    <select class=" select-affiliate-dash z-2 absolute mt-1 w-[100%] rounded bg-[#F6F6F6] border-[1px] border-[#E6E6E6] rounded-[5px] text-[13px] font-[600] text-[#4D4D4D]" x-show="open">
                         <option value="">Select Affiliate</option>
                         @foreach ($affiliateOptions as $affiliateData)
                             <option value="{{ $affiliateData->id }}">{{ $affiliateData->name.' '.$affiliateData->last_name }}</option>
