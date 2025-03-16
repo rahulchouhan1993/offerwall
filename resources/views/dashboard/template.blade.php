@@ -238,13 +238,16 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <div class="footerBg-colordy" style="position:absolute; bottom:0;left:0; right:0; padding: 5px 5px; display: flex ; justify-content: space-between; align-items: center; width: 100%; background-color: #d196f8;">
                         <h2 style="margin: 0; font-size: 11px; font-weight: 600; color: #ce68ce;">
                             <img style="max-width: 100px;" src="/images/logo.png">
                         </h2>
+                        @if ($settingsData->privacy_policy===1)
                         <p class="footerText-colordy" style="margin: 0px; font-size: 12px; color: #9514eb;">Privacy policy</p>
+                        @endif
                     </div>
+                    
                 </div>
 
                 

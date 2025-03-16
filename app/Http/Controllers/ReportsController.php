@@ -15,6 +15,7 @@ class ReportsController extends Controller
     public function statistics(Request $request){
         $pageTitle = 'Statistics';
         $allAffiliatesApp = [];
+        $settingDetails = Setting::find(1);
         $allRegisteredAffiliates = User::where('status',1)->where('role','affiliate')->get();
         $trackingStats = Tracking::query();
         $requestedParams = $request->all();
@@ -103,6 +104,18 @@ class ReportsController extends Controller
         $graphData = [];
         if($allStatistics->isNotEmpty()){
             foreach($allStatistics as $k => $v){
+                //special condition for offer grouped by
+                if($requestedParams['groupBy']=='offer'){
+                    $url = $settingDetails->affise_endpoint.'offer/'.$v->element;
+                    $response = HTTP::withHeaders([
+                        'API-Key' => $settingDetails->affise_api_key,
+                    ])->get($url);
+                    
+                    if ($response->successful()) {
+                        $offerDetails = $response->json();
+                        $v->element = ucfirst($offerDetails['offer']['title']);
+                    }
+                }
                 $graphData[$v->element]['conversion'] = $v->total_conversions;
                 $graphData[$v->element]['clicks'] = $v->total_click;
             }
@@ -110,7 +123,7 @@ class ReportsController extends Controller
         
         if(isset($requestedParams['affiliate']) && $requestedParams['affiliate']>0){
             $allAffiliatesApp = App::where('affiliateId',$requestedParams['affiliate'])->get();
-        }
+        } 
         
         return view('reports.statistics',compact('pageTitle','allStatistics','allAffiliatesApp','allRegisteredAffiliates','requestedParams','graphData'));
     }

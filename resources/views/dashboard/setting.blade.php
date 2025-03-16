@@ -26,7 +26,15 @@
                             </label>
                     </div>
                 </div>
-                
+                <div class="flex items-center justify-start flex-wrap md:flex-nowrap gap-[20px] mb-[15px]">
+                    <h2 class="w-[160px] text-[16px] text-[#4D4D4D] font-[600]">Privacy Policy</h2>
+                    <div class="switch">
+                        <label class="switch">
+                            <input type="checkbox" name="privacy_policy" {{ $settingsData->privacy_policy == 1 ? 'checked' : '' }}>
+                            <span class="slider round"></span>
+                            </label>
+                    </div>
+                </div>
                 <div class="flex flex-col justify-start items-start flex-wrap md:flex-nowrap gap-[20px] mb-[15px]">
                     <h2 class="w-[100%] md:w-[155px] text-[16px] text-[#4D4D4D] font-[600]">Support Email</h2>
                     <input type="text" name="support_email" class="flex w-full px-[15px] py-[12px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none" value="{{ $settingsData->support_email }}">

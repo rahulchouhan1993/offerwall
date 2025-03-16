@@ -53,6 +53,7 @@ class DashboardController extends Controller
     }
 
     public function template(Request $request){
+        $settingsData = Setting::find(1);
         $pageTitle = 'Offerwall Template';
         $templateColor = Template::find(1);
         if($request->isMethod('post')){
@@ -71,7 +72,8 @@ class DashboardController extends Controller
             $templateColor->save();
             return redirect()->back()->with('success','Template updated successfully');
         }
-        return view('dashboard.template',compact('pageTitle','templateColor'));
+        
+        return view('dashboard.template',compact('pageTitle','templateColor','settingsData'));
     }
 
     public function profile(Request $request){
@@ -114,6 +116,7 @@ class DashboardController extends Controller
             //$settingsData->facebook = $request->facebook;
             $settingsData->conversion_report = ($request->conversion=='on') ? 1 : 0;
             $settingsData->postback_report = ($request->postback=='on') ? 1 : 0;
+            $settingsData->privacy_policy = ($request->privacy_policy=='on') ? 1 : 0;
             if ($request->hasFile('default_image')) {
                 $file = $request->file('default_image');
                 $filename = time() . '.' . $file->getClientOriginalExtension();
