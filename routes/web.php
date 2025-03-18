@@ -43,5 +43,6 @@ Route::middleware('auth')->group(function () {
     
     // Chart Data
     Route::get('/chart-data', [ChartController::class, 'chartData'])->name('chart.data');
+    Route::get('/chart-profit', [ChartController::class, 'chartDataProfit'])->name('chart.profit');
     Route::get('/filterGroup/{type?}', [ReportsController::class, 'filterGroup'])->name('filterGroup');
 });

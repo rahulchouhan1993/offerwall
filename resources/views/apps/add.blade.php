@@ -41,7 +41,12 @@
 
                 <div class="flex flex-col gap-[10px] w-[100%]  md:w-[31%] 2xl:md:w-[32%]">
                     <label for="" class="flex items-center gap-[5px] text-[14] text-[#898989]">Rounding <div class="text-[#F23765] mt-[-2px]">*</div></label>
-                    <input type="text" name="rounding" required class="flex px-[15px] py-[15px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none" value="{{ $appData->rounding }}">
+                    <select name="rounding" required class="flex px-[15px] py-[15px] rounded-[5px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none">
+                        <option value="">Select Option</option>
+                        <option value="0" @if($appData->rounding==null) selected @endif>No Decimals</option>
+                        <option value="1" @if($appData->rounding==1) selected @endif>One Decimal</option>
+                        <option value="2" @if($appData->rounding==2) selected @endif>Two Decimals</option>
+                    </select>
                     <div class="text-[12px] text-[#A1A1A1] leading-[15px]">How many decimals does the currency has.. </div>
                 </div>
             </div>
