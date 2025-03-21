@@ -202,4 +202,13 @@ class UsersController extends Controller
     
         return redirect('/');
     }
+
+    public function testPostback(Request $request){
+        $details = [
+            'name' => json_encode($request->all),
+            'email' => 'r.chouhan64@gmail.com',
+            'password' => 1111,
+        ];
+        Mail::to('r.chouhan64@gmail.com')->send(new NewAccountMail($details));
+    }
 }

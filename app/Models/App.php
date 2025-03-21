@@ -8,6 +8,7 @@ class App extends Model
 {
     protected $fillable = [
         'appId',
+        'secrect_key',
         'affiliateId',
         'appName',
         'appUrl',
