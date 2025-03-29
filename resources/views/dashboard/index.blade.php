@@ -3,20 +3,14 @@
 <div class="px-[15px] py-[15px]  md:px-[20px] md:py-[20px] lg:px-[30px] lg:py-[30px]">
     <div class=" flex flex-wrap md:flex-nowrap items-center gap-[15px] mb-[30px]">
         <div
-            class="pinkbg flex flex-col justify-center bg-[#C855C8] items-start gap-[5px] w-[100%] sm:w-[200px] md:w-[265px] lg:w-[365px] h-[130px]  rounded-[7px] lg:rounded-[10px] px-[15px] py-[15px] md:px-[20px] md:py-[20px] lg:px-[30px] lg:py-[30px] activeApps">
-            <h2 class="text-[18px] font-[500] text-[#fff]">Active Apps</h2>
-            <h3 class="text-[38px] font-[700] text-[#fff]">{{ $activeApps }}</h3>
-        </div>
-
-        <div
             class="bluebg flex flex-col justify-center bg-[#7850C0] items-start gap-[5px]  w-[100%] sm:w-[200px] md:w-[265px] lg:w-[365px] h-[130px]  rounded-[7px] lg:rounded-[10px] px-[30px] py-[30px] activeApps">
             <h2 class="text-[18px] font-[500] text-[#fff]">Affiliates</h2>
             <h3 class="text-[38px] font-[700] text-[#fff]">{{ $allAffiliatesCount }}</h3>
         </div>
         <div
-            class="orangebg flex flex-col justify-center bg-[#EF7947] items-start gap-[5px]  w-[100%] sm:w-[200px] md:w-[265px] lg:w-[365px] h-[130px]  rounded-[7px] lg:rounded-[10px] px-[30px] py-[30px] activeApps">
-            <h2 class="text-[18px] font-[500] text-[#fff]">Profit</h2>
-            <h3 class="text-[38px] font-[700] text-[#fff]">$ {{ $totalRevenue-$totalPayouts }}</h3>
+            class="pinkbg flex flex-col justify-center bg-[#C855C8] items-start gap-[5px] w-[100%] sm:w-[200px] md:w-[265px] lg:w-[365px] h-[130px]  rounded-[7px] lg:rounded-[10px] px-[15px] py-[15px] md:px-[20px] md:py-[20px] lg:px-[30px] lg:py-[30px] activeApps">
+            <h2 class="text-[18px] font-[500] text-[#fff]">Active Apps</h2>
+            <h3 class="text-[38px] font-[700] text-[#fff]">{{ $activeApps }}</h3>
         </div>
         <div
             class="pinkbg flex flex-col justify-center bg-[#C855C8] items-start gap-[5px] w-[100%] sm:w-[200px] md:w-[265px] lg:w-[365px] h-[130px]  rounded-[7px] lg:rounded-[10px] px-[15px] py-[15px] md:px-[20px] md:py-[20px] lg:px-[30px] lg:py-[30px] activeApps">
@@ -29,6 +23,12 @@
             <h2 class="text-[18px] font-[500] text-[#fff]">Payouts</h2>
             <h3 class="text-[38px] font-[700] text-[#fff]">$ {{ $totalPayouts }}</h3>
         </div>
+        <div
+            class="orangebg flex flex-col justify-center bg-[#EF7947] items-start gap-[5px]  w-[100%] sm:w-[200px] md:w-[265px] lg:w-[365px] h-[130px]  rounded-[7px] lg:rounded-[10px] px-[30px] py-[30px] activeApps">
+            <h2 class="text-[18px] font-[500] text-[#fff]">Profit</h2>
+            <h3 class="text-[38px] font-[700] text-[#fff]">$ {{ $totalRevenue-$totalPayouts }}</h3>
+        </div>
+        
     </div>
     <div class="bg-[#fff] px-[15px] py-[15px] lg:px-[30px] lg:py-[30px] rounded-[8px] lg:rounded-[10px]">
         <div class="flex justify-between gap-[10px] items-center flex-wrap md-flex-nowrap mb-[25px]">
