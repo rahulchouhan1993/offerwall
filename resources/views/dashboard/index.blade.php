@@ -1,6 +1,19 @@
 @extends('layouts.default')
 @section('content') 
 <div class="px-[15px] py-[15px]  md:px-[20px] md:py-[20px] lg:px-[30px] lg:py-[30px]">
+    <div x-data="select" class="flex flex-wrap md-flex-nowrap items-start gap-[15px] " @click.outside="open = false">
+        <div class="relative w-[100%] sm:w-[200px]">
+            <input name="range" class="dateRange date-range-profit w-[100%] lg:w-[100%] bg-[#F6F6F6] px-[15px] py-[12px] text-[13px] font-[600] text-[#4D4D4D] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none" type="text" value="">
+        </div>
+        <div class="relative w-[100%] sm:w-[220px]">
+            <select class=" select-affiliate-dash  affiliate-profit z-2 absolute mt-1 w-[100%] rounded bg-[#F6F6F6] border-[1px] border-[#E6E6E6] rounded-[5px] text-[13px] font-[600] text-[#4D4D4D]" x-show="open">
+                <option value="">Select Affiliate</option>
+                @foreach ($affiliateOptions as $affiliateData)
+                    <option value="{{ $affiliateData->id }}">{{ $affiliateData->name.' '.$affiliateData->last_name }}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
     <div class=" flex flex-wrap md:flex-nowrap items-center gap-[15px] mb-[30px]">
         <div
             class="bluebg flex flex-col justify-center bg-[#7850C0] items-start gap-[5px]  w-[100%] sm:w-[200px] md:w-[265px] lg:w-[365px] h-[130px]  rounded-[7px] lg:rounded-[10px] px-[30px] py-[30px] activeApps">
@@ -33,19 +46,6 @@
     <div class="bg-[#fff] px-[15px] py-[15px] lg:px-[30px] lg:py-[30px] rounded-[8px] lg:rounded-[10px]">
         <div class="flex justify-between gap-[10px] items-center flex-wrap md-flex-nowrap mb-[25px]">
             <h2 class="text-[20px] text-[#1A1A1A] font-[600]">Profit Overview</h2>
-            <div x-data="select" class="flex flex-wrap md-flex-nowrap items-start gap-[15px] " @click.outside="open = false">
-                <div class="relative w-[100%] sm:w-[200px]">
-                    <input name="range" class="dateRange date-range-profit w-[100%] lg:w-[100%] bg-[#F6F6F6] px-[15px] py-[12px] text-[13px] font-[600] text-[#4D4D4D] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none" type="text" value="">
-                </div>
-                <div class="relative w-[100%] sm:w-[220px]">
-                    <select class=" select-affiliate-dash  affiliate-profit z-2 absolute mt-1 w-[100%] rounded bg-[#F6F6F6] border-[1px] border-[#E6E6E6] rounded-[5px] text-[13px] font-[600] text-[#4D4D4D]" x-show="open">
-                        <option value="">Select Affiliate</option>
-                        @foreach ($affiliateOptions as $affiliateData)
-                            <option value="{{ $affiliateData->id }}">{{ $affiliateData->name.' '.$affiliateData->last_name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
         </div>
         <div class="w-full">
             <canvas class="w-full" id="roundedLineChartProfit"></canvas>
