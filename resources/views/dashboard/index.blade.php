@@ -1,19 +1,24 @@
 @extends('layouts.default')
 @section('content') 
 <div class="px-[15px] py-[15px]  md:px-[20px] md:py-[20px] lg:px-[30px] lg:py-[30px]">
-    <div x-data="select" class="flex flex-wrap md-flex-nowrap items-start gap-[15px] " @click.outside="open = false">
-        <div class="relative w-[100%] sm:w-[200px]">
-            <input name="range" class="dateRange date-range-profit w-[100%] lg:w-[100%] bg-[#F6F6F6] px-[15px] py-[12px] text-[13px] font-[600] text-[#4D4D4D] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none" type="text" value="">
+    <form method="get">
+        <div x-data="select" class="flex flex-wrap md-flex-nowrap items-start gap-[15px] " @click.outside="open = false">
+            <div class="relative w-[100%] sm:w-[200px]">
+                <input name="range" class="date-range-profit w-[100%] lg:w-[100%] bg-[#F6F6F6] px-[15px] py-[12px] text-[13px] font-[600] text-[#4D4D4D] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none" type="text" value="{{ request('range') }}">
+            </div>
+            <div class="relative w-[100%] sm:w-[220px]">
+                <select name="affiliate_id" class=" select-affiliate-dash  affiliate-profit z-2 absolute mt-1 w-[100%] rounded bg-[#F6F6F6] border-[1px] border-[#E6E6E6] rounded-[5px] text-[13px] font-[600] text-[#4D4D4D]" x-show="open">
+                    <option value="">Select Affiliate</option>
+                    @foreach ($affiliateOptions as $affiliateData)
+                        <option value="{{ $affiliateData->id }}" @if(request('affiliate_id')==$affiliateData->id) selected  @endif>{{ $affiliateData->name.' '.$affiliateData->last_name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="relative w-[100%] sm:w-[200px]">
+                <button type="submit" class="w-[100px] md:w-[110px] lg:w-[140px] bg-[#D272D2] px-[20px] py-[10px] w-[100px] rounded-[4px] text-[14px] font-[500] text-[#fff] text-center">Filter</button>
+            </div>
         </div>
-        <div class="relative w-[100%] sm:w-[220px]">
-            <select class=" select-affiliate-dash  affiliate-profit z-2 absolute mt-1 w-[100%] rounded bg-[#F6F6F6] border-[1px] border-[#E6E6E6] rounded-[5px] text-[13px] font-[600] text-[#4D4D4D]" x-show="open">
-                <option value="">Select Affiliate</option>
-                @foreach ($affiliateOptions as $affiliateData)
-                    <option value="{{ $affiliateData->id }}">{{ $affiliateData->name.' '.$affiliateData->last_name }}</option>
-                @endforeach
-            </select>
-        </div>
-    </div>
+    </form>
     <div class=" flex flex-wrap md:flex-nowrap items-center gap-[15px] mb-[30px]">
         <div
             class="bluebg flex flex-col justify-center bg-[#7850C0] items-start gap-[5px]  w-[100%] sm:w-[200px] md:w-[265px] lg:w-[365px] h-[130px]  rounded-[7px] lg:rounded-[10px] px-[30px] py-[30px] activeApps">
@@ -53,108 +58,19 @@
        
     </div>
     <div class="mt-[20px]">
-    <div class="bg-[#fff] px-[15px] py-[15px] lg:px-[30px] lg:py-[30px] rounded-[8px] lg:rounded-[10px]">
-        <div class="flex justify-between gap-[10px] items-center flex-wrap md-flex-nowrap mb-[25px]">
-            <h2 class="text-[20px] text-[#1A1A1A] font-[600]">Conversion Matrix</h2>
-            <div x-data="select" class="flex flex-wrap md-flex-nowrap items-start gap-[15px] " @click.outside="open = false">
-                <div class="relative w-[100%] sm:w-[200px]">
-                    {{-- <label for="" class="w-full text-[14] text-[#898989]">Date</label> --}}
-                    <input name="range" class="dateRange  date-range-matrix w-[100%] lg:w-[100%] bg-[#F6F6F6] px-[15px] py-[12px] text-[13px] font-[600] text-[#4D4D4D] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none" type="text" value="">
-                </div>
-                <div class="relative w-[100%] sm:w-[220px]">
-                    {{-- <label for="" class="w-full text-[14] text-[#898989]">Affiliate</label> --}}
-                    <select class=" select-affiliate-dash affiliate-matrix z-2 absolute mt-1 w-[100%] rounded bg-[#F6F6F6] border-[1px] border-[#E6E6E6] rounded-[5px] text-[13px] font-[600] text-[#4D4D4D]" x-show="open">
-                        <option value="">Select Affiliate</option>
-                        @foreach ($affiliateOptions as $affiliateData)
-                            <option value="{{ $affiliateData->id }}">{{ $affiliateData->name.' '.$affiliateData->last_name }}</option>
-                        @endforeach
-                    </select>
-                </div>
+        <div class="bg-[#fff] px-[15px] py-[15px] lg:px-[30px] lg:py-[30px] rounded-[8px] lg:rounded-[10px]">
+            <div class="flex justify-between gap-[10px] items-center flex-wrap md-flex-nowrap mb-[25px]">
+                <h2 class="text-[20px] text-[#1A1A1A] font-[600]">Conversion Matrix</h2>
+            </div>
+            <div class="w-full">
+                <canvas class="w-full" id="roundedLineChart"></canvas>
             </div>
         </div>
-        <div class="w-full">
-            <canvas class="w-full" id="roundedLineChart"></canvas>
-        </div>
-    </div>
     </div>
 
     <div class="mt-[20px]">
         <div class="flex items-start flex-wrap gap-[10px] xl:flex-nowrap gap-[15px] justify-between">
-
             <div class="flex flex-col items-start w-[100%] xl:w-[32%] gap-[10px] bg-[#fff] p-[15px] rounded-[10px] min-h-[340px]">
-                <h2 class="mb-[5px] text-[17px] text-[#1A1A1A] font-[600] ">
-                    Affiliate Leaderboard By App
-                </h2>
-                <div class="w-[100%] overflow-x-scroll tableScroll">
-                    <table
-                        class="w-[100%] border-collapse border-spacing-0 rounded-[10px] border-separate border border-[#E6E6E6]">
-                        <tr>
-                            <th
-                                class="bg-[#F6F6F6] rounded-tl-[10px] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap ">
-                                Affiliate Name</th>
-                            <th
-                                class="bg-[#F6F6F6] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap">
-                                Apps</th>
-
-                        </tr>
-                        @if($affiliateByApp->isNotEmpty())
-                        @foreach ($affiliateByApp as $affiliateApp)
-                        <tr>
-                            <th
-                                class="max-w-[500px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-normal border-b-[1px] border-b-[#E6E6E6]">
-                                {{ $affiliateApp->name.' '.$affiliateApp->last_name }}</th>
-                            <th
-                                class="max-w-[500px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-normal  border-b-[1px] border-b-[#E6E6E6]">
-                                {{ $affiliateApp->apps_count }}</th>
-                            </th>
-                        </tr>
-                        @endforeach
-                        @else
-                        <tr>
-                            <th colspan="2"
-                                class="bg-[#F6F6F6] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap ">
-                               No Stats Found</th>
-                            </th>
-                        </tr>
-                        @endif
-                    </table>
-                </div>
-            </div>
-
-
-            <div class="flex flex-col items-start  w-[100%] xl:w-[32%]  gap-[10px] bg-[#fff] p-[15px] rounded-[10px] min-h-[340px]">
-                <h2 class="mb-[5px] text-[17px] text-[#1A1A1A] font-[600] ">
-                    Affiliate Leaderboard By Conversions
-                </h2>
-                <div class="w-[100%] overflow-x-scroll tableScroll">
-                    <table
-                        class="w-[100%] border-collapse border-spacing-0 rounded-[10px] border-separate border border-[#E6E6E6]">
-                        <tr>
-                            <th
-                                class="bg-[#F6F6F6] rounded-tl-[10px] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap ">
-                                Affiliate Name</th>
-                            <th
-                                class="bg-[#F6F6F6] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap">
-                                Conversions</th>
-
-                        </tr>
-                        @if($affiliateByRevenue->isNotEmpty())
-                        @foreach ($affiliateByRevenue as $detailedStats)
-                        <tr>
-                            <td
-                                class="max-w-[500px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-normal border-b-[1px] border-b-[#E6E6E6] ">
-                                {{ $detailedStats->name.' '.$detailedStats->name }}</td>
-                            <td
-                                class="max-w-[500px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-normal  border-b-[1px] border-b-[#E6E6E6]">
-                                {{ $detailedStats->trackings_count }}</td>
-                        </tr>
-                        @endforeach
-                        @endif
-                    </table>
-                </div>
-            </div>
-
-            <div class="flex flex-col items-start  w-[100%] xl:w-[32%]  gap-[10px] bg-[#fff] p-[15px] rounded-[10px] min-h-[340px]">
                 <h2 class="mb-[5px] text-[17px] text-[#1A1A1A] font-[600] ">
                     Affiliate Leaderboard By Revenue
                 </h2>
@@ -167,7 +83,7 @@
                                 Affiliate Name</th>
                             <th
                                 class="bg-[#F6F6F6] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap">
-                                Revenue</th>
+                                Amount</th>
 
                         </tr>
                         @if($affiliateByRevenue->isNotEmpty())
@@ -186,18 +102,104 @@
                 </div>
             </div>
 
+
+            <div class="flex flex-col items-start  w-[100%] xl:w-[32%]  gap-[10px] bg-[#fff] p-[15px] rounded-[10px] min-h-[340px]">
+                <h2 class="mb-[5px] text-[17px] text-[#1A1A1A] font-[600] ">
+                    Affiliate Leaderboard By Payout
+                </h2>
+                <div class="w-[100%] overflow-x-scroll tableScroll">
+                    <table
+                        class="w-[100%] border-collapse border-spacing-0 rounded-[10px] border-separate border border-[#E6E6E6]">
+                        <tr>
+                            <th
+                                class="bg-[#F6F6F6] rounded-tl-[10px] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap ">
+                                Affiliate Name</th>
+                            <th
+                                class="bg-[#F6F6F6] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap">
+                                Amount</th>
+
+                        </tr>
+                        @if($affiliateByRevenue->isNotEmpty())
+                        @foreach ($affiliateByRevenue as $detailedStats)
+                        <tr>
+                            <td
+                                class="max-w-[500px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-normal border-b-[1px] border-b-[#E6E6E6] ">
+                                {{ $detailedStats->name.' '.$detailedStats->name }}</td>
+                            <td
+                                class="max-w-[500px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-normal  border-b-[1px] border-b-[#E6E6E6]">
+                                {{ $detailedStats->trackings_sum_payout }}</td>
+                        </tr>
+                        @endforeach
+                        @endif
+                    </table>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-start  w-[100%] xl:w-[32%]  gap-[10px] bg-[#fff] p-[15px] rounded-[10px] min-h-[340px]">
+                <h2 class="mb-[5px] text-[17px] text-[#1A1A1A] font-[600] ">
+                    Affiliate Leaderboard By Profit
+                </h2>
+                <div class="w-[100%] overflow-x-scroll tableScroll">
+                    <table
+                        class="w-[100%] border-collapse border-spacing-0 rounded-[10px] border-separate border border-[#E6E6E6]">
+                        <tr>
+                            <th
+                                class="bg-[#F6F6F6] rounded-tl-[10px] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap ">
+                                Affiliate Name</th>
+                            <th
+                                class="bg-[#F6F6F6] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap">
+                                Amount</th>
+
+                        </tr>
+                        @if($affiliateByRevenue->isNotEmpty())
+                        @foreach ($affiliateByRevenue as $detailedStats)
+                        <tr>
+                            <td
+                                class="max-w-[500px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-normal border-b-[1px] border-b-[#E6E6E6] ">
+                                {{ $detailedStats->name.' '.$detailedStats->name }}</td>
+                            <td
+                                class="max-w-[500px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-normal  border-b-[1px] border-b-[#E6E6E6]">
+                                $ {{ $detailedStats->trackings_sum_profit }}</td>
+                        </tr>
+                        @endforeach
+                        @endif
+                    </table>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
 <script>
+$(function () {
+    var startDate = "{{ $requestedParams['strd'] }}"
+    var endDate = "{{ $requestedParams['endd'] }}"
+    $('.date-range-profit').daterangepicker({
+        ranges: {
+        'Today': [moment(), moment()],
+        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+        'This Month': [moment().startOf('month'), moment().endOf('month')],
+        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        },
+        autoUpdateInput: true, 
+        startDate: startDate, 
+        endDate: endDate,
+        opens: 'right'
+    }, function(start, end, label) {
+        console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+    });
+});
+
 document.addEventListener('DOMContentLoaded', function () {
     const ctx = document.getElementById('roundedLineChart').getContext('2d');
     const ctx2 = document.getElementById('roundedLineChartProfit').getContext('2d');
     let myChart; // Store chart instance globally
     let myChart2;
     function fetchChartData() {
-        const dateRange = $('.date-range-matrix').val();
-        const affiliate = $('.affiliate-matrix').val();
+        const dateRange = $('.date-range-profit').val();
+        const affiliate = $('.affiliate-profit').val();
 
         fetch(`{{ route('chart.data') }}?date_range=${encodeURIComponent(dateRange)}&affiliate=${encodeURIComponent(affiliate)}`)
             .then(response => response.json())
@@ -338,10 +340,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // ✅ Re-fetch chart data when filters (date range or affiliate) change
     $('.date-range-profit, .affiliate-profit').on('change', function () {
-        fetchChartDataProfit();
+        //fetchChartDataProfit();
     });
     $('.date-range-matrix, .affiliate-matrix').on('change', function () {
-        fetchChartData();
+        //fetchChartData();
     });
 });
 
