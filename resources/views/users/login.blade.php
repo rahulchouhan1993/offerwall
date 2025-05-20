@@ -49,54 +49,33 @@
                             </div>
                         </div>
                     </div>
-                <!-- Reset Password -->
-                {{-- <div id="resetpassword" class="flex flex-col gap-[25px] hide  ">
-                    <div class="">
-                        <div class="text-[16px] font-[600] text-[#1A1A1A] mb-[8px]">Email</div>
-                        <div class="relative">
-                            <input type="email" placeholder="Email"
-                                class="block w-[100%] border-[1px] border-[#00000021] rounded-[7px] px-[15px] pr-[55px] py-[15px] bg-[#F6F6F6] hover:outline-none focus:outline-none">
-                            <div class="absolute top-[16px] right-[22px]">
-                            <i class="ri-mail-fill text-[#BFBFBF]"></i>
-
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-                <div class="text-right mt-[8px]">
-                    <a id="resetPass" href="#" class="text-[14px] text-[#D272D2] font-[500]" onclick="resetPass()">Reset password</a>
-                </div>--}}
+                
                     <div class="mt-[30px]">
                         <button type="submit" class="w-[100%] bg-[#D272D2] px-[10px] py-[15px] text-[18px] text-[#fff] font-[500] text-center rounded-[8px] hover:bg-[#000]">
                         Login
                         </button>
                     </div>
                 </form>
-                {{-- <div class="flex items-center justify-between gap-[15px] mt-[60px]">
-                    <div class="w-[48%] h-[1px] bg-[#ccc]"></div>
-                    <div class="text-[14px] font-[500] text-[#898989]">OR</div>
-                    <div class="w-[48%] h-[1px] bg-[#ccc]"></div>
-                </div>
-                <div class="mt-[50px] text-[14px] font-[500] text-[#898989] text-center">
-                Don’t have an account? 
-                    <a href="#" class="text-[#D272D2] underline hover:text-[#000] hover:no-underline ">
-                    Sign Up
-                    </a>
-                </div> --}}
             </div>
         </div>
     </div>
-    <!-- <div class="w-[100%]  lg:w-[55%] max-w-[1070px]">
-        <img class="w-[100%] max-w-[100%] h-[100%] " src="images/loginbanner.jpg" alt="">
-    </div> -->
 </div>
 <script>
+    $(document).ready(function() {
+        setInterval(() => {
+            fetch('/refresh-csrf')
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelector('input[name="_token"]').value = data.csrf;
+                });
+        }, 5 * 60 * 1000); // every 5 minutes
+    });
     function resetPass() {
-    var element = document.getElementById("loginForm");
-    element.classList.add("hide");
+        var element = document.getElementById("loginForm");
+        element.classList.add("hide");
 
-    var element = document.getElementById("resetpassword");
-    element.classList.remove("hide");
+        var element = document.getElementById("resetpassword");
+        element.classList.remove("hide");
     }
 </script> 
 @stop
