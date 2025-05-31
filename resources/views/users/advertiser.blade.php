@@ -47,7 +47,7 @@
 
     <br>
     
-    <div class="flex flex-col lg:flex-row justify-between items-start gap-[15px] w-[100%] ">
+   <div class="flex flex-col lg:flex-row justify-between items-start gap-[15px] w-[100%] ">
         <div class="w-[100%] lg:w-[100%] bg-[#fff] p-[15px] md:p-[20px] rounded-[10px]">
             <div class="flex items-center justify-between gap-[10px] mb-[20px]">
                 <h2 class="text-[20px] text-[#1A1A1A] font-[600]">Offers Parameters and values</h2>
