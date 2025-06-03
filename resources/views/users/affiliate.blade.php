@@ -25,6 +25,7 @@ use App\Models\User;
                         <th class=" bg-[#F6F6F6] rounded-tl-[10px] text-[12px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap ">Affise Status</th>
                         <th class=" bg-[#F6F6F6] rounded-tl-[10px] text-[12px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap ">Offerwall Status</th>
                         <th class=" bg-[#F6F6F6] rounded-tl-[10px] text-[12px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap ">API Key</th>
+                        <th class=" bg-[#F6F6F6] rounded-tl-[10px] text-[12px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap ">Payment Methods</th>
                         <th class=" bg-[#F6F6F6] rounded-tl-[10px] text-[12px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap  text-right">Action</th>
                     </tr>
                 @if(!empty($allAffiliates['partners']))
@@ -54,6 +55,7 @@ use App\Models\User;
                         @endif
                        
                         <td title="cebad6fc330de7124462cb182e9c2cd17991cbf2" class=" text-[12px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap  border-b-[1px] border-b-[#E6E6E6]">{{ $affiliate['api_key'] }}</td>
+                        <td title="cebad6fc330de7124462cb182e9c2cd17991cbf2" class=" text-[12px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap  border-b-[1px] border-b-[#E6E6E6]"><a href="{{ route('payment.details') }}">Add Money Icon Here</a></td>
                         <td class="w-[120px] text-[12px] font-[500] text-[#808080] px-[10px] py-[10px] text-right whitespace-nowrap  border-b-[1px] border-b-[#E6E6E6] text-center">
                         <div class="flex items-center justify-end gap-[10px]">
                             @if(!$validateUserCreation && $affiliate['status']=='active')
