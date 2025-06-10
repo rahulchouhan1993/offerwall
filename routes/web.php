@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/affiliates', [UsersController::class, 'affiliates'])->name('admin.users.affiliates');
     Route::post('/add-affiliate', [UsersController::class, 'addAffiliates'])->name('admin.users.addaffiliates');
     Route::get('/update-affiliate-status/{id}', [UsersController::class, 'updateStatus'])->name('admin.affiliate.status');
-    Route::match(['post','get'],'/advertiser', [UsersController::class, 'advertisers'])->name('admin.users.advertisers');
+    Route::match(['post','get'],'/advertiser', [UsersController::class, 'advertisers'])->name('admin.users.advertisers'); 
 
     // Reports
     Route::get('/statistics', [ReportsController::class, 'statistics'])->name('admin.report.statistics');
@@ -51,7 +51,9 @@ Route::middleware('auth')->group(function () {
     
     //Invoices
     Route::get('/invoices', [AppsController::class, 'invoices'])->name('apps.invoices');
-    Route::get('/payment-details', [AppsController::class, 'paymentDetails'])->name('payment.details');
+    Route::get('/payment-details/{id}', [AppsController::class, 'paymentDetails'])->name('payment.details');
+    Route::get('/create-invoice', [AppsController::class, 'createInvoice'])->name('create.invoice');
+    Route::get('/invoice-preview/{id}', [AppsController::class, 'invoicePreview'])->name('invoice.preview');
 
     // Chart Data
     Route::get('/chart-data', [ChartController::class, 'chartData'])->name('chart.data');
