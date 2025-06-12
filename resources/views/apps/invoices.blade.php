@@ -16,6 +16,7 @@
         </div>
         <div class="flex flex-col lg:flex-row justify-between items-start gap-[15px] w-full">
             <div class="w-full bg-white p-[15px] md:p-[20px] rounded-[10px] custom_filter">
+                <h2 class="w-full lg:w-auto text-[20px] text-[#1A1A1A] font-[600]">All Invoices</h2>
                 <form>
                     <div class="flex flex-wrap md-flex-nowrap items-start gap-[7px] md:gap-[15px] justify-end mb-[15px]">
                         {{-- <div class="relative w-[100%] sm:w-[200px]">

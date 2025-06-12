@@ -229,9 +229,8 @@ class AppsController extends Controller
                 $allStatistics = collect(); // or set it to null or default values
             }
             $allStatistics = $trackingStats->get();
-            
         }
-
+        echo "<pre>"; print_R($allStatistics);die;
         return view('apps.create-invoice',compact('pageTitle','allAffiliates','allStatistics','requestedParams'));
     }
 
