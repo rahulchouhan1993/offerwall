@@ -7,8 +7,11 @@ use App\Models\PaymentMethod;
 use App\Models\User;
 use App\Models\Template;
 use App\Models\Tracking;
+use App\Models\Invoice;
+use App\Models\InvoiceDetail;
 use Illuminate\Http\Request;
 use Mpdf\Mpdf;
+use Carbon\Carbon;
 use stdClass;
 
 class AppsController extends Controller
@@ -230,7 +233,7 @@ class AppsController extends Controller
             }
             $allStatistics = $trackingStats->get();
         }
-        echo "<pre>"; print_R($allStatistics);die;
+        
         return view('apps.create-invoice',compact('pageTitle','allAffiliates','allStatistics','requestedParams'));
     }
 
@@ -256,5 +259,48 @@ class AppsController extends Controller
         return response($mpdf->Output("Invoice_.pdf", 'I'), 200)
             ->header('Content-Type', 'application/pdf')
             ->header('Content-Disposition', 'attachment; filename="Invoice_.pdf"');
+    }
+
+    public function invoiceCreate(Request $request){
+        if($request->isMethod('post')){
+            //serialize date
+            $requestedParams = [];
+            $separateDate = explode('-', $request->daterange);
+            $requestedParams['strd'] = trim($separateDate[0]);
+            $requestedParams['endd'] = trim($separateDate[1]);
+            $startDate = date('Y-m-d', strtotime(trim($separateDate[0])));
+            $endDate = date('Y-m-d', strtotime(trim($separateDate[1])));
+
+            //Last invoice number
+            $lasInvoice = Invoice::orderBy('id','DESC')->first();
+            if(empty($lasInvoice)){
+                $invoiceNumber = 1000;
+            }else{
+                $invoiceNumber = $lasInvoice->invoice_number+1;
+            }
+            $newInvoice = new Invoice();
+            $newInvoice->user_id = $request->userid;
+            $newInvoice->start_date = $startDate;
+            $newInvoice->end_date = $endDate;
+            $newInvoice->invoice_number = $invoiceNumber;
+            $newInvoice->invoice_date = Carbon::now()->format('Y-m-d');
+            $newInvoice->due_date = Carbon::now()->addDays(7);
+            $newInvoice->status = 0;
+            $newInvoice->save();
+            
+            if($newInvoice->id>0){
+                $newInvoiceDetail = new InvoiceDetail();
+                $newInvoiceDetail->invoice_id = $newInvoice->id;
+                $newInvoiceDetail->description = "Advertising Services for {$startDate} to {$endDate}";
+                $newInvoiceDetail->conversion = $request->conversion;
+                $newInvoiceDetail->payout = $request->payout;
+                $newInvoiceDetail->vat = 0;
+                $newInvoiceDetail->item_type = 0;
+                $newInvoiceDetail->save();
+            }
+
+            echo $newInvoice->id;die;
+        }
+       echo 0; die;
     }
 }
