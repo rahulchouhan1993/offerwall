@@ -4,21 +4,22 @@
 
         <div class="w-full flex flex-wrap md:flex-nowrap items-center gap-[15px] mb-[30px]">
             <div
-                class="bluebg flex flex-col justify-center bg-[#7850C0] items-start gap-[5px]  w-[100%] sm:w-[200px] md:w-[265px] lg:w-[365px] md:h-[130px]  rounded-[7px] lg:rounded-[10px] px-[15px] py-[15px] md:px-[20px] md:py-[20px] lg:px-[30px] lg:py-[30px] activeApps">
+                class="bluebg flex flex-col justify-center bg-[#7850C0] items-start gap-[5px]  w-[100%] sm:w-[200px] md:w-[265px] lg:w-[365px]  rounded-[7px] lg:rounded-[10px] px-[15px] py-[15px] md:px-[20px] md:py-[20px] lg:px-[15px] lg:py-[15px] activeApps">
                 <h2 class="text-14px md:text-[18px] font-[500] text-[#fff]">Pending</h2>
-                <h3 class="text-[20px] md:text-[38px] font-[700] text-[#fff]">10 | 500$</h3>
+                <h3 class="text-[20px] md:text-[24px] font-[700] text-[#fff]">10 | 500$</h3>
             </div>
             <div
-                class="pinkbg flex flex-col justify-center bg-[#C855C8] items-start gap-[5px] w-[100%] sm:w-[200px] md:w-[265px] lg:w-[365px] md:h-[130px]  rounded-[7px] lg:rounded-[10px] px-[15px] py-[15px] md:px-[20px] md:py-[20px] lg:px-[30px] lg:py-[30px] activeApps">
+                class="pinkbg flex flex-col justify-center bg-[#C855C8] items-start gap-[5px] w-[100%] sm:w-[200px] md:w-[265px] lg:w-[365px]  rounded-[7px] lg:rounded-[10px] px-[15px] py-[15px] md:px-[20px] md:py-[20px] lg:px-[15px] lg:py-[15px] activeApps">
                 <h2 class="text-14px md:text-[18px] font-[500] text-[#fff]">Paid</h2>
-                <h3 class="text-[20px] md:text-[38px] font-[700] text-[#fff]">10 | 500$</h3>
+                <h3 class="text-[20px] md:text-[24px] font-[700] text-[#fff]">10 | 500$</h3>
             </div>
         </div>
         <div class="flex flex-col lg:flex-row justify-between items-start gap-[15px] w-full">
             <div class="w-full bg-white p-[15px] md:p-[20px] rounded-[10px] custom_filter">
-                <h2 class="w-full lg:w-auto text-[20px] text-[#1A1A1A] font-[600]">All Invoices</h2>
+                <div class="flex flex-col md:flex-row items-center justify-between mb-[15px]">
+                    <h2 class="w-full lg:w-auto text-[20px] text-[#1A1A1A] font-[600]">All Invoices</h2>
                 <form>
-                    <div class="flex flex-wrap md-flex-nowrap items-start gap-[7px] md:gap-[15px] justify-end mb-[15px]">
+                    <div class="flex flex-wrap md-flex-nowrap items-start gap-[7px] md:gap-[15px] justify-end ">
                         {{-- <div class="relative w-[100%] sm:w-[200px]">
                             <input name="range"
                                 class="date-range-profit w-[100%] lg:w-[100%] bg-[#F6F6F6] px-[15px] py-[10px] text-[13px] font-[600] text-[#4D4D4D] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none"
@@ -59,6 +60,7 @@
                         </div>
                     </div>
                 </form>
+                </div>
                 <div class="overflow-x-scroll tableScroll">
                     <table
                         class="w-full border-collapse border-spacing-0 rounded-[10px] border-separate border border-[#E6E6E6] min-w-[600px]">

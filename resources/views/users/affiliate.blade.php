@@ -8,7 +8,7 @@ use App\Models\User;
         <div class="w-[100%] lg:w-[100%] bg-[#fff] p-[15px] md:p-[20px] rounded-[10px]">
             <div class="flex flex-wrap md:flex-nowrap items-center justify-between gap-[10px] mb-[20px]">
                 <h2 class="w-full lg:w-auto text-[20px] text-[#1A1A1A] font-[600]">Affiliates</h2>
-                <a href="{{ route('resync') }}" class="w-[100px] bg-[#D272D2] px-[20px] py-[10px] w-[100px] rounded-[4px] text-[14px] font-[500] text-[#fff] text-center" >Resync</a>
+                <a href="{{ route('resync') }}" class="w-[100px] bg-[#D272D2] px-[20px] py-[10px] w-[100px] rounded-[4px] text-[14px] font-[500] text-[#fff] text-center ml-[auto]" >Resync</a>
                 <select name="status" onchange="filterRecords(this)" class="w-[100%] w-[250px] xl:max-w-[300px]  bg-[#F6F6F6] px-[15px] py-[12px] text-[12px] font-[500] text-[#808080] border-[1px] border-[#E6E6E6] rounded-[4px] hover:outline-none focus:outline-none">
                     <option value="" @if($userType == '') selected @endif>All</option>
                     <option value="active" @if($userType == 'active') selected @endif>Active</option>
