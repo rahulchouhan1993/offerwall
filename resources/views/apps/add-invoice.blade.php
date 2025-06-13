@@ -192,7 +192,9 @@
                 </p>
             </div>
         </div>
-        <button  type="submit" class="px-[10px] py-[10px] w-[160px] flex justify-center text-center text-[15px] text-[#fff] bg-[#D272D2] rounded-[8px]">Save</button>
+        <div class="mx-auto w-full max-w-[850px] mt-4">
+            <button  type="submit" class="px-[10px] py-[10px] w-[160px] flex justify-center text-center text-[15px] text-[#fff] bg-[#D272D2] rounded-[8px]">Save</button>
+        </div>
     </form>
     </div>
 <script>
