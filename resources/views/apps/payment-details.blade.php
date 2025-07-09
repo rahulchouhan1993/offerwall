@@ -5,7 +5,7 @@
         @csrf
         <div class="bg-[#fff] p-[15px] md:p-[20px] rounded-[8px] md:rounded-[10px] mt-[30px]">
             <h2 class="mb-[20px] text-[20px] text-[#1A1A1A] font-[600] ">
-                Your Preferred Payment Method
+                 Preferred Payment Method
             </h2>  
             <div class="flex flex-wrap gap-x-[20px] gap-y-[30px] w-[100%] ">
                 <div class="flex flex-col gap-[10px] w-[100%] ">
@@ -26,9 +26,7 @@
             </h2>  
             <div class="section-1 common-section" style="display:none">
                 <div class="flex flex-wrap gap-x-[20px] gap-y-[30px] w-[100%] ">
-                    <div class="flex flex-col gap-[10px] w-[100%] ">
-                        <a class="flex bg-[#D272D2] px-[10px] py-[11px] w-[130px] rounded-[4px] text-[14px] font-[500] text-[#fff] text-center" href="https://wise.com/invite/ihpc/karlb475" target="_blank">Sign Up For Wise</a>
-                    </div>
+                   
                     <div class="flex flex-col gap-[10px] w-[100%] ">
                         <label for="" class="flex items-center gap-[5px] text-[14] text-[#898989]">Account Type <div class="text-[#F23765] mt-[-2px]">*</div></label>
                         <select name="account_type"  class="account-type-sel flex px-[15px] py-[15px] rounded-[10px] bg-[#F6F6F6] text-[14px] text-[#4D4D4D] font-[600] hover:outline-none focus:outline-none" >
