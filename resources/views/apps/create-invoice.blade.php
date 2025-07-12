@@ -5,6 +5,7 @@
     <div class="flex flex-col lg:flex-row justify-between items-start gap-[15px] w-full">
         <div class="w-full bg-white p-[15px] md:p-[20px] rounded-[10px] custom_filter">
             <h2 class="w-full lg:w-auto text-[20px] text-[#1A1A1A] font-[600]">Create Invoice</h2>
+            <button type="button" class="w-full md:w-[110px] lg:w-[140px] bg-[#D272D2] px-[20px] py-[10px] w-[100px] rounded-[4px] text-[14px] font-[500] text-[#fff] text-center check-all">Create Invoices</button>
             <form method="GET" action="{{ route('create.invoice') }}">
                 <div class="flex flex-wrap md-flex-nowrap items-start gap-[7px] md:gap-[15px] justify-end mb-[15px]">
                     <div class="relative w-[100%] sm:w-[200px]">
@@ -38,6 +39,9 @@
                         <tr>
                             <th
                                 class="bg-[#F6F6F6] rounded-tl-[10px] text-[12px] font-medium text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap">
+                                <input type="checkbox" class="all-checkbox"  ></th>
+                            <th
+                                class="bg-[#F6F6F6] text-[12px] font-medium text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap">
                                 Affiliate</th>
                             <th
                                 class="bg-[#F6F6F6] text-[12px] font-medium text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap">
@@ -59,11 +63,15 @@
                     <tbody>
                         @if($allStatistics->isNotEmpty())
                         @foreach ($allStatistics as $statistics )
+                        @if($statistics->total_conversions>0)
                         @php $userDetails = User::find($statistics->user_id); @endphp
                         <tr>
                             <td
                                 class="text-[12px] font-medium text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap border-b border-[#E6E6E6]">
-                                {{ $userDetails->name.' '.$userDetails->last_name; }}</td>
+                                <input type="checkbox" class="element-checkbox" name="record_id[]" ></td>
+                            <td
+                                class="text-[12px] font-medium text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap border-b border-[#E6E6E6]">
+                                {{ $userDetails->name.' '.$userDetails->last_name }}</td>
                             <td
                                 class="text-[12px] font-medium text-[#808080] px-[10px] py-[10px] text-left whitespace-nowrap border-b border-[#E6E6E6]">
                                 {{ $statistics->total_click }}</td>
@@ -89,6 +97,7 @@
                             </td>
                             
                         </tr>
+                        @endif
                         @endforeach
                         @endif
                     </tbody>
@@ -122,7 +131,7 @@
             console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
         });
     });
-
+    
     $(document).on('click','.create-invoice-now',function(){
       $('.loader-fcustm').show();
       var daterange = $(this).attr('startdate')
@@ -139,7 +148,7 @@
          success: function (response) {
             $('.loader-fcustm').hide();
             if(response>0){
-                window.location.href="/invoice-preview/"+response
+                window.open("/invoice-preview/" + response, "_blank");
             }else{
                 alert(response)
             }
@@ -150,7 +159,20 @@
       });
    });
 
-    
+    $(document).on('click','.all-checkbox',function(){
+        if($(this).is(':checked')){
+            $('.element-checkbox').prop('checked',true);
+        }else{
+            $('.element-checkbox').prop('checked',false);
+        }
+    })
+
+    $(document).on('click','.check-all',function(){
+        $(document).find('.element-checkbox').map(function(){
+            $(this).parent().parent().find('.create-invoice-now').trigger('click');
+        });
+    })
+
 </script>
 
 @stop
