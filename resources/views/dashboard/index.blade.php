@@ -33,18 +33,18 @@
         <div
             class="pinkbg flex flex-col justify-center bg-[#C855C8] items-start gap-[5px] w-[100%] sm:w-[200px] md:w-[265px] lg:w-[365px] rounded-[7px] lg:rounded-[10px] px-[15px] py-[15px] md:px-[20px] md:py-[20px] lg:px-[15px] lg:py-[15px] activeApps">
             <h2 class="text-[18px] font-[500] text-[#fff]">Revenue</h2>
-            <h3 class="text-[24px] font-[700] text-[#fff]">$ {{ $totalRevenue }}</h3>
+            <h3 class="text-[24px] font-[700] text-[#fff]">$ {{ number_format($totalRevenue,2) }}</h3>
         </div>
 
         <div
             class="greenbg flex flex-col justify-center bg-[#88E528] items-start gap-[5px]  w-[100%] sm:w-[200px] md:w-[265px] lg:w-[365px] rounded-[7px] lg:rounded-[10px] px-[15px] py-[15px] activeApps">
             <h2 class="text-[18px] font-[500] text-[#fff]">Payouts</h2>
-            <h3 class="text-[24px] font-[700] text-[#fff]">$ {{ $totalPayouts }}</h3>
+            <h3 class="text-[24px] font-[700] text-[#fff]">$ {{ number_format($totalPayouts,2) }}</h3>
         </div>
         <div
             class="orangebg flex flex-col justify-center bg-[#EF7947] items-start gap-[5px]  w-[100%] sm:w-[200px] md:w-[265px] lg:w-[365px] rounded-[7px] lg:rounded-[10px] px-[15px] py-[15px] activeApps">
             <h2 class="text-[18px] font-[500] text-[#fff]">Profit</h2>
-            <h3 class="text-[24px] font-[700] text-[#fff]">$ {{ $totalRevenue-$totalPayouts }}</h3>
+            <h3 class="text-[24px] font-[700] text-[#fff]">$ {{ number_format($totalRevenue-$totalPayouts,2) }}</h3>
         </div>
         
     </div>
@@ -94,7 +94,7 @@
                                 {{ $detailedStats->name.' '.$detailedStats->last_name }}</td>
                             <td
                                 class="max-w-[500px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-normal  border-b-[1px] border-b-[#E6E6E6]">
-                                $ {{ $detailedStats->trackings_sum_revenue }}</td>
+                                $ {{ number_format($detailedStats->trackings_sum_revenue,2) }}</td>
                         </tr>
                         @endforeach
                         @endif
@@ -127,7 +127,7 @@
                                 {{ $detailedStats->name.' '.$detailedStats->last_name }}</td>
                             <td
                                 class="max-w-[500px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-normal  border-b-[1px] border-b-[#E6E6E6]">
-                               $ {{ $detailedStats->trackings_sum_payout }}</td>
+                               $ {{ number_format($detailedStats->trackings_sum_payout,2) }}</td>
                         </tr>
                         @endforeach
                         @endif
@@ -159,7 +159,7 @@
                                 {{ $detailedStats->name.' '.$detailedStats->last_name }}</td>
                             <td
                                 class="max-w-[500px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-normal  border-b-[1px] border-b-[#E6E6E6]">
-                                $ {{ $detailedStats->trackings_sum_profit }}</td>
+                                $ {{ number_format($detailedStats->trackings_sum_profit,2) }}</td>
                         </tr>
                         @endforeach
                         @endif
