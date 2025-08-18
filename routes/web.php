@@ -5,6 +5,7 @@ use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\AppsController;
+use App\Http\Controllers\TicketsController;
 
 //Users Routes
 Route::match(['post','get'],'/',[UsersController::class,'login'])->name('login');
@@ -66,8 +67,22 @@ Route::middleware('auth')->group(function () {
     //Tickets
     Route::get('/tickets/{id?}',[DashboardController::class, 'tickets'])->name('tickets');
 
+    Route::get('/ticketMessages/{ticketId}', [TicketsController::class, 'getChatConversation'])->name('getChatConversation');
+
+    Route::post('/sendMessage', [TicketsController::class, 'sendMessage'])->name('sendMessage');
+
+    Route::post('/tickets/close', [TicketsController::class, 'close'])->name('closeTicket');
+
     // Chart Data
     Route::get('/chart-data', [ChartController::class, 'chartData'])->name('chart.data');
     Route::get('/chart-profit', [ChartController::class, 'chartDataProfit'])->name('chart.profit');
     Route::get('/filterGroup/{type?}', [ReportsController::class, 'filterGroup'])->name('filterGroup');
+
+    Route::get('/refresh-tickets', [TicketsController::class, 'refreshTickets']);
+
+    Route::post('/upload-attachment', [TicketsController::class, 'uploadAttachment']);
+
+    Route::get('/users', [UsersController::class, 'users'])->name('users');
+
+    Route::get('/mark-unread/{ticketId}', [TicketsController::class, 'markUnread'])->name('markUnread');
 });
