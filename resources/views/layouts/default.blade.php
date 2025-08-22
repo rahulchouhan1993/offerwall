@@ -29,6 +29,28 @@
     @endif
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <style>
+      .ticket-active {
+            background: linear-gradient(90deg, #f0faff 0%, #d6f0ff 100%);
+            border-left: 4px solid #1d9bf0; /* Nice blue accent */
+            font-weight: 500;
+            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.25s ease-in-out;
+        }
+
+        .ticket-active .chatTitle {
+            color: #1d9bf0; /* Matching accent color for title */
+        }
+
+        .ticket-active .chatDes {
+            color: #444;
+        }
+
+        #myDiv li {
+            transition: background 0.25s ease-in-out, border-left 0.25s ease-in-out;
+        }
+
+    </style>
 </head>
 
 <body class="font-sans antialiased dark:bg-black dark:text-white/50">
@@ -158,6 +180,84 @@
           }
         });
 </script>
+
+<script>
+    let activeButton = null;
+    function toggleDropdown(e) {
+      e.stopPropagation();
+      const button = e.currentTarget;
+      const dropdown = document.getElementById("globalDropdown");
+      if (activeButton === button && !dropdown.classList.contains("hidden")) {
+        dropdown.classList.add("hidden");
+        activeButton = null;
+        return;
+      }
+      activeButton = button;
+      const rect = button.getBoundingClientRect();
+      dropdown.style.top = rect.bottom + window.scrollY + "px";
+      dropdown.style.left = rect.right - 140 + "px";
+      dropdown.classList.remove("hidden");
+    }
+    document.addEventListener("click", () => {
+      document.getElementById("globalDropdown").classList.add("hidden");
+      activeButton = null;
+    });
+  </script>
+
+
+
+<script>
+    let activeButton2 = null;
+    function toggleDropdown2(e) {
+      e.stopPropagation();
+      const button = e.currentTarget;
+      const dropdown = document.getElementById("globalDropdown2");
+      if (activeButton2 === button && !dropdown.classList.contains("hidden")) {
+        dropdown.classList.add("hidden");
+        activeButton2 = null;
+        return;
+      }
+      activeButton2 = button;
+      const rect = button.getBoundingClientRect();
+      dropdown.style.top = rect.bottom + window.scrollY + "px";
+      dropdown.style.left = rect.right - 140 + "px";
+      dropdown.classList.remove("hidden");
+    }
+    document.addEventListener("click", () => {
+      document.getElementById("globalDropdown2").classList.add("hidden");
+      activeButton2 = null;
+    });
+</script>
+
+<script>
+    let activeButton3 = null;
+    function toggleDropdown3(e) {
+      e.stopPropagation();
+      const button = e.currentTarget;
+      const dropdown = document.getElementById("globalDropdown3");
+      if (activeButton3 === button && !dropdown.classList.contains("hidden")) {
+        dropdown.classList.add("hidden");
+        activeButton3 = null;
+        return;
+      }
+      activeButton3 = button;
+      const rect = button.getBoundingClientRect();
+      dropdown.style.top = rect.bottom + window.scrollY + "px";
+      dropdown.style.left = rect.right - 140 + "px";
+      dropdown.classList.remove("hidden");
+    }
+    document.addEventListener("click", () => {
+      document.getElementById("globalDropdown3").classList.add("hidden");
+      activeButton3 = null;
+    });
+  </script>
+
+<script>
+    function toggleDiv() {
+      const div = document.getElementById("myDiv");
+      div.classList.toggle("hidden");
+    }
+  </script>
 
 </body>
 
