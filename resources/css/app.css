@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 body{font-family:"Inter",serif;}
+a:hover { text-decoration: none!important;}
 .hide{display:none;}
 .head-w-cal{width:calc(100% - 290px);}
 body.active .head-logo{width:70px;}
