@@ -13,7 +13,7 @@
                 <button id="hs-dropdown-toggle" type="button"
                     class="hs-dropdown-toggle py-[4px] pl-[4px] pr-[15px] md:pr-[34px] 2xl:pl-[6px] 2xl:pr-[40px]  inline-flex items-center gap-x-2 border border-[#E6E6E6] rounded-[60px] bg-[#F6F6F6] text-[13px] lg:text-[13px] 2xl:text-[16px] font-[600] text-[#1A1A1A] shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                     aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
-                    <img src="/images/usericon.png" alt="img" class="rouded-[60px] w-30px h-[30px] 2xl:w-40px 2xl:h-[40px]">
+                    <img src="/images/usericon.png" alt="img" class="rounded-[60px] w-30px h-[30px] 2xl:w-40px 2xl:h-[40px]">
                     {{ auth()->user()->name }}
                     <svg class="absolute right-[5px] md:right-[15px]" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1 1L5 5L9 1" stroke="#A1A1A1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -21,7 +21,7 @@
                 </button>
                 <!-- Dropdown Menu -->
                 <div id="hs-dropdown-menu"
-                    class="px-[8px] py-[8px] min-w-[150px] hs-dropdown-menu transition-all duration-300 opacity-0 hidden bg-white rounded-[8px] absolute top-[40px] right-0 z-10 mt-2 shadow-[0_0px_13px_-3px_rgba(0,0,0,0.3)]"
+                    class="px-[8px] py-[8px] min-w-[150px] hs-dropdown-menu transition-all duration-300 opacity-0 hidden bg-white rounded-[8px] absolute top-[40px] right-0 z-9 mt-2 shadow-[0_0px_13px_-3px_rgba(0,0,0,0.3)]"
                     role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-toggle">
                     <div class="p-1 space-y-0.5">
                       

@@ -20,7 +20,7 @@
                             {{ $ticket['user']['name'] }}
                         </p>
                         <div class="chatMeta flex flex-col items-end">
-                            <span class="chatTime text-[11px] xl:text-[11px] font-bold text-green-800 absolute right-[10px] top-[10px]">
+                            <span class="chatTime text-[11px] xl:text-[11px] font-bold text-[#d272d2] absolute right-[10px] top-[10px]">
                                 {{ $formattedTime }}
                             </span>
                            

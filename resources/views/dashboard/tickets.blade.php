@@ -41,12 +41,11 @@
                     </div> -->
                 </div>
             </div>
-            <div class="flex items-center justify-between gap-[10px] relative mb-[10px]">
+            <div class="flex items-center justify-between gap-[5px] md:gap-[10px] relative mb-[10px]">
                 <div class="relative w-[100%]">
-                <input type="text" placeholder="Search or start new chat"
-                    class="w-full pl-[40px] pr-[15px] py-[9px] border rounded-[60px] text-sm bg-[#f5f5f5] focus:outline-none" />
-                <button class="w-[25px] text-[#d272d2] text-[10px] absolute top-[10px] start-[10px]">
-                    <svg class="w-[20px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <input type="text" placeholder="Search or start new chat" class="w-full pl-[30px] md:pl-[40px] pr-[10px] md:pr-[13px] py-[9px] border rounded-[60px] text-[11px] text-sm bg-[#f5f5f5] focus:outline-none" />
+                <button class="w-[20px] md:w-[25px] text-[#d272d2] text-[10px] absolute top-[12px] md:top-[10px] start-[10px]">
+                    <svg class="w-[15px] md:w-[20px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                         <path
                             d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z">
                         </path>
@@ -158,7 +157,7 @@
         @endif
         <!-- Header -->
         
-        <div class="chatwindowHeader px-[10px] py-[10px] border-b flex items-center justify-between h-20 gap-3 bg-white z-10">
+        <div class="chatwindowHeader px-[10px] py-[10px] border-b flex items-center justify-between h-20 gap-3 bg-white z-1">
             @if(count($tickets) > 0)
             <div class="chatwindowUser flex items-center gap-[5px]">
                 <img src="/images/user.webp" class="rounded-full w-10 h-10" />
@@ -213,11 +212,12 @@
             </div>
 
 
-            <div class="text-right">
+            <!-- <div class="text-right">
                 <div
-                    class="chatwindowMsg relative inline-block bg-green-100 text-green-800 text-sm p-[12px] lg:text-[15px] rounded-[10px] rounded-tl-[0] shadow-md">
+                    class="chatwindowMsg relative inline-block bg-[#d272d2] text-white text-sm p-[12px] lg:text-[15px] rounded-[10px] rounded-tl-[0] shadow-md">
+                    
                     <div
-                        class="absolute top-2 right-[-15px] w-0 h-0 border-t-[15px] border-t-transparent border-b-[15px] border-b-transparent border-l-[15px] border-l-green-100">
+                        class="absolute top-2 right-[-15px] w-0 h-0 border-t-[15px] border-t-transparent border-b-[15px] border-b-transparent border-l-[15px] border-l-[#d272d2]">
                     </div>
                     <p class="text-[12px] xl:text-[13px]">
                     </p>
@@ -226,7 +226,7 @@
                          <div class="text-[12px] text-black font-[600]"></div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             @endif
 
 
@@ -254,7 +254,7 @@
                         class="w-full flex-1 py-[15px] px-[30px] border-none bg-[#f2f2f2] rounded-[80px] text-[11px] md:text-[15px] text-black focus:outline-none"></textarea>
                 </div>
                 <button type="submit"
-                    class="w-[35px] h-[35px] min-h-[auto] flex items-center justify-center bg-[#d272d2] text-white p-[0] rounded-[100px] hover:bg-green-600"><svg
+                    class="w-[35px] h-[35px] min-h-[auto] flex items-center justify-center bg-[#d272d2] text-white p-[0] rounded-[100px] out-line:none hover:bg-[#d272d2]"><svg
                         xmlns="http://www.w3.org/2000/svg" class="w-[15px] h-[15px]" viewBox="0 0 24 24"
                         fill="currentColor">
                         <path
@@ -265,7 +265,7 @@
         </div>
         @endif
 
-        <div id="chatClosedMessage" class="chatwindowAreaBx hidden text-center text-sm text-gray-600 p-4 w-full border-t bg-gray-100 z-[999]">
+        <div id="chatClosedMessage" class="chatwindowAreaBx hidden text-center text-sm text-gray-600 p-4 w-full border-t bg-gray-100 z-[1]">
             This ticket has been closed.
         </div>
     </main>
@@ -367,13 +367,13 @@ function closeOfferModal() {
 
                     const bubble = document.createElement('div');
                     bubble.className = msg.from == "admin"
-                        ? 'chatwindowMsg relative inline-block bg-[#d272d2] text-white text-sm p-[12px] lg:text-[15px] rounded-[10px] rounded-tl-[0] shadow-md'
+                        ? 'chatwindowMsg relative inline-block bg-[#d272d2] text-white text-sm p-[12px] lg:text-[15px] rounded-[10px]  shadow-md'
                         : 'chatwindowMsg relative inline-flex flex-col bg-gray-100 p-[12px] text-black lg:text-[15px] text-sm shadow-md rounded-[10px] rounded-tl-[0]';
 
                     // Arrow div
                     const arrow = document.createElement('div');
                     arrow.className = msg.from == "admin"
-                        ? 'absolute top-2 right-[-15px] w-0 h-0 border-t-[15px] border-t-transparent border-b-[15px] border-b-transparent border-l-[15px] border-l-green-100'
+                        ? 'absolute top-2 right-[-10px] md:right-[-10px] w-0 h-0 border-t-[15px] border-t-transparent border-b-[15px] border-b-transparent border-l-[15px] border-l-[#d272d2]'
                         : 'absolute top-2 left-[-15px] w-0 h-0 border-t-[15px] border-t-transparent border-b-[15px] border-b-transparent border-r-[15px] border-r-gray-100';
                     bubble.appendChild(arrow);
 
