@@ -45,10 +45,14 @@
                             Age</th>
                         <th
                             class="bg-[#F6F6F6] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap">
+                            Created</th>
+                        <th
+                            class="bg-[#F6F6F6] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap">
                             Email Verified At</th>
                         <th
                             class="bg-[#F6F6F6] text-[14px] font-[500] text-[#1A1A1A] px-[10px] py-[13px] text-left whitespace-nowrap">
-                            Created</th>
+                            Action</th>
+                        
                     </tr>
                     <tbody id="search-results">
                         @if($users && $users->isNotEmpty())
@@ -76,12 +80,13 @@
                             </td>
                             <td
                                 class="max-w-[500px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-normal ">
-                                <strong>{{ !empty($user->email_verified_at) ? \Carbon\Carbon::parse($user->email_verified_at)->format('d M Y h.i A') : "Not Verified" }}</strong>
+                                <strong>{{ \Carbon\Carbon::parse($user->created_at)->format('d M Y h.i A') }}</strong>
                             </td>
                             <td
                                 class="max-w-[500px] text-[14px] font-[500] text-[#808080] px-[10px] py-[10px] text-left whitespace-normal ">
-                                <strong>{{ \Carbon\Carbon::parse($user->created_at)->format('d M Y h.i A') }}</strong>
+                                <strong>{{ !empty($user->email_verified_at) ? \Carbon\Carbon::parse($user->email_verified_at)->format('d M Y h.i A') : "Not Verified" }}</strong>
                             </td>
+                            
                         </tr>
                         @endforeach
                         @endif

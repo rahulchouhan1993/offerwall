@@ -301,7 +301,7 @@ class UsersController extends Controller
         }
 
         // Order & paginate
-        $users = $query->orderBy('created_at', 'DESC')->paginate(10); // 10 per page
+        $users = $query->orderBy('created_at', 'DESC')->paginate(100); // 10 per page
 
         // Keep search value in pagination links
         $users->appends($request->all());

@@ -275,7 +275,7 @@
 <div id="closeTicketModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center">
     <div class="bg-white rounded-lg shadow-lg max-w-sm w-full p-6 text-center">
         <h2 class="text-lg font-semibold mb-4 text-gray-800">Are you sure you want to close this ticket?</h2>
-        <p class="text-sm text-gray-600 mb-6">You won't be able to send or receive messages once it's closed and this action can't be revert.</p>
+        <p class="text-sm text-gray-600 mb-6">You won't be able to send or receive messages once it's closed and this action can't be reverted.</p>
         <div class="flex justify-center gap-4">
             <button onclick="confirmCloseTicket()" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded">
                 Yes, Close
